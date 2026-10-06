@@ -1,0 +1,21 @@
+﻿# Large raw data files — never commit
+ber/data/raw/companies_house/
+ber/data/raw/gleif/
+
+# Processed Parquet outputs (large, reproducible)
+data/processed/
+
+# Experiment candidate parquets (large)
+experiments/*/candidates*.parquet
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+*.egg-info/
+
+# IDE
+.vscode/
+.kiro/

@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "ber"
+version = "0.1.0"
+description = "Business Entity Resolution system - dataset-agnostic, out-of-core"
+requires-python = ">=3.11"
+dependencies = [
+    "duckdb>=1.5.6",
+    "polars>=2.0.0",
+    "pyarrow>=25.0.0",
+    "pandas>=2.3.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=9.0", "pytest-cov"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ber*", "datasets*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v"

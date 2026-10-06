@@ -1,0 +1,6 @@
+gate_size,n_total_candidates,candidates_per_query_median,candidates_per_query_p95,recall_at_budget,recall_ci_lo,recall_ci_hi,zero_candidate_rate,partial_recall_rate,n_size_gated_true_pairs,n_no_shared_key_true_pairs
+10,34437,2.0000,9.0000,0.9665,0.9634,0.9693,0.0158,0.0000,19,311
+50,130629,6.0000,41.0000,0.9675,0.9644,0.9702,0.0082,0.0000,9,311
+200,321275,12.0000,119.0000,0.9683,0.9653,0.9710,0.0051,0.0000,2,311
+1000,549355,14.0000,219.0000,0.9685,0.9654,0.9712,0.0038,0.0000,0,311
+,685788,14.0000,237.0000,0.9685,0.9654,0.9712,0.0038,0.0000,0,311
