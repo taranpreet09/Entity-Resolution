@@ -33,6 +33,7 @@ This experiment evaluates the control blocking baseline on the Kaggle **Foursqua
 | **Singleton Clusters** | 425,024 (57.44% of clusters, 37.32% of records) |
 | **Non-Singleton Clusters** | 314,948 (42.56% of clusters, 62.68% of records) |
 | **Total Positive Pairs** | 950,503 |
+| **Cluster Size Min / Median / P95 / Max** | 1 / 1 / 3 / 332 |
 | **Primary Split (Seed 42):** | |
 | ↳ Train | 800,853 records → 672,540 true pairs |
 | ↳ Val | 169,452 records → 123,067 true pairs |
