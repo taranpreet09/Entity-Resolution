@@ -1,0 +1,38 @@
+{
+  "note": "B9 OOM during train residual retrieval at G=None. Numbers below from terminal output before crash.",
+  "commit": "aa8feb25248a404bbe6c4afeb402dfd9c2a916f0",
+  "ingest_stats": {
+    "n_records": 1138812, "n_poi_clusters": 739972, "n_singleton_clusters": 425024,
+    "n_non_singleton_clusters": 314948, "n_positive_pairs": 950503, "n_unlabeled_records": 425024
+  },
+  "split_stats": {
+    "primary": {"train": 800853, "val": 169452, "test": 168507},
+    "brand":   {"train": 810970, "val": 167219, "test": 160623}
+  },
+  "canon_stats": {"name_empty_after_canon": 11, "name_total": 1138812},
+  "sweep_results": [
+    {"gate_size": 10,   "feasible": true, "n_candidates": 247920,  "query_recall": 0.6088, "recall_ci_lo": 0.6065, "recall_ci_hi": 0.6111, "pair_recall": 0.3244, "zero_candidate_rate": 0.3098, "cpq_median": 1.0},
+    {"gate_size": 50,   "feasible": true, "n_candidates": 643135,  "query_recall": 0.6236, "recall_ci_lo": 0.6213, "recall_ci_hi": 0.6258, "pair_recall": 0.3766, "zero_candidate_rate": 0.2836, "cpq_median": 2.0},
+    {"gate_size": 200,  "feasible": true, "n_candidates": 1731495, "query_recall": 0.6289, "recall_ci_lo": 0.6266, "recall_ci_hi": 0.6311, "pair_recall": 0.4092, "zero_candidate_rate": 0.2731, "cpq_median": 2.0},
+    {"gate_size": 1000, "feasible": true, "n_candidates": 4274985, "query_recall": 0.6329, "recall_ci_lo": 0.6306, "recall_ci_hi": 0.6352, "pair_recall": 0.4122, "zero_candidate_rate": 0.2682, "cpq_median": 2.0},
+    {"gate_size": null,  "feasible": true, "n_candidates": 8227481, "query_recall": 0.6334, "recall_ci_lo": 0.6311, "recall_ci_hi": 0.6357, "pair_recall": 0.4124, "zero_candidate_rate": 0.2679, "cpq_median": 2.0}
+  ],
+  "frontier_g50": [
+    {"key_added": "K2", "cumulative_pair_recall": 0.2462, "cumulative_pairs": 30301, "cumulative_candidates": 171473},
+    {"key_added": "K1", "cumulative_pair_recall": 0.3448, "cumulative_pairs": 42433, "cumulative_candidates": 458876},
+    {"key_added": "K5", "cumulative_pair_recall": 0.3691, "cumulative_pairs": 45428, "cumulative_candidates": 508776},
+    {"key_added": "K3", "cumulative_pair_recall": 0.3747, "cumulative_pairs": 46110, "cumulative_candidates": 529219},
+    {"key_added": "K4", "cumulative_pair_recall": 0.3766, "cumulative_pairs": 46341, "cumulative_candidates": 643135}
+  ],
+  "frontier_gnone": [
+    {"key_added": "K2", "cumulative_pair_recall": 0.2766, "cumulative_pairs": 34042, "cumulative_candidates": 208792},
+    {"key_added": "K1", "cumulative_pair_recall": 0.3849, "cumulative_pairs": 47372, "cumulative_candidates": 5646366},
+    {"key_added": "K5", "cumulative_pair_recall": 0.4043, "cumulative_pairs": 49751, "cumulative_candidates": 5695105},
+    {"key_added": "K3", "cumulative_pair_recall": 0.4098, "cumulative_pairs": 50433, "cumulative_candidates": 5815847},
+    {"key_added": "K4", "cumulative_pair_recall": 0.4124, "cumulative_pairs": 50754, "cumulative_candidates": 8227481}
+  ],
+  "loss_ledger_G50":   {"INPUT": 0, "CANONICALIZATION": 1, "RETRIEVAL": 153451, "BUDGET_PRUNE": 0, "FEATURES": 0, "RANKER": 0, "DECISION": 0, "NONE": 92682},
+  "loss_ledger_GNone": {"INPUT": 0, "CANONICALIZATION": 1, "RETRIEVAL": 144625, "BUDGET_PRUNE": 0, "FEATURES": 0, "RANKER": 0, "DECISION": 0, "NONE": 101508},
+  "val_true_pairs": 123067,
+  "train_true_pairs": 672540
+}

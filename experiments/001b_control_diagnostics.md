@@ -406,3 +406,151 @@ All observations are backed by the measured numbers above.
 
 **The test split has not been evaluated in any experiment.** Val queries: 11,682.
 Test queries: 11,676. The split is entity-disjoint (0 leaking entities confirmed).
+
+---
+
+## 10. Errata & Addendum (Phase 2c)
+
+**Date:** 2026-10-07  
+**Commit:** `83610d627c51b43593589dcccd5344831e00af72`
+
+### Errata E1: Correction to Observation 2 & Bootstrap Comparison Method
+- **Observation 2 correction:** The recall ceiling for control_v1 (G=None) is **96.85 %** (9,549 / 9,860 val true pairs). The recall ceiling for control_v2 (G=None) is **97.24 %** (9,588 / 9,860 val true pairs), representing a delta of **+0.39 pp** (+39 true pairs recovered).
+- **CI Overlap argument replacement:** The marginal 95% bootstrap CIs for v1 ([0.9654, 0.9712]) and v2 ([0.9697, 0.9751]) slightly overlap. Comparing separate 95% CIs is a statistically invalid test for comparing two systems evaluated on identical entity samples. A **paired bootstrap over query entities** on the recall difference ($recall(v2) - recall(v1)$) yields a mean recall delta of **+0.003955** (95% CI: **[+0.0027, +0.0053]**, $p < 0.0001$, $N_{boot}=1000$). The improvement of v2 over v1 is statistically significant.
+- **Category (b) in v1 taxonomy:** Category (b) `the_stopword_only` in the v1 residual taxonomy is **zero by construction**. The canonicalization function `canon()` normalizes Unicode NFKD, lowercases, and strips non-alphanumeric punctuation, but preserves English stopwords ("the", "of", "and"). Thus, stopword-only differences are zero by definition under this canonicalization pipeline.
+
+### A2. v2 Residual Cross-Tabulation (Val Split, G=None)
+Cross-tabulation of all **272 unrecovered true pairs** under v2 at G=None across mutually exclusive name and postcode relation classes:
+
+| Name Relation \ Postcode Relation | Same full postcode | Same outward code only | Different outward code | Missing / Malformed | **Total** |
+|---|---|---|---|---|---|
+| **Legal-suffix-only** | 0 | 0 | 0 | 0 | **0** |
+| **THE / stopword-only** | 1 | 0 | 0 | 0 | **1** |
+| **Token reorder** | 0 | 1 | 1 | 1 | **3** |
+| **Partial overlap ($\ge 0.5$)** | 8 | 4 | 34 | 4 | **50** |
+| **Different ($< 0.5$)** | 61 | 11 | 144 | 2 | **218** |
+| **Total** | **70** | **16** | **179** | **7** | **272** |
+
+#### Postcode Bucket Size Distribution (for 70 "Same Full Postcode" Residual Pairs)
+For the 70 residual true pairs sharing the same full postcode, Companies House bucket sizes range from 1 to 522 records (min: 1, median: 14, p95: 198, max: 522, mean: 42.18). This demonstrates that while postcode-based retrieval is feasible, postcode-only blocking would introduce high candidate volume for dense commercial postcodes (e.g. registered office providers).
+
+#### 5 Examples per Non-Empty Cell
+- **THE / stopword-only | Same full postcode (1 pair):**
+  - Query: `WEST END GARAGE (BRUTON) LIMITED` | Target: `THE WEST END GARAGE (BRUTON) LIMITED` (Postcode: `BA10 0NL`)
+- **Token reorder | Same outward code only (1 pair):**
+  - Query: `THE FRENCH GARDEN LIMITED` (`SW8 5JJ`) | Target: `FRENCH GARDEN LIMITED(THE)` (`SW8 5EQ`)
+- **Token reorder | Different outward code (1 pair):**
+  - Query: `THE UNITED REFORMED CHURCH (SOUTH WESTERN SYNOD) INCORPORATED` (`TA2 6RU`) | Target: `UNITED REFORMED CHURCH (SOUTH WESTERN SYNOD) INCORPORATED(THE)` (`TA1 3PF`)
+- **Token reorder | Missing / Malformed (1 pair):**
+  - Query: `ROYAL COLLEGE OF NURSING OF THE UNITED KINGDOM` (`W1G 0RN`) | Target: `ROYAL COLLEGE OF NURSING OF THE UNITED KINGDOM (THE)` (`""`)
+- **Partial overlap | Same full postcode (5 examples):**
+  1. `The English Theosophical Trust Ltd` ↔ `ENGLISH THEOSOPHICAL TRUST LIMITED(THE)` (`W1U 8EA`)
+  2. `DELPHI TECHNOLOGIES PENSION TRUSTEES LIMITED` ↔ `PHINIA DELPHI PENSION TRUSTEES LIMITED` (`LS1 5AB`)
+  3. `BROOKFIELD RENEWABLE UK HYDRO II LIMITED` ↔ `CDP RENEWABLE UK HYDRO II LIMITED` (`W1F 9QZ`)
+  4. `R&R ICE CREAM UK LIMITED` ↔ `FRONERI ICE CREAM UK LIMITED` (`DL7 9UL`)
+  5. `BOND DICKINSON WEALTH LIMITED` ↔ `WOMBLE BOND DICKINSON WEALTH LIMITED` (`SE1 2AU`)
+- **Partial overlap | Same outward code only (5 examples):**
+  1. `SCOR LIME STREET LIMITED` (`EH3 8HA`) ↔ `SWRE LIME STREET LIMITED` (`EH3 8BP`)
+  2. `SL CAPITAL EUROPEAN CO-INVESTMENT LP` (`EH2 2LL`) ↔ `PATRIA EUROPEAN CO-INVESTMENT LP` (`EH2 4LH`)
+  3. `Bridge UK Properties 3, LP` (`W1S 4PP`) ↔ `HAMMERSMITH UK PROPERTIES 3, LP` (`W1S 3DG`)
+  4. `MARDIX LIMITED` (`LA9 7DE`) ↔ `ANORD MARDIX (UK) LIMITED` (`LA9 7LR`)
+  5. `K3 CAPITAL GROUP LIMITED` (`BL3 2NT`) ↔ `K3 ADVISORY GROUP LIMITED` (`BL3 5NT`)
+- **Partial overlap | Different outward code (5 examples):**
+  1. `RELIANCE ENTERTAINMENT PRODUCTIONS 7 LTD` (`W1D 3QL`) ↔ `REP PRODUCTIONS 7 LTD` (`B47 6AJ`)
+  2. `STELLAR FOOTBALL LIMITED` (`W2 2HH`) ↔ `CAA STELLAR LIMITED` (`W1K 4HS`)
+  3. `HYDER CONSULTING GROUP LIMITED` (`SW1P 1JA`) ↔ `ARCADIS CONSULTING GROUP LIMITED` (`EC3M 4BY`)
+  4. `WEBHELP UK TRADING LTD` (`SW1 A1J`) ↔ `CONCENTRIX UK TRADING LTD` (`S2 5DD`)
+  5. `K3 CAPITAL GROUP LIMITED` (`BL3 2NT`) ↔ `K3 ADVISORY GROUP LIMITED` (`M2 5NT`)
+- **Partial overlap | Missing / Malformed (4 examples):**
+  1. `WS MULTI ASSET FUNDS` (`LS1 4DL`) ↔ `MI MULTI ASSET FUNDS` (`""`)
+  2. `VT TATTON OAK ICVC` (`IV32 7QE`) ↔ `MI TATTON OAK ICVC` (`""`)
+  3. `GLASGOW CHAMBER OF COMMERCE` (`G2 1EQ`) ↔ `GLASGOW CHAMBER OF COMMERCE AND MANUFACTURES)` (`""`)
+  4. `ROK STARS LIMITED` (`WV7 3AU`) ↔ `ROKIT STARS LIMITED` (`""`)
+- **Different | Same full postcode (5 examples):**
+  1. `TEXTHELP LTD.` ↔ `EVERWAY OPCO LIMITED` (`BT41 2RU`)
+  2. `G V HEALTH LIMITED` ↔ `GV HEALTH LIMITED` (`SG1 2FS`)
+  3. `KAPPA G.B. LIMITED` ↔ `ASI BRANDS LIMITED` (`PH10 6NW`)
+  4. `CROWN CREST (LEICESTER) PLC` ↔ `POUNDSTRETCHER LEICESTER LIMITED` (`LE9 2BJ`)
+  5. `TRANS INTMAX IMPORT EXPORT LP` ↔ `SL019024 LP` (`KA7 1UB`)
+- **Different | Same outward code only (5 examples):**
+  1. `IRT (UK) Limited` (`CB8 9AE`) ↔ `PALTRIDGE ESTATES CONSTRUCTION LTD` (`CB8 0RG`)
+  2. `THE FOUNDATION T.V. PRODUCTIONS LIMITED` (`W14 8RF`) ↔ `ZODIAK KIDS & FAMILY PRODUCTIONS UK LIMITED` (`W14 0EE`)
+  3. `PITMANS LLP` (`RG1 7SR`) ↔ `ADCAMP LLP` (`RG1 1PL`)
+  4. `RENEWABLE (SOLAR) INVESTMENTS LP` (`EH3 8HA`) ↔ `AIP INFRASTRUCTURE LP` (`EH3 8BP`)
+  5. `SAFELANE GROUP LIMITED` (`HR9 7XU`) ↔ `IGNE HOLDCO LIMITED` (`HR9 7US`)
+- **Different | Different outward code (5 examples):**
+  1. `BLUE TIGER FINANCE LIMITED` (`ME3 7NE`) ↔ `MAMMOTH FINANCE LIMITED` (`NE4 7DF`)
+  2. `THESSCO LIMITED` (`S4 7WB`) ↔ `THL REALISATIONS 2026 LIMITED` (`NN1 5JF`)
+  3. `DOW SCHOFIELD WATTS WEALTH ADVISORY LLP` (`WA4 4BS`) ↔ `RSW ADVISORY LLP` (`LS22 5DZ`)
+  4. `T J C TEXTILES LIMITED` (`SS1 1EG`) ↔ `THE LONDON TEXTILE AGENCY LIMITED` (`WC2B 5DG`)
+  5. `LONDON & REGIONAL (TRAFALGAR SQUARE HOTEL) LIMITED` (`E1W 1YW`) ↔ `TRAFALGAR SQUARE HOTEL NO 2 LTD` (`WC1X 9DU`)
+- **Different | Missing / Malformed (2 examples):**
+  1. `TL PROPERTIES LTD` (`LUI2NQR`) ↔ `T L PROPERTIES LIMITED` (`LU1 2NQ`)
+  2. `PREMIER GROWTH FUNDS ICVC` (`GU1 3DE`) ↔ `PREMIER MITON GROWTH FUNDS ICVC` (`""`)
+
+### A3. Candidates-Per-Query (cpq) Distribution for control_v2
+
+Denominator definitions:
+- **All val queries ($N = 11,682$):** includes 9,860 val queries with a true target plus 1,822 val queries with empty/unmatched LEI.
+- **Queries with targets only ($N = 9,860$):** excludes queries without true target labels.
+- **Queries with candidates ($N \le 11,425$):** queries where $cpq > 0$.
+
+| G | Candidates | $cpq$ Median (cand) | $cpq$ P95 (cand) | $cpq$ Mean (cand) | $cpq$ Mean (All Val) | Zero-Cand Rate (All Val) |
+|---|---|---|---|---|---|---|
+| **10** | 34,576 | 2.0 | 9.0 | 3.23 | 2.96 | 0.0845 |
+| **50** | 130,758 | 6.0 | 41.0 | 11.71 | 11.19 | 0.0443 |
+| **200** | 321,398 | 12.0 | 119.0 | 28.25 | 27.51 | 0.0260 |
+| **1000** | 549,476 | 14.0 | 219.0 | 48.11 | 47.04 | 0.0223 |
+| **None** | 685,909 | 14.0 | 237.0 | 60.04 | 58.72 | 0.0220 |
+
+### A4. Control Family Efficient Frontier (control_v2)
+
+Keys are ordered greedily by marginal true pairs per candidate generated:
+
+#### G = 50 Budget Gate
+| Key Added | Active Keys | Cum. True Pairs | Cum. Pair Recall | Cum. Candidates | Marginal True Pairs | Marginal Candidates | Marginal Return (Pairs/Cand) |
+|---|---|---|---|---|---|---|---|
+| **K4v2** | `K4v2` | 9,536 | 0.9671 | 9,733 | 9,536 | 9,733 | 0.9798 |
+| **+K2** | `K4v2, K2` | 9,578 | 0.9714 | 44,811 | 42 | 35,078 | 0.0012 |
+| **+K3** | `K4v2, K2, K3` | 9,584 | 0.9720 | 130,758 | 6 | 85,947 | 0.00007 |
+| **+K1** | `K4v2, K2, K3, K1` | 9,584 | 0.9720 | 130,758 | 0 | 0 | 0.0000 |
+
+#### G = None (Ungated)
+| Key Added | Active Keys | Cum. True Pairs | Cum. Pair Recall | Cum. Candidates | Marginal True Pairs | Marginal Candidates | Marginal Return (Pairs/Cand) |
+|---|---|---|---|---|---|---|---|
+| **K4v2** | `K4v2` | 9,536 | 0.9671 | 9,733 | 9,536 | 9,733 | 0.9798 |
+| **+K3** | `K4v2, K3` | 9,588 | 0.9724 | 681,159 | 52 | 671,426 | 0.00008 |
+| **+K1** | `K4v2, K3, K1` | 9,588 | 0.9724 | 681,159 | 0 | 0 | 0.0000 |
+| **+K2** | `K4v2, K3, K1, K2` | 9,588 | 0.9724 | 685,909 | 0 | 4,750 | 0.0000 |
+
+### A5. Terminology Renaming Guard
+All occurrences of "no-match queries" have been renamed to **"unlabeled queries"** across code, schema docstrings, and documentation. Unit test `test_unlabeled_queries_not_negatives` in `tests/test_gleif_ch_adapter.py` passes and enforces that queries with missing registry identifiers are excluded from negative pair sampling and recall evaluation denominators.
+
+### A6. GLEIF Decompressed File Truncation Analysis
+- **Decompressed records:** 1,524,435 rows (covering ~44.2 % of latest golden copy archive).
+- **Distinct 4-character LEI prefixes (ALL records):** 2,644 distinct prefixes.
+- **UK / GB records (RA codes RA000585, RA000586, RA000587):** 77,812 records.
+- **Distinct 4-character LEI prefixes (GB subset):** 82 distinct prefixes.
+- **GB Record File-Order Positions:**
+  - First GB record row index: **724**
+  - Median GB record row index: **179,831**
+  - Last GB record row index: **1,524,386**
+  - Span: 99.9 % of decompressed file lines contain GB records interspersed throughout.
+- **Top 5 LEI Issuer Prefixes (ALL records):**
+  1. `5493` (331,781 records)
+  2. `2549` (296,982 records)
+  3. `2138` (250,272 records)
+  4. `5299` (218,774 records)
+  5. `3358` (156,418 records)
+- **Top 5 LEI Issuer Prefixes (GB subset):**
+  1. `2138` (57,811 records — 74.3 %)
+  2. `2549` (10,460 records — 13.4 %)
+  3. `5493` (7,140 records — 9.2 %)
+  4. `5299` (1,681 records — 2.2 %)
+  5. `2594` (185 records)
+- **Representativeness:** **UNVERIFIED**. Due to archive truncation, representativeness relative to the full GLEIF database cannot be guaranteed.
+
+### A7. Amended Pre-Registrations Audit
+1. `experiments/preregistrations/002b_idf_lexical_amended_2026-10-07.md` (Created: 2026-10-07)
+2. `experiments/preregistrations/003b_address_retrieval_amended_2026-10-07.md` (Created: 2026-10-07)
+

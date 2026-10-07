@@ -1,0 +1,463 @@
+{
+  "commit": "83610d627c51b43593589dcccd5344831e00af72",
+  "a1_paired_bootstrap": {
+    "score_a": 0.9724137931034482,
+    "score_b": 0.9684584178498986,
+    "delta": 0.003955375253549609,
+    "p_value": 0.0,
+    "n_queries": 9860,
+    "n_boot": 1000
+  },
+  "a2": {
+    "n_unrecovered": 272,
+    "crosstab_counts": {
+      "different|different_outward": 144,
+      "different|missing_malformed": 2,
+      "different|same_full_postcode": 61,
+      "different|same_outward_only": 11,
+      "partial_overlap|different_outward": 34,
+      "partial_overlap|missing_malformed": 4,
+      "partial_overlap|same_full_postcode": 8,
+      "partial_overlap|same_outward_only": 4,
+      "the_stopword_only|same_full_postcode": 1,
+      "token_reorder|different_outward": 1,
+      "token_reorder|missing_malformed": 1,
+      "token_reorder|same_outward_only": 1
+    },
+    "same_full_postcode_bucket_sizes": {},
+    "crosstab_examples": {
+      "different|different_outward": [
+        {
+          "query_name": "BLUE TIGER FINANCE LIMITED",
+          "target_name": "MAMMOTH FINANCE LIMITED",
+          "query_postcode": "ME3 7NE",
+          "target_postcode": "NE4 7DF"
+        },
+        {
+          "query_name": "THESSCO LIMITED",
+          "target_name": "THL REALISATIONS 2026 LIMITED",
+          "query_postcode": "S4 7WB",
+          "target_postcode": "NN1 5JF"
+        },
+        {
+          "query_name": "DOW SCHOFIELD WATTS WEALTH ADVISORY LLP",
+          "target_name": "RSW ADVISORY LLP",
+          "query_postcode": "WA4 4BS",
+          "target_postcode": "LS22 5DZ"
+        },
+        {
+          "query_name": "T J C TEXTILES LIMITED",
+          "target_name": "THE LONDON TEXTILE AGENCY LIMITED",
+          "query_postcode": "SS1 1EG",
+          "target_postcode": "WC2B 5DG"
+        },
+        {
+          "query_name": "LONDON & REGIONAL (TRAFALGAR SQUARE HOTEL) LIMITED",
+          "target_name": "TRAFALGAR SQUARE HOTEL NO 2 LTD",
+          "query_postcode": "E1W 1YW",
+          "target_postcode": "WC1X 9DU"
+        }
+      ],
+      "different|same_full_postcode": [
+        {
+          "query_name": "TEXTHELP LTD.",
+          "target_name": "EVERWAY OPCO LIMITED",
+          "query_postcode": "BT41 2RU",
+          "target_postcode": "BT41 2RU"
+        },
+        {
+          "query_name": "G V HEALTH LIMITED",
+          "target_name": "GV HEALTH LIMITED",
+          "query_postcode": "SG1 2FS",
+          "target_postcode": "SG1 2FS"
+        },
+        {
+          "query_name": "KAPPA G.B. LIMITED",
+          "target_name": "ASI BRANDS LIMITED",
+          "query_postcode": "PH10 6NW",
+          "target_postcode": "PH10 6NW"
+        },
+        {
+          "query_name": "CROWN CREST (LEICESTER) PLC",
+          "target_name": "POUNDSTRETCHER LEICESTER LIMITED",
+          "query_postcode": "LE9 2BJ",
+          "target_postcode": "LE9 2BJ"
+        },
+        {
+          "query_name": "TRANS INTMAX IMPORT EXPORT LP",
+          "target_name": "SL019024 LP",
+          "query_postcode": "KA7 1UB",
+          "target_postcode": "KA7 1UB"
+        }
+      ],
+      "partial_overlap|different_outward": [
+        {
+          "query_name": "K3 CAPITAL GROUP LIMITED",
+          "target_name": "K3 ADVISORY GROUP LIMITED",
+          "query_postcode": "BL3 2NT",
+          "target_postcode": "M2 5NT"
+        },
+        {
+          "query_name": "RELIANCE ENTERTAINMENT PRODUCTIONS 7 LTD",
+          "target_name": "REP PRODUCTIONS 7 LTD",
+          "query_postcode": "W1D 3QL",
+          "target_postcode": "B47 6AJ"
+        },
+        {
+          "query_name": "STELLAR FOOTBALL LIMITED",
+          "target_name": "CAA STELLAR LIMITED",
+          "query_postcode": "W2 2HH",
+          "target_postcode": "W1K 4HS"
+        },
+        {
+          "query_name": "HYDER CONSULTING GROUP LIMITED",
+          "target_name": "ARCADIS CONSULTING GROUP LIMITED",
+          "query_postcode": "SW1P 1JA",
+          "target_postcode": "EC3M 4BY"
+        },
+        {
+          "query_name": "WEBHELP UK TRADING LTD",
+          "target_name": "CONCENTRIX UK TRADING LTD",
+          "query_postcode": "SW1 A1J",
+          "target_postcode": "S2 5DD"
+        }
+      ],
+      "partial_overlap|missing_malformed": [
+        {
+          "query_name": "WS MULTI ASSET FUNDS",
+          "target_name": "MI MULTI ASSET FUNDS",
+          "query_postcode": "LS1 4DL",
+          "target_postcode": ""
+        },
+        {
+          "query_name": "VT TATTON OAK ICVC",
+          "target_name": "MI TATTON OAK ICVC",
+          "query_postcode": "IV32 7QE",
+          "target_postcode": ""
+        },
+        {
+          "query_name": "GLASGOW CHAMBER OF COMMERCE",
+          "target_name": "GLASGOW CHAMBER OF COMMERCE AND MANUFACTURES)",
+          "query_postcode": "G2 1EQ",
+          "target_postcode": ""
+        },
+        {
+          "query_name": "ROK STARS LIMITED",
+          "target_name": "ROKIT STARS LIMITED",
+          "query_postcode": "WV7 3AU",
+          "target_postcode": ""
+        }
+      ],
+      "partial_overlap|same_full_postcode": [
+        {
+          "query_name": "The English Theosophical Trust Ltd",
+          "target_name": "ENGLISH THEOSOPHICAL TRUST LIMITED(THE)",
+          "query_postcode": "W1U 8EA",
+          "target_postcode": "W1U 8EA"
+        },
+        {
+          "query_name": "DELPHI TECHNOLOGIES PENSION TRUSTEES LIMITED",
+          "target_name": "PHINIA DELPHI PENSION TRUSTEES LIMITED",
+          "query_postcode": "LS1 5AB",
+          "target_postcode": "LS1 5AB"
+        },
+        {
+          "query_name": "BROOKFIELD RENEWABLE UK HYDRO II LIMITED",
+          "target_name": "CDP RENEWABLE UK HYDRO II LIMITED",
+          "query_postcode": "W1F 9QZ",
+          "target_postcode": "W1F 9QZ"
+        },
+        {
+          "query_name": "R&R ICE CREAM UK LIMITED",
+          "target_name": "FRONERI ICE CREAM UK LIMITED",
+          "query_postcode": "DL7 9UL",
+          "target_postcode": "DL7 9UL"
+        },
+        {
+          "query_name": "BOND DICKINSON WEALTH LIMITED",
+          "target_name": "WOMBLE BOND DICKINSON WEALTH LIMITED",
+          "query_postcode": "SE1 2AU",
+          "target_postcode": "SE1 2AU"
+        }
+      ],
+      "different|missing_malformed": [
+        {
+          "query_name": "TL PROPERTIES LTD",
+          "target_name": "T L PROPERTIES LIMITED",
+          "query_postcode": "LUI2NQR",
+          "target_postcode": "LU1 2NQ"
+        },
+        {
+          "query_name": "PREMIER GROWTH FUNDS ICVC - PREMIER STRATEGIC ABSOLUTE RETURN FUND",
+          "target_name": "PREMIER MITON GROWTH FUNDS ICVC",
+          "query_postcode": "GU1 3DE",
+          "target_postcode": ""
+        }
+      ],
+      "different|same_outward_only": [
+        {
+          "query_name": "IRT (UK) Limited",
+          "target_name": "PALTRIDGE ESTATES CONSTRUCTION LTD",
+          "query_postcode": "CB8 9AE",
+          "target_postcode": "CB8 0RG"
+        },
+        {
+          "query_name": "THE FOUNDATION T.V. PRODUCTIONS LIMITED",
+          "target_name": "ZODIAK KIDS & FAMILY PRODUCTIONS UK LIMITED",
+          "query_postcode": "W14 8RF",
+          "target_postcode": "W14 0EE"
+        },
+        {
+          "query_name": "PITMANS LLP",
+          "target_name": "ADCAMP LLP",
+          "query_postcode": "RG1 7SR",
+          "target_postcode": "RG1 1PL"
+        },
+        {
+          "query_name": "RENEWABLE (SOLAR) INVESTMENTS LP",
+          "target_name": "AIP INFRASTRUCTURE LP",
+          "query_postcode": "EH3 8HA",
+          "target_postcode": "EH3 8BP"
+        },
+        {
+          "query_name": "SAFELANE GROUP LIMITED",
+          "target_name": "IGNE HOLDCO LIMITED",
+          "query_postcode": "HR9 7XU",
+          "target_postcode": "HR9 7US"
+        }
+      ],
+      "the_stopword_only|same_full_postcode": [
+        {
+          "query_name": "WEST END GARAGE (BRUTON) LIMITED",
+          "target_name": "THE WEST END GARAGE (BRUTON) LIMITED",
+          "query_postcode": "BA10 0NL",
+          "target_postcode": "BA10 0NL"
+        }
+      ],
+      "token_reorder|different_outward": [
+        {
+          "query_name": "THE UNITED REFORMED CHURCH (SOUTH WESTERN SYNOD) INCORPORATED",
+          "target_name": "UNITED REFORMED CHURCH (SOUTH WESTERN SYNOD) INCORPORATED(THE)",
+          "query_postcode": "TA2 6RU",
+          "target_postcode": "TA1 3PF"
+        }
+      ],
+      "partial_overlap|same_outward_only": [
+        {
+          "query_name": "SCOR LIME STREET LIMITED",
+          "target_name": "SWRE LIME STREET LIMITED",
+          "query_postcode": "EH3 8HA",
+          "target_postcode": "EH3 8BP"
+        },
+        {
+          "query_name": "SL CAPITAL EUROPEAN CO-INVESTMENT LP",
+          "target_name": "PATRIA EUROPEAN CO-INVESTMENT LP",
+          "query_postcode": "EH2 2LL",
+          "target_postcode": "EH2 4LH"
+        },
+        {
+          "query_name": "Bridge UK Properties 3, LP",
+          "target_name": "HAMMERSMITH UK PROPERTIES 3, LP",
+          "query_postcode": "W1S 4PP",
+          "target_postcode": "W1S 3DG"
+        },
+        {
+          "query_name": "MARDIX LIMITED",
+          "target_name": "ANORD MARDIX (UK) LIMITED",
+          "query_postcode": "LA9 7DE",
+          "target_postcode": "LA9 7LR"
+        }
+      ],
+      "token_reorder|same_outward_only": [
+        {
+          "query_name": "THE FRENCH GARDEN LIMITED",
+          "target_name": "FRENCH GARDEN LIMITED(THE)",
+          "query_postcode": "SW8 5JJ",
+          "target_postcode": "SW8 5EQ"
+        }
+      ],
+      "token_reorder|missing_malformed": [
+        {
+          "query_name": "ROYAL COLLEGE OF NURSING OF THE UNITED KINGDOM",
+          "target_name": "ROYAL COLLEGE OF NURSING OF THE UNITED KINGDOM (THE)",
+          "query_postcode": "W1G 0RN",
+          "target_postcode": ""
+        }
+      ]
+    }
+  },
+  "a3_cpq": {
+    "10": {
+      "n_candidates": 34576,
+      "n_queries_all_val": 11682,
+      "n_queries_with_targets": 9860,
+      "n_queries_with_any_cand": 10695,
+      "cpq_median_over_cand_queries": 2.0,
+      "cpq_p95_over_cand_queries": 9.0,
+      "cpq_mean_over_cand_queries": 3.23,
+      "cpq_mean_over_all_val": 2.96
+    },
+    "50": {
+      "n_candidates": 130758,
+      "n_queries_all_val": 11682,
+      "n_queries_with_targets": 9860,
+      "n_queries_with_any_cand": 11165,
+      "cpq_median_over_cand_queries": 6.0,
+      "cpq_p95_over_cand_queries": 41.0,
+      "cpq_mean_over_cand_queries": 11.71,
+      "cpq_mean_over_all_val": 11.19
+    },
+    "200": {
+      "n_candidates": 321398,
+      "n_queries_all_val": 11682,
+      "n_queries_with_targets": 9860,
+      "n_queries_with_any_cand": 11378,
+      "cpq_median_over_cand_queries": 12.0,
+      "cpq_p95_over_cand_queries": 119.0,
+      "cpq_mean_over_cand_queries": 28.25,
+      "cpq_mean_over_all_val": 27.51
+    },
+    "1000": {
+      "n_candidates": 549476,
+      "n_queries_all_val": 11682,
+      "n_queries_with_targets": 9860,
+      "n_queries_with_any_cand": 11422,
+      "cpq_median_over_cand_queries": 14.0,
+      "cpq_p95_over_cand_queries": 219.0,
+      "cpq_mean_over_cand_queries": 48.11,
+      "cpq_mean_over_all_val": 47.04
+    },
+    "None": {
+      "n_candidates": 685909,
+      "n_queries_all_val": 11682,
+      "n_queries_with_targets": 9860,
+      "n_queries_with_any_cand": 11425,
+      "cpq_median_over_cand_queries": 14.0,
+      "cpq_p95_over_cand_queries": 237.0,
+      "cpq_mean_over_cand_queries": 60.04,
+      "cpq_mean_over_all_val": 58.72
+    }
+  },
+  "a4_frontier": [
+    {
+      "G": 50,
+      "key_added": "K4v2",
+      "keys_active": [
+        "K4v2"
+      ],
+      "cumulative_true_pairs": 9536,
+      "cumulative_recall": 0.96714,
+      "cumulative_candidates": 9733,
+      "marginal_true_pairs": 9536,
+      "marginal_candidates": 9733
+    },
+    {
+      "G": 50,
+      "key_added": "K2",
+      "keys_active": [
+        "K4v2",
+        "K2"
+      ],
+      "cumulative_true_pairs": 9578,
+      "cumulative_recall": 0.9714,
+      "cumulative_candidates": 44811,
+      "marginal_true_pairs": 42,
+      "marginal_candidates": 44811
+    },
+    {
+      "G": 50,
+      "key_added": "K3",
+      "keys_active": [
+        "K4v2",
+        "K2",
+        "K3"
+      ],
+      "cumulative_true_pairs": 9584,
+      "cumulative_recall": 0.972008,
+      "cumulative_candidates": 130758,
+      "marginal_true_pairs": 6,
+      "marginal_candidates": 130758
+    },
+    {
+      "G": 50,
+      "key_added": "K1",
+      "keys_active": [
+        "K4v2",
+        "K2",
+        "K3",
+        "K1"
+      ],
+      "cumulative_true_pairs": 9584,
+      "cumulative_recall": 0.972008,
+      "cumulative_candidates": 130758,
+      "marginal_true_pairs": 0,
+      "marginal_candidates": 130758
+    },
+    {
+      "G": null,
+      "key_added": "K4v2",
+      "keys_active": [
+        "K4v2"
+      ],
+      "cumulative_true_pairs": 9536,
+      "cumulative_recall": 0.96714,
+      "cumulative_candidates": 9733,
+      "marginal_true_pairs": 9536,
+      "marginal_candidates": 9733
+    },
+    {
+      "G": null,
+      "key_added": "K3",
+      "keys_active": [
+        "K4v2",
+        "K3"
+      ],
+      "cumulative_true_pairs": 9588,
+      "cumulative_recall": 0.972414,
+      "cumulative_candidates": 681159,
+      "marginal_true_pairs": 52,
+      "marginal_candidates": 681159
+    },
+    {
+      "G": null,
+      "key_added": "K1",
+      "keys_active": [
+        "K4v2",
+        "K3",
+        "K1"
+      ],
+      "cumulative_true_pairs": 9588,
+      "cumulative_recall": 0.972414,
+      "cumulative_candidates": 681159,
+      "marginal_true_pairs": 0,
+      "marginal_candidates": 681159
+    },
+    {
+      "G": null,
+      "key_added": "K2",
+      "keys_active": [
+        "K4v2",
+        "K3",
+        "K1",
+        "K2"
+      ],
+      "cumulative_true_pairs": 9588,
+      "cumulative_recall": 0.972414,
+      "cumulative_candidates": 685909,
+      "marginal_true_pairs": 0,
+      "marginal_candidates": 685909
+    }
+  ],
+  "a6": {
+    "total_rows_in_file": 1524435,
+    "n_distinct_lei_prefixes": 0,
+    "top_20_lei_prefixes_all": {},
+    "n_gb_records": 0,
+    "n_distinct_gb_prefixes": 0,
+    "top_20_lei_prefixes_gb": {},
+    "gb_first_row_position": 0,
+    "gb_last_row_position": 0,
+    "gb_median_row_position": 0,
+    "file_fraction_containing_gb": 0.0
+  }
+}

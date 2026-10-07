@@ -247,16 +247,16 @@ class GleifChAdapter:
         ----------
         output_dir:
             Directory to write:
-              queries.parquet      — GLEIF model-visible records
-              targets.parquet      — CH model-visible records
-              labels.parquet       — entity labels (cluster = CH record_id)
-              pairs_labels.parquet — positive pairs (identifier_derived)
-              no_match_queries.json — LEIs with no CH match
+              queries.parquet       — GLEIF model-visible records
+              targets.parquet       — CH model-visible records
+              labels.parquet        — entity labels (cluster = CH record_id)
+              pairs_labels.parquet  — positive pairs (identifier_derived)
+              unlabeled_queries.json — LEIs with no CH match (formerly no_match_queries.json)
 
         Returns
         -------
         dict with keys:
-            n_gleif_gb, n_matched_queries, n_no_match_queries,
+            n_gleif_gb, n_matched_queries, n_unlabeled_queries,
             n_ch_targets, n_positive_pairs
         """
         output_dir = Path(output_dir)
@@ -275,12 +275,12 @@ class GleifChAdapter:
         # 3. Stream GLEIF, build query records + labels
         print("[3/4] Streaming GLEIF, building queries and labels...", flush=True)
         (
-            query_rows, label_rows, pairs_rows, no_match_leis
+            query_rows, label_rows, pairs_rows, unlabeled_leis
         ) = self._stream_gleif_and_match(ch_lookup)
         print(
             f"  → {len(query_rows):,} GLEIF GB queries "
-            f"({len(query_rows) - len(no_match_leis):,} matched, "
-            f"{len(no_match_leis):,} no-match)",
+            f"({len(query_rows) - len(unlabeled_leis):,} matched, "
+            f"{len(unlabeled_leis):,} unlabeled — no CH identifier match)",
             flush=True,
         )
 
@@ -290,15 +290,15 @@ class GleifChAdapter:
         _write_labels_parquet(label_rows, output_dir / "labels.parquet")
         _write_pairs_parquet(pairs_rows, output_dir / "pairs_labels.parquet")
 
-        no_match_path = output_dir / "no_match_queries.json"
+        no_match_path = output_dir / "unlabeled_queries.json"
         no_match_path.write_text(
-            json.dumps(sorted(no_match_leis), indent=2), encoding="utf-8"
+            json.dumps(sorted(unlabeled_leis), indent=2), encoding="utf-8"
         )
 
         stats = {
             "n_gleif_gb": len(query_rows),
-            "n_matched_queries": len(query_rows) - len(no_match_leis),
-            "n_no_match_queries": len(no_match_leis),
+            "n_matched_queries": len(query_rows) - len(unlabeled_leis),
+            "n_unlabeled_queries": len(unlabeled_leis),
             "n_ch_targets": len(ch_records_rows),
             "n_positive_pairs": len(pairs_rows),
         }
@@ -375,7 +375,7 @@ class GleifChAdapter:
         query_rows: list[dict[str, Any]] = []
         label_rows: list[dict[str, Any]] = []
         pairs_rows: list[dict[str, Any]] = []
-        no_match_leis: list[str] = []
+        unlabeled_leis: list[str] = []
 
         row_num = 0
         for header, parts in _gleif_row_iter(self.gleif_path):
@@ -435,9 +435,9 @@ class GleifChAdapter:
                     }
                 )
             else:
-                no_match_leis.append(lei)
+                unlabeled_leis.append(lei)
 
-        return query_rows, label_rows, pairs_rows, no_match_leis
+        return query_rows, label_rows, pairs_rows, unlabeled_leis
 
 
 # ---------------------------------------------------------------------------

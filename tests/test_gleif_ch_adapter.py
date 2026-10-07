@@ -249,3 +249,48 @@ class TestQueryTargetKeys:
         keys = _target_keys(raw)
         assert keys["K1"] == "beta inc"
         assert keys["K2"] == "beta|M1"
+
+
+class TestUnlabeledQueriesNotNegatives:
+    """A5: verify that no evaluation code treats unlabeled queries as negatives."""
+
+    def test_unlabeled_excluded_from_true_targets(self):
+        """build_true_targets_map must not include records without label=1."""
+        from ber.eval.metrics import build_true_targets_map
+        # Simulate a query that has label=0 (explicitly negative) and one with no label
+        labels = [
+            {"query_id": "GLEIF_unlabeled1", "cand_id": "CH_01", "label": 0},
+            {"query_id": "GLEIF_matched1", "cand_id": "CH_02", "label": 1},
+        ]
+        tt = build_true_targets_map(labels)
+        # Unlabeled query must not appear in true targets
+        assert "GLEIF_unlabeled1" not in tt
+        assert "GLEIF_matched1" in tt
+
+    def test_zero_candidate_rate_excludes_unlabeled(self):
+        """zero_candidate_rate denominator = only queries with true targets (label=1)."""
+        from ber.eval.metrics import zero_candidate_rate, build_true_targets_map, build_candidate_map
+        # Unlabeled query retrieves no candidates — must not affect zero_cand_rate
+        tt = build_true_targets_map([
+            {"query_id": "GLEIF_matched1", "cand_id": "CH_01", "label": 1},
+        ])
+        cm = build_candidate_map([
+            {"query_id": "GLEIF_matched1", "cand_id": "CH_01", "rank": 1, "score": 1.0},
+        ])
+        # No unlabeled query in denominator
+        rate = zero_candidate_rate(cm, tt)
+        assert rate == pytest.approx(0.0)
+
+    def test_recall_denominator_excludes_unlabeled(self):
+        """recall@K denominator = only queries with ≥1 true target."""
+        from ber.eval.metrics import recall_at_k, build_true_targets_map, build_candidate_map
+        tt = build_true_targets_map([
+            {"query_id": "q_matched", "cand_id": "c1", "label": 1},
+            # q_unlabeled has no label=1 entry → not in denominator
+        ])
+        cm = build_candidate_map([
+            {"query_id": "q_matched", "cand_id": "c1", "rank": 1, "score": 1.0},
+            {"query_id": "q_unlabeled", "cand_id": "c_noise", "rank": 1, "score": 0.5},
+        ])
+        r = recall_at_k(cm, tt, k=10)
+        assert r == pytest.approx(1.0)  # denominator is 1, not 2
