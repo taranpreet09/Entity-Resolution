@@ -1,0 +1,2433 @@
+{
+  "commit": "83610d627c51b43593589dcccd5344831e00af72",
+  "ingest_stats": {
+    "n_records": 1138812,
+    "n_poi_clusters": 739972,
+    "n_singleton_clusters": 425024,
+    "n_non_singleton_clusters": 314948,
+    "n_positive_pairs": 950503,
+    "n_unlabeled_records": 425024
+  },
+  "split_stats": {
+    "primary": {
+      "test": 168507,
+      "train": 800853,
+      "val": 169452
+    }
+  },
+  "canon_stats": {
+    "name_empty": 11,
+    "name_total": 1138812
+  },
+  "sweep_results": [
+    {
+      "gate_size": 10,
+      "feasible": true,
+      "n_candidates": 247920,
+      "query_recall": 0.608786,
+      "pair_recall": 0.324433,
+      "partial_recall_rate": 0.09061,
+      "zero_candidate_rate": 0.309826,
+      "recall_ci_lo": 0.606514,
+      "recall_ci_hi": 0.611061,
+      "cpq_median": 1.0,
+      "cpq_p95": 8.0,
+      "cpq_mean": 2.4411185506104767,
+      "cpq_mean_all_val_queries": 1.46,
+      "n_val_queries": 169452,
+      "n_queries_with_targets": 106379,
+      "singleton_burden": {
+        "n_singleton_queries_with_candidates": 28140,
+        "total_singleton_candidates": 84492,
+        "cpq_singleton_median": 2.0,
+        "cpq_singleton_p95": 9.0,
+        "cpq_singleton_mean": 3.0
+      },
+      "per_key_stats": {
+        "K1": {
+          "n_pairs_before": 5468788,
+          "n_gated": 5376553,
+          "n_contributed": 92235,
+          "n_unique_cand_pairs": 58649,
+          "n_pairs_in_key": 92235
+        },
+        "K2": {
+          "n_pairs_before": 208792,
+          "n_gated": 92676,
+          "n_contributed": 116116,
+          "n_unique_cand_pairs": 73923,
+          "n_pairs_in_key": 116116
+        },
+        "K3": {
+          "n_pairs_before": 829075,
+          "n_gated": 814359,
+          "n_contributed": 14716,
+          "n_unique_cand_pairs": 4957,
+          "n_pairs_in_key": 14716
+        },
+        "K4": {
+          "n_pairs_before": 6120632,
+          "n_gated": 6087039,
+          "n_contributed": 33593,
+          "n_unique_cand_pairs": 19156,
+          "n_pairs_in_key": 33593
+        },
+        "K5": {
+          "n_pairs_before": 96916,
+          "n_gated": 30161,
+          "n_contributed": 66755,
+          "n_unique_cand_pairs": 33321,
+          "n_pairs_in_key": 66755
+        }
+      }
+    },
+    {
+      "gate_size": 50,
+      "feasible": true,
+      "n_candidates": 643135,
+      "query_recall": 0.623629,
+      "pair_recall": 0.376551,
+      "partial_recall_rate": 0.096523,
+      "zero_candidate_rate": 0.283646,
+      "recall_ci_lo": 0.621283,
+      "recall_ci_hi": 0.625845,
+      "cpq_median": 2.0,
+      "cpq_p95": 30.0,
+      "cpq_mean": 5.951261717267991,
+      "cpq_mean_all_val_queries": 3.8,
+      "n_val_queries": 169452,
+      "n_queries_with_targets": 106379,
+      "singleton_burden": {
+        "n_singleton_queries_with_candidates": 31862,
+        "total_singleton_candidates": 244197,
+        "cpq_singleton_median": 3.0,
+        "cpq_singleton_p95": 35.0,
+        "cpq_singleton_mean": 7.66
+      },
+      "per_key_stats": {
+        "K1": {
+          "n_pairs_before": 5468788,
+          "n_gated": 5155791,
+          "n_contributed": 312997,
+          "n_unique_cand_pairs": 210937,
+          "n_pairs_in_key": 312997
+        },
+        "K2": {
+          "n_pairs_before": 208792,
+          "n_gated": 37319,
+          "n_contributed": 171473,
+          "n_unique_cand_pairs": 117809,
+          "n_pairs_in_key": 171473
+        },
+        "K3": {
+          "n_pairs_before": 829075,
+          "n_gated": 792821,
+          "n_contributed": 36254,
+          "n_unique_cand_pairs": 12106,
+          "n_pairs_in_key": 36254
+        },
+        "K4": {
+          "n_pairs_before": 6120632,
+          "n_gated": 5920851,
+          "n_contributed": 199781,
+          "n_unique_cand_pairs": 113916,
+          "n_pairs_in_key": 199781
+        },
+        "K5": {
+          "n_pairs_before": 96916,
+          "n_gated": 6486,
+          "n_contributed": 90430,
+          "n_unique_cand_pairs": 47538,
+          "n_pairs_in_key": 90430
+        }
+      }
+    },
+    {
+      "gate_size": 200,
+      "feasible": true,
+      "n_candidates": 1731495,
+      "query_recall": 0.628902,
+      "pair_recall": 0.409184,
+      "partial_recall_rate": 0.097247,
+      "zero_candidate_rate": 0.273146,
+      "recall_ci_lo": 0.626565,
+      "recall_ci_hi": 0.631116,
+      "cpq_median": 2.0,
+      "cpq_p95": 102.0,
+      "cpq_mean": 15.62975032044917,
+      "cpq_mean_all_val_queries": 10.22,
+      "n_val_queries": 169452,
+      "n_queries_with_targets": 106379,
+      "singleton_burden": {
+        "n_singleton_queries_with_candidates": 33460,
+        "total_singleton_candidates": 632349,
+        "cpq_singleton_median": 3.0,
+        "cpq_singleton_p95": 113.0,
+        "cpq_singleton_mean": 18.9
+      },
+      "per_key_stats": {
+        "K1": {
+          "n_pairs_before": 5468788,
+          "n_gated": 4486992,
+          "n_contributed": 981796,
+          "n_unique_cand_pairs": 596711,
+          "n_pairs_in_key": 981796
+        },
+        "K2": {
+          "n_pairs_before": 208792,
+          "n_gated": 0,
+          "n_contributed": 208792,
+          "n_unique_cand_pairs": 150665,
+          "n_pairs_in_key": 208792
+        },
+        "K3": {
+          "n_pairs_before": 829075,
+          "n_gated": 748590,
+          "n_contributed": 80485,
+          "n_unique_cand_pairs": 13815,
+          "n_pairs_in_key": 80485
+        },
+        "K4": {
+          "n_pairs_before": 6120632,
+          "n_gated": 5266466,
+          "n_contributed": 854166,
+          "n_unique_cand_pairs": 481896,
+          "n_pairs_in_key": 854166
+        },
+        "K5": {
+          "n_pairs_before": 96916,
+          "n_gated": 0,
+          "n_contributed": 96916,
+          "n_unique_cand_pairs": 48391,
+          "n_pairs_in_key": 96916
+        }
+      }
+    },
+    {
+      "gate_size": 1000,
+      "feasible": true,
+      "n_candidates": 4274985,
+      "query_recall": 0.632897,
+      "pair_recall": 0.412158,
+      "partial_recall_rate": 0.097153,
+      "zero_candidate_rate": 0.268239,
+      "recall_ci_lo": 0.630637,
+      "recall_ci_hi": 0.635227,
+      "cpq_median": 2.0,
+      "cpq_p95": 219.0,
+      "cpq_mean": 38.175985211777,
+      "cpq_mean_all_val_queries": 25.23,
+      "n_val_queries": 169452,
+      "n_queries_with_targets": 106379,
+      "singleton_burden": {
+        "n_singleton_queries_with_candidates": 34137,
+        "total_singleton_candidates": 1480475,
+        "cpq_singleton_median": 4.0,
+        "cpq_singleton_p95": 240.0,
+        "cpq_singleton_mean": 43.37
+      },
+      "per_key_stats": {
+        "K1": {
+          "n_pairs_before": 5468788,
+          "n_gated": 2814065,
+          "n_contributed": 2654723,
+          "n_unique_cand_pairs": 1565543,
+          "n_pairs_in_key": 2654723
+        },
+        "K2": {
+          "n_pairs_before": 208792,
+          "n_gated": 0,
+          "n_contributed": 208792,
+          "n_unique_cand_pairs": 149128,
+          "n_pairs_in_key": 208792
+        },
+        "K3": {
+          "n_pairs_before": 829075,
+          "n_gated": 621724,
+          "n_contributed": 207351,
+          "n_unique_cand_pairs": 30982,
+          "n_pairs_in_key": 207351
+        },
+        "K4": {
+          "n_pairs_before": 6120632,
+          "n_gated": 3704657,
+          "n_contributed": 2415975,
+          "n_unique_cand_pairs": 1288038,
+          "n_pairs_in_key": 2415975
+        },
+        "K5": {
+          "n_pairs_before": 96916,
+          "n_gated": 0,
+          "n_contributed": 96916,
+          "n_unique_cand_pairs": 46280,
+          "n_pairs_in_key": 96916
+        }
+      }
+    },
+    {
+      "gate_size": null,
+      "feasible": true,
+      "n_candidates": 8227481,
+      "query_recall": 0.633396,
+      "pair_recall": 0.41241,
+      "partial_recall_rate": 0.097077,
+      "zero_candidate_rate": 0.267863,
+      "recall_ci_lo": 0.631074,
+      "recall_ci_hi": 0.635674,
+      "cpq_median": 2.0,
+      "cpq_p95": 301.0,
+      "cpq_mean": 73.33001479527265,
+      "cpq_mean_all_val_queries": 48.55,
+      "n_val_queries": 169452,
+      "n_queries_with_targets": 106379,
+      "singleton_burden": {
+        "n_singleton_queries_with_candidates": 34314,
+        "total_singleton_candidates": 2712783,
+        "cpq_singleton_median": 4.0,
+        "cpq_singleton_p95": 327.0,
+        "cpq_singleton_mean": 79.06
+      },
+      "per_key_stats": {
+        "K1": {
+          "n_pairs_before": 5468788,
+          "n_gated": 0,
+          "n_contributed": 5468788,
+          "n_unique_cand_pairs": 1815203,
+          "n_pairs_in_key": 5468788
+        },
+        "K2": {
+          "n_pairs_before": 208792,
+          "n_gated": 0,
+          "n_contributed": 208792,
+          "n_unique_cand_pairs": 148864,
+          "n_pairs_in_key": 208792
+        },
+        "K3": {
+          "n_pairs_before": 829075,
+          "n_gated": 0,
+          "n_contributed": 829075,
+          "n_unique_cand_pairs": 30459,
+          "n_pairs_in_key": 829075
+        },
+        "K4": {
+          "n_pairs_before": 6120632,
+          "n_gated": 0,
+          "n_contributed": 6120632,
+          "n_unique_cand_pairs": 2411634,
+          "n_pairs_in_key": 6120632
+        },
+        "K5": {
+          "n_pairs_before": 96916,
+          "n_gated": 0,
+          "n_contributed": 96916,
+          "n_unique_cand_pairs": 45443,
+          "n_pairs_in_key": 96916
+        }
+      }
+    }
+  ],
+  "frontier": [
+    {
+      "G": 50,
+      "key_added": "K2",
+      "keys_active": [
+        "K2"
+      ],
+      "cumulative_pair_recall": 0.246215,
+      "cumulative_pairs": 30301,
+      "cumulative_candidates": 171473,
+      "marginal_pairs": 30301
+    },
+    {
+      "G": 50,
+      "key_added": "K1",
+      "keys_active": [
+        "K2",
+        "K1"
+      ],
+      "cumulative_pair_recall": 0.344796,
+      "cumulative_pairs": 42433,
+      "cumulative_candidates": 458876,
+      "marginal_pairs": 12132
+    },
+    {
+      "G": 50,
+      "key_added": "K5",
+      "keys_active": [
+        "K2",
+        "K1",
+        "K5"
+      ],
+      "cumulative_pair_recall": 0.369132,
+      "cumulative_pairs": 45428,
+      "cumulative_candidates": 508776,
+      "marginal_pairs": 2995
+    },
+    {
+      "G": 50,
+      "key_added": "K3",
+      "keys_active": [
+        "K2",
+        "K1",
+        "K5",
+        "K3"
+      ],
+      "cumulative_pair_recall": 0.374674,
+      "cumulative_pairs": 46110,
+      "cumulative_candidates": 529219,
+      "marginal_pairs": 682
+    },
+    {
+      "G": 50,
+      "key_added": "K4",
+      "keys_active": [
+        "K2",
+        "K1",
+        "K5",
+        "K3",
+        "K4"
+      ],
+      "cumulative_pair_recall": 0.376551,
+      "cumulative_pairs": 46341,
+      "cumulative_candidates": 643135,
+      "marginal_pairs": 231
+    },
+    {
+      "G": null,
+      "key_added": "K2",
+      "keys_active": [
+        "K2"
+      ],
+      "cumulative_pair_recall": 0.276614,
+      "cumulative_pairs": 34042,
+      "cumulative_candidates": 208792,
+      "marginal_pairs": 34042
+    },
+    {
+      "G": null,
+      "key_added": "K1",
+      "keys_active": [
+        "K2",
+        "K1"
+      ],
+      "cumulative_pair_recall": 0.384929,
+      "cumulative_pairs": 47372,
+      "cumulative_candidates": 5646366,
+      "marginal_pairs": 13330
+    },
+    {
+      "G": null,
+      "key_added": "K5",
+      "keys_active": [
+        "K2",
+        "K1",
+        "K5"
+      ],
+      "cumulative_pair_recall": 0.404259,
+      "cumulative_pairs": 49751,
+      "cumulative_candidates": 5695105,
+      "marginal_pairs": 2379
+    },
+    {
+      "G": null,
+      "key_added": "K3",
+      "keys_active": [
+        "K2",
+        "K1",
+        "K5",
+        "K3"
+      ],
+      "cumulative_pair_recall": 0.409801,
+      "cumulative_pairs": 50433,
+      "cumulative_candidates": 5815847,
+      "marginal_pairs": 682
+    },
+    {
+      "G": null,
+      "key_added": "K4",
+      "keys_active": [
+        "K2",
+        "K1",
+        "K5",
+        "K3",
+        "K4"
+      ],
+      "cumulative_pair_recall": 0.41241,
+      "cumulative_pairs": 50754,
+      "cumulative_candidates": 8227481,
+      "marginal_pairs": 321
+    }
+  ],
+  "taxonomy_train": {
+    "gate_for_residual": 50,
+    "n_unrecovered": 464595,
+    "n_shared_phone": 539,
+    "n_shared_url": 6495,
+    "dist_km_mean": 338.72,
+    "dist_km_median": 2.552,
+    "category_counts": {
+      "different|<100m": 70964,
+      "different|<10km": 75374,
+      "different|<1km": 79947,
+      "different|>=10km": 81375,
+      "different|diff_country_<100m": 61,
+      "different|diff_country_<10km": 153,
+      "different|diff_country_<1km": 97,
+      "different|diff_country_>=10km": 9414,
+      "identical|<100m": 117,
+      "identical|<10km": 9477,
+      "identical|<1km": 1276,
+      "identical|>=10km": 27585,
+      "identical|diff_country_<10km": 26,
+      "identical|diff_country_<1km": 10,
+      "identical|diff_country_>=10km": 4789,
+      "name_empty_after_canon|<100m": 23,
+      "name_empty_after_canon|<10km": 28,
+      "name_empty_after_canon|<1km": 16,
+      "partial_overlap|<100m": 12569,
+      "partial_overlap|<10km": 29942,
+      "partial_overlap|<1km": 20085,
+      "partial_overlap|>=10km": 32012,
+      "partial_overlap|diff_country_<100m": 11,
+      "partial_overlap|diff_country_<10km": 31,
+      "partial_overlap|diff_country_<1km": 16,
+      "partial_overlap|diff_country_>=10km": 4261,
+      "the_stopword_only|<100m": 296,
+      "the_stopword_only|<10km": 367,
+      "the_stopword_only|<1km": 273,
+      "the_stopword_only|>=10km": 184,
+      "the_stopword_only|diff_country_<10km": 1,
+      "the_stopword_only|diff_country_>=10km": 63,
+      "token_reorder|<100m": 744,
+      "token_reorder|<10km": 1021,
+      "token_reorder|<1km": 760,
+      "token_reorder|>=10km": 1106,
+      "token_reorder|diff_country_<100m": 1,
+      "token_reorder|diff_country_<10km": 1,
+      "token_reorder|diff_country_<1km": 1,
+      "token_reorder|diff_country_>=10km": 118
+    }
+  },
+  "taxonomy_examples": {
+    "different|>=10km": [
+      {
+        "name_q": "bandara sultan hasanuddin makassar",
+        "name_t": "sultan hassanudin international airport",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-6.129903005858147",
+        "lon_q": "106.65867717736889",
+        "lat_t": "-5.14833713720568",
+        "lon_t": "119.41309444280596"
+      },
+      {
+        "name_q": "tebing keraton",
+        "name_t": "tebing karaton",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-7.0974529",
+        "lon_q": "107.4711984",
+        "lat_t": "-6.9001119",
+        "lon_t": "107.6266474"
+      },
+      {
+        "name_q": "soekarno-hatta international airport (cgk)",
+        "name_t": "soekarno-hatta",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-6.1134353",
+        "lon_q": "106.6846602",
+        "lat_t": "1.173302913182508",
+        "lon_t": "108.98669166398952"
+      },
+      {
+        "name_q": "transit desk soekarno hatta airport",
+        "name_t": "bandara soekarno hatta",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-6.130780501035994",
+        "lon_q": "106.65585041045252",
+        "lat_t": "-6.356095993602346",
+        "lon_t": "106.82469668048014"
+      },
+      {
+        "name_q": "otw soeta airport",
+        "name_t": "airport",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-6.213553",
+        "lon_q": "106.683186",
+        "lat_t": "-6.120470221680982",
+        "lon_t": "106.66076129375809"
+      }
+    ],
+    "different|<100m": [
+      {
+        "name_q": "eiffel tower",
+        "name_t": "effel tower",
+        "country_q": "FR",
+        "country_t": "FR",
+        "lat_q": "48.858115",
+        "lon_q": "2.29459",
+        "lat_t": "48.85838",
+        "lon_t": "2.2945323"
+      },
+      {
+        "name_q": "smk negeri 2 tasikmalaya",
+        "name_t": "teori b r.09 smk negeri 2 (rsbi) tasikmalaya",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-7.358363915934575",
+        "lon_q": "108.22949409484865",
+        "lat_t": "-7.35774",
+        "lon_t": "108.22961"
+      },
+      {
+        "name_q": "kotobukiya",
+        "name_t": "hobiishoppu kotobukiya nihonbashimise",
+        "country_q": "JP",
+        "country_t": "JP",
+        "lat_q": "34.661243",
+        "lon_q": "135.504634",
+        "lat_t": "34.66096358353007",
+        "lon_t": "135.5049280443897"
+      },
+      {
+        "name_q": "ksiigkh",
+        "name_t": "ksi i gkh fizika",
+        "country_q": "RU",
+        "country_t": "RU",
+        "lat_q": "60.0097820015466",
+        "lon_q": "30.435998579497262",
+        "lat_t": "60.0100200065039",
+        "lon_t": "30.4360173549787"
+      },
+      {
+        "name_q": "korridor pervyi etazh",
+        "name_t": "kabinet 23",
+        "country_q": "RU",
+        "country_t": "RU",
+        "lat_q": "59.930066",
+        "lon_q": "30.31519",
+        "lat_t": "59.92986252981446",
+        "lon_t": "30.315141059799245"
+      }
+    ],
+    "partial_overlap|<10km": [
+      {
+        "name_q": "sabiha gokcen",
+        "name_t": "sabiha gokcen havalimani (was)",
+        "country_q": "TR",
+        "country_t": "TR",
+        "lat_q": "40.90754498732904",
+        "lon_q": "29.31577205657959",
+        "lat_t": "40.89742480149128",
+        "lon_t": "29.31427001953125"
+      },
+      {
+        "name_q": "u-bahn laimer platz",
+        "name_t": "u laimer platz",
+        "country_q": "DE",
+        "country_t": "DE",
+        "lat_q": "48.136702",
+        "lon_q": "11.528451",
+        "lat_t": "48.13561059795292",
+        "lon_t": "11.499929816515492"
+      },
+      {
+        "name_q": "kyoutojoshikoukou",
+        "name_t": "kyoutojoshikoukou 3nen10kumi",
+        "country_q": "JP",
+        "country_t": "JP",
+        "lat_q": "34.99014964806289",
+        "lon_q": "135.7778960584124",
+        "lat_t": "35.00380150153775",
+        "lon_t": "135.77615989286488"
+      },
+      {
+        "name_q": "the jungle waterpark",
+        "name_t": "the jungle bogor",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-6.62203861103273",
+        "lon_q": "106.79700280796958",
+        "lat_t": "-6.63438189615271",
+        "lon_t": "106.79424916220226"
+      },
+      {
+        "name_q": "ahmad yani international airport (srg)",
+        "name_t": "achmad yani international airport",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-6.978813315314496",
+        "lon_q": "110.3786398244757",
+        "lat_t": "-7.0198608",
+        "lon_t": "110.4218188"
+      }
+    ],
+    "different|diff_country_>=10km": [
+      {
+        "name_q": "north sea",
+        "name_t": "in de noordzee",
+        "country_q": "DE",
+        "country_t": "BE",
+        "lat_q": "53.41780321700623",
+        "lon_q": "8.287167114019486",
+        "lat_t": "51.343467",
+        "lon_t": "3.256782"
+      },
+      {
+        "name_q": "eyfer kulesi",
+        "name_t": "eiffel tower",
+        "country_q": "FR",
+        "country_t": "TR",
+        "lat_q": "48.85837173461914",
+        "lon_q": "2.2945151329040527",
+        "lat_t": "41.071475125784296",
+        "lon_t": "28.68541211925616"
+      },
+      {
+        "name_q": "inceongonghang 3ceung",
+        "name_t": "incheon",
+        "country_q": "KR",
+        "country_t": "ID",
+        "lat_q": "37.55524389877568",
+        "lon_q": "126.98763967924192",
+        "lat_t": "-7.797435",
+        "lon_t": "110.372382"
+      },
+      {
+        "name_q": "kuala lumpur international airport",
+        "name_t": "klia",
+        "country_q": "ID",
+        "country_t": "MY",
+        "lat_q": "-7.544854",
+        "lon_q": "110.787893",
+        "lat_t": "2.7487393606748336",
+        "lon_t": "101.90661986410925"
+      },
+      {
+        "name_q": ":strand schoorl aan zee",
+        "name_t": "de noordzee",
+        "country_q": "NL",
+        "country_t": "BE",
+        "lat_q": "52.70102",
+        "lon_q": "4.6358976",
+        "lat_t": "51.27260231946519",
+        "lon_t": "3.006443678618385"
+      }
+    ],
+    "different|<1km": [
+      {
+        "name_q": "[construction site] emquartier (e`mkhw`ethiiyr)",
+        "name_t": "the emporium 2",
+        "country_q": "TH",
+        "country_t": "TH",
+        "lat_q": "13.731339286147152",
+        "lon_q": "100.56949138641356",
+        "lat_t": "13.731215698002046",
+        "lon_t": "100.56851946797522"
+      },
+      {
+        "name_q": "dtt, 7th floor talent center bldg. abs-cbn",
+        "name_t": "abs cbn ipost edit 30",
+        "country_q": "PH",
+        "country_t": "PH",
+        "lat_q": "14.638829445247351",
+        "lon_q": "121.03711871705389",
+        "lat_t": "14.639736",
+        "lon_t": "121.03512"
+      },
+      {
+        "name_q": "lobby utama rs boromeus",
+        "name_t": "rri - rs. borromeus",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-6.893863011858288",
+        "lon_q": "107.6134776082092",
+        "lat_t": "-6.892856302790917",
+        "lon_t": "107.61391688493023"
+      },
+      {
+        "name_q": "currys pc world featuring carphone warehouse",
+        "name_t": "p c world",
+        "country_q": "GB",
+        "country_t": "GB",
+        "lat_q": "51.32342476017019",
+        "lon_q": "-0.5433511734008789",
+        "lat_t": "51.31796397655513",
+        "lon_t": "-0.5545182335540517"
+      },
+      {
+        "name_q": "sm the block digital theater",
+        "name_t": "thx cinema",
+        "country_q": "PH",
+        "country_t": "PH",
+        "lat_q": "14.656985692957113",
+        "lon_q": "121.032460174047",
+        "lat_t": "14.656750909090908",
+        "lon_t": "121.03041"
+      }
+    ],
+    "identical|<10km": [
+      {
+        "name_q": "lattelecom wifi",
+        "name_t": "lattelecom wifi",
+        "country_q": "LV",
+        "country_t": "LV",
+        "lat_q": "56.960002892185",
+        "lon_q": "24.109729796733",
+        "lat_t": "56.929867077936",
+        "lon_t": "24.080789199636"
+      },
+      {
+        "name_q": "tebing keraton",
+        "name_t": "tebing keraton",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-6.8568288",
+        "lon_q": "107.6306838",
+        "lat_t": "-6.904205",
+        "lon_t": "107.610183"
+      },
+      {
+        "name_q": "lattelecom wifi",
+        "name_t": "lattelecom wifi",
+        "country_q": "LV",
+        "country_t": "LV",
+        "lat_q": "56.943504963673",
+        "lon_q": "24.123751066849",
+        "lat_t": "56.96040465319",
+        "lon_t": "24.037771916692"
+      },
+      {
+        "name_q": "cold stone creamery",
+        "name_t": "cold stone creamery",
+        "country_q": "US",
+        "country_t": "US",
+        "lat_q": "33.49333073042409",
+        "lon_q": "-112.34114931043116",
+        "lat_t": "33.48452476552133",
+        "lon_t": "-112.36198851771296"
+      },
+      {
+        "name_q": "tebing keraton",
+        "name_t": "tebing keraton",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-6.7762666",
+        "lon_q": "107.6447314",
+        "lat_t": "-6.8583296",
+        "lon_t": "107.6314093"
+      }
+    ],
+    "different|<10km": [
+      {
+        "name_q": "russkii iazyk",
+        "name_t": "geografiia ",
+        "country_q": "RU",
+        "country_t": "RU",
+        "lat_q": "51.66617287885671",
+        "lon_q": "39.202309732502016",
+        "lat_t": "51.69888006791366",
+        "lon_t": "39.191792336911256"
+      },
+      {
+        "name_q": "blitz megaplex",
+        "name_t": "blitzmegaplex grand indonesia",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-6.192444999999999",
+        "lon_q": "106.8211819",
+        "lat_t": "-6.1870431",
+        "lon_t": "106.8420031"
+      },
+      {
+        "name_q": "adnan menderes havaalani",
+        "name_t": "adnan menderes havalimani genel havacilik",
+        "country_q": "TR",
+        "country_t": "TR",
+        "lat_q": "38.350401",
+        "lon_q": "27.124073",
+        "lat_t": "38.29132080078125",
+        "lon_t": "27.14995002746582"
+      },
+      {
+        "name_q": "aafcu",
+        "name_t": "american airlines federal credit union",
+        "country_q": "US",
+        "country_t": "US",
+        "lat_q": "32.823882101291666",
+        "lon_q": "-97.05042451795885",
+        "lat_t": "32.8318512498382",
+        "lon_t": "-97.06263480259588"
+      },
+      {
+        "name_q": "flyover padang bulan",
+        "name_t": "fly over jamin ginting",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "3.540493144038513",
+        "lon_q": "98.65674706852091",
+        "lat_t": "3.5501975",
+        "lon_t": "98.6599188"
+      }
+    ],
+    "partial_overlap|<1km": [
+      {
+        "name_q": "garuda executive lounge",
+        "name_t": "executive lounge garuda (cgk)-",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-6.12074",
+        "lon_q": "106.652798",
+        "lat_t": "-6.128946796087284",
+        "lon_t": "106.65552225454996"
+      },
+      {
+        "name_q": "tuin heilig graf",
+        "name_t": "heilig graf apostoliekenstraat",
+        "country_q": "BE",
+        "country_t": "BE",
+        "lat_q": "51.324575",
+        "lon_q": "4.952214",
+        "lat_t": "51.318219407903",
+        "lon_t": "4.947864195637717"
+      },
+      {
+        "name_q": "himos",
+        "name_t": "himos huudeilla",
+        "country_q": "FI",
+        "country_t": "FI",
+        "lat_q": "61.880887",
+        "lon_q": "25.298881",
+        "lat_t": "61.87671399210949",
+        "lon_t": "25.31259132182421"
+      },
+      {
+        "name_q": "yat limani",
+        "name_t": "antalya yat limani",
+        "country_q": "TR",
+        "country_t": "TR",
+        "lat_q": "36.88286423907087",
+        "lon_q": "30.70000194128169",
+        "lat_t": "36.88346523363936",
+        "lon_t": "30.701637268066406"
+      },
+      {
+        "name_q": "rs. pgi cikini",
+        "name_t": "kamar e1 rs. pgi. cikini",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-6.191680693946301",
+        "lon_q": "106.84203948738887",
+        "lat_t": "-6.190980989286015",
+        "lon_t": "106.8389799123174"
+      }
+    ],
+    "identical|diff_country_>=10km": [
+      {
+        "name_q": "deleted venue (seo)",
+        "name_t": "deleted venue (seo)",
+        "country_q": "RU",
+        "country_t": "AE",
+        "lat_q": "57.954185",
+        "lon_q": "56.181056",
+        "lat_t": "25.2443",
+        "lon_t": "55.452815"
+      },
+      {
+        "name_q": "universal studio singapore",
+        "name_t": "universal studio singapore",
+        "country_q": "ID",
+        "country_t": "SG",
+        "lat_q": "-7.968347",
+        "lon_q": "112.63532",
+        "lat_t": "1.2538046994873158",
+        "lon_t": "103.8237686050913"
+      },
+      {
+        "name_q": "deleted venue (seo)",
+        "name_t": "deleted venue (seo)",
+        "country_q": "BY",
+        "country_t": "RU",
+        "lat_q": "53.930019",
+        "lon_q": "27.583283",
+        "lat_t": "52.073515",
+        "lon_t": "59.726374"
+      },
+      {
+        "name_q": "deleted venue (seo)",
+        "name_t": "deleted venue (seo)",
+        "country_q": "AE",
+        "country_t": "RU",
+        "lat_q": "25.216818",
+        "lon_q": "55.260785",
+        "lat_t": "56.15427",
+        "lon_t": "44.196932"
+      },
+      {
+        "name_q": "soekarno - hatta international airport",
+        "name_t": "soekarno - hatta international airport",
+        "country_q": "MY",
+        "country_t": "ID",
+        "lat_q": "5.539852",
+        "lon_q": "100.523976",
+        "lat_t": "-6.125705723036134",
+        "lon_t": "106.65613174438477"
+      }
+    ],
+    "partial_overlap|>=10km": [
+      {
+        "name_q": "sabiha gokcen international airport (saw)",
+        "name_t": "sabiha gokcen international airport",
+        "country_q": "TR",
+        "country_t": "TR",
+        "lat_q": "40.744132914150825",
+        "lon_q": "36.11684702240547",
+        "lat_t": "40.90541076660156",
+        "lon_t": "29.31692695617676"
+      },
+      {
+        "name_q": "integramedica",
+        "name_t": "integramedica manquehue",
+        "country_q": "CL",
+        "country_t": "CL",
+        "lat_q": "-33.410836418604525",
+        "lon_q": "-70.56683778762817",
+        "lat_t": "-56.58910751342773",
+        "lon_t": "-70.56641387939453"
+      },
+      {
+        "name_q": "ercan airport simit sarayi",
+        "name_t": "simit sarayi",
+        "country_q": "CY",
+        "country_t": "CY",
+        "lat_q": "35.184765",
+        "lon_q": "33.38301",
+        "lat_t": "35.15797380414684",
+        "lon_t": "33.50390289042001"
+      },
+      {
+        "name_q": "soekarna-hatta international airport",
+        "name_t": "soekarno hatta international airport",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-2.2151635365832365",
+        "lon_q": "113.9196986241562",
+        "lat_t": "-8.763107499168182",
+        "lon_t": "116.27299873763516"
+      },
+      {
+        "name_q": "gelora bung karno",
+        "name_t": "stadion utama gelora bung karno",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-1.2764809",
+        "lon_q": "116.8384926",
+        "lat_t": "-6.9372412",
+        "lon_t": "107.5373865"
+      }
+    ],
+    "name_empty_after_canon|<10km": [
+      {
+        "name_q": "masjidil haram",
+        "name_t": " ",
+        "country_q": "SA",
+        "country_t": "SA",
+        "lat_q": "21.431612675590426",
+        "lon_q": "39.85079110620493",
+        "lat_t": "21.37503230144804",
+        "lon_t": "39.80264985000145"
+      },
+      {
+        "name_q": " ",
+        "name_t": "tws`@ lmlk `bdllh llhrm lmky",
+        "country_q": "SA",
+        "country_t": "SA",
+        "lat_q": "21.37503230144804",
+        "lon_q": "39.80264985000145",
+        "lat_t": "21.423660097322507",
+        "lon_t": "39.82550649292364"
+      },
+      {
+        "name_q": "kabe'ul muazzama",
+        "name_t": " ",
+        "country_q": "SA",
+        "country_t": "SA",
+        "lat_q": "21.42183834917423",
+        "lon_q": "39.82636087442206",
+        "lat_t": "21.37503230144804",
+        "lon_t": "39.80264985000145"
+      },
+      {
+        "name_q": "masjidil haram saudi arabia",
+        "name_t": " ",
+        "country_q": "SA",
+        "country_t": "SA",
+        "lat_q": "21.40392042864845",
+        "lon_q": "39.83101955539977",
+        "lat_t": "21.37503230144804",
+        "lon_t": "39.80264985000145"
+      },
+      {
+        "name_q": "masjid al-haraam ((macca))",
+        "name_t": " ",
+        "country_q": "SA",
+        "country_t": "SA",
+        "lat_q": "21.42608364332524",
+        "lon_q": "39.82844149447664",
+        "lat_t": "21.37503230144804",
+        "lon_t": "39.80264985000145"
+      }
+    ],
+    "identical|>=10km": [
+      {
+        "name_q": "deleted venue (seo)",
+        "name_t": "deleted venue (seo)",
+        "country_q": "RU",
+        "country_t": "RU",
+        "lat_q": "55.982688",
+        "lon_q": "37.17499",
+        "lat_t": "54.997807",
+        "lon_t": "82.964187"
+      },
+      {
+        "name_q": "deleted venue (seo)",
+        "name_t": "deleted venue (seo)",
+        "country_q": "RU",
+        "country_t": "RU",
+        "lat_q": "56.066022",
+        "lon_q": "92.938061",
+        "lat_t": "52.005797",
+        "lon_t": "47.796482"
+      },
+      {
+        "name_q": "soekarno-hatta international airport",
+        "name_t": "soekarno hatta international airport",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-7.7794867975222655",
+        "lon_q": "110.39771248505544",
+        "lat_t": "-7.952919282154029",
+        "lon_t": "112.6285684343854"
+      },
+      {
+        "name_q": "lattelecom wifi",
+        "name_t": "lattelecom wifi",
+        "country_q": "LV",
+        "country_t": "LV",
+        "lat_q": "56.512332187552",
+        "lon_q": "21.011165161542",
+        "lat_t": "56.943410463146",
+        "lon_t": "23.497565220069"
+      },
+      {
+        "name_q": "lattelecom wifi",
+        "name_t": "lattelecom wifi",
+        "country_q": "LV",
+        "country_t": "LV",
+        "lat_q": "57.02666013731209",
+        "lon_q": "24.04179811477661",
+        "lat_t": "56.943504963673",
+        "lon_t": "24.123751066849"
+      }
+    ],
+    "partial_overlap|<100m": [
+      {
+        "name_q": "hotel bjertorp slott",
+        "name_t": "bjertorp slott",
+        "country_q": "SE",
+        "country_t": "SE",
+        "lat_q": "58.26456",
+        "lon_q": "13.113168",
+        "lat_t": "58.26482659214943",
+        "lon_t": "13.11330129288284"
+      },
+      {
+        "name_q": "el sallab | lslb",
+        "name_t": "el sallab",
+        "country_q": "EG",
+        "country_t": "EG",
+        "lat_q": "30.0581633173417",
+        "lon_q": "31.345091330295425",
+        "lat_t": "30.05741208212413",
+        "lon_t": "31.34468923944632"
+      },
+      {
+        "name_q": "pokke",
+        "name_t": "minatokosodateouenpuraza pokke (pokke)",
+        "country_q": "JP",
+        "country_t": "JP",
+        "lat_q": "35.648355",
+        "lon_q": "139.747588",
+        "lat_t": "35.648444397191376",
+        "lon_t": "139.7474775968438"
+      },
+      {
+        "name_q": "bisutoro soreiyu",
+        "name_t": "soreiyu",
+        "country_q": "JP",
+        "country_t": "JP",
+        "lat_q": "35.71212675911416",
+        "lon_q": "139.7306629606186",
+        "lat_t": "35.71271002850435",
+        "lon_t": "139.73034866712766"
+      },
+      {
+        "name_q": "qg / quartier general",
+        "name_t": "quartier general",
+        "country_q": "FR",
+        "country_t": "FR",
+        "lat_q": "48.8686741708886",
+        "lon_q": "2.3753921669948665",
+        "lat_t": "48.86870024385894",
+        "lon_t": "2.3756347573316807"
+      }
+    ],
+    "partial_overlap|diff_country_>=10km": [
+      {
+        "name_q": "universal studio",
+        "name_t": "universal studio, singapore",
+        "country_q": "ID",
+        "country_t": "MY",
+        "lat_q": "-6.2291279",
+        "lon_q": "106.854006",
+        "lat_t": "2.8801053232418647",
+        "lon_t": "101.77917940957585"
+      },
+      {
+        "name_q": "kuala lumpur internasional airport",
+        "name_t": "kuala lumpur int'l airport",
+        "country_q": "ID",
+        "country_t": "MY",
+        "lat_q": "-2.16072",
+        "lon_q": "106.12983",
+        "lat_t": "2.819684",
+        "lon_t": "101.7336841"
+      },
+      {
+        "name_q": "soekarno hatta airport",
+        "name_t": "bandara soekarno hatta",
+        "country_q": "GB",
+        "country_t": "ID",
+        "lat_q": "51.503013",
+        "lon_q": "0.0033204",
+        "lat_t": "-6.179792229470413",
+        "lon_t": "106.8092506036353"
+      },
+      {
+        "name_q": "incheon international airport",
+        "name_t": "incheon internasional airport",
+        "country_q": "KR",
+        "country_t": "ID",
+        "lat_q": "37.45047007118672",
+        "lon_q": "126.45049906972866",
+        "lat_t": "-6.9147776276910005",
+        "lon_t": "107.60662845119684"
+      },
+      {
+        "name_q": "universal studios singapore",
+        "name_t": "universal studio singapore",
+        "country_q": "PH",
+        "country_t": "MY",
+        "lat_q": "14.380369391416856",
+        "lon_q": "121.049021820587",
+        "lat_t": "1.4982279092738964",
+        "lon_t": "103.8189685271724"
+      }
+    ],
+    "token_reorder|<1km": [
+      {
+        "name_q": "ywca singapore hotel",
+        "name_t": "ywca hotel singapore",
+        "country_q": "SG",
+        "country_t": "SG",
+        "lat_q": "1.2973248098946442",
+        "lon_q": "103.84502571052076",
+        "lat_t": "1.297198980637488",
+        "lon_t": "103.84395003797218"
+      },
+      {
+        "name_q": "karakopru ptt subesi",
+        "name_t": "ptt karakopru subesi",
+        "country_q": "TR",
+        "country_t": "TR",
+        "lat_q": "37.219047",
+        "lon_q": "38.80185",
+        "lat_t": "37.21097573281382",
+        "lon_t": "38.80034165330584"
+      },
+      {
+        "name_q": "pelita nasi kandar",
+        "name_t": "nasi kandar pelita",
+        "country_q": "MY",
+        "country_t": "MY",
+        "lat_q": "3.1315117160686428",
+        "lon_q": "101.67138028081123",
+        "lat_t": "3.132958250386369",
+        "lon_t": "101.67059183120728"
+      },
+      {
+        "name_q": "plaza ampang city",
+        "name_t": "ampang plaza city",
+        "country_q": "MY",
+        "country_t": "MY",
+        "lat_q": "3.159087484936978",
+        "lon_q": "101.749278954607",
+        "lat_t": "3.1619947846591807",
+        "lon_t": "101.7518152944602"
+      },
+      {
+        "name_q": "aloft abu dhabi",
+        "name_t": "abu dhabi aloft",
+        "country_q": "AE",
+        "country_t": "AE",
+        "lat_q": "24.419844644862817",
+        "lon_q": "54.43933564142095",
+        "lat_t": "24.419544760565906",
+        "lon_t": "54.443354228313616"
+      }
+    ],
+    "token_reorder|>=10km": [
+      {
+        "name_q": "international airport soekarno hatta",
+        "name_t": "soekarno-hatta international airport",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-6.2004354",
+        "lon_q": "106.6150425",
+        "lat_t": "-6.120932145181052",
+        "lon_t": "106.78299873901372"
+      },
+      {
+        "name_q": "hongkong disneyland",
+        "name_t": "disneyland hongkong",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-6.168751509733405",
+        "lon_q": "106.78499762086663",
+        "lat_t": "-6.8911176",
+        "lon_t": "107.5957974"
+      },
+      {
+        "name_q": "ambarukmo plaza",
+        "name_t": "plaza ambarukmo",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-7.776931217966039",
+        "lon_q": "110.3740026344715",
+        "lat_t": "-7.83103",
+        "lon_t": "110.480036667"
+      },
+      {
+        "name_q": "london heathrow airport (lhr)",
+        "name_t": "heathrow airport london (lhr)",
+        "country_q": "GB",
+        "country_t": "GB",
+        "lat_q": "51.470793384195694",
+        "lon_q": "-0.4528627613819143",
+        "lat_t": "51.153896",
+        "lon_t": "-0.162806"
+      },
+      {
+        "name_q": "borobudur hotel",
+        "name_t": "hotel borobudur",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-6.350025907575198",
+        "lon_q": "106.86554946221086",
+        "lat_t": "-6.113328970763591",
+        "lon_t": "106.6864977393814"
+      }
+    ],
+    "identical|<1km": [
+      {
+        "name_q": "quiznos",
+        "name_t": "quiznos",
+        "country_q": "US",
+        "country_t": "US",
+        "lat_q": "37.78563",
+        "lon_q": "-122.41464",
+        "lat_t": "37.78514086",
+        "lon_t": "-122.4197272"
+      },
+      {
+        "name_q": "psb",
+        "name_t": "psb",
+        "country_q": "RU",
+        "country_t": "RU",
+        "lat_q": "55.709913",
+        "lon_q": "37.654362",
+        "lat_t": "55.709426",
+        "lon_t": "37.661042"
+      },
+      {
+        "name_q": "deleted venue (seo)",
+        "name_t": "deleted venue (seo)",
+        "country_q": "RU",
+        "country_t": "RU",
+        "lat_q": "54.004945",
+        "lon_q": "38.285883",
+        "lat_t": "54.007083",
+        "lon_t": "38.298316"
+      },
+      {
+        "name_q": "lattelecom wifi",
+        "name_t": "lattelecom wifi",
+        "country_q": "LV",
+        "country_t": "LV",
+        "lat_q": "56.957033344043",
+        "lon_q": "24.115262210036",
+        "lat_t": "56.948836926108",
+        "lon_t": "24.118902802687"
+      },
+      {
+        "name_q": "parikmakherskaia",
+        "name_t": "parikmakherskaia",
+        "country_q": "RU",
+        "country_t": "RU",
+        "lat_q": "55.864836469123006",
+        "lon_q": "37.598959968889645",
+        "lat_t": "55.86721834068533",
+        "lon_t": "37.59635407631852"
+      }
+    ],
+    "token_reorder|<10km": [
+      {
+        "name_q": "plaza surabaya",
+        "name_t": "surabaya plaza",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-7.2453112",
+        "lon_q": "112.7754821",
+        "lat_t": "-7.2743599",
+        "lon_t": "112.7643893"
+      },
+      {
+        "name_q": "edsa shangri-la tower wing",
+        "name_t": "tower wing edsa shangri-la",
+        "country_q": "PH",
+        "country_t": "PH",
+        "lat_q": "14.582228828956964",
+        "lon_q": "121.05623813422152",
+        "lat_t": "14.663147210326404",
+        "lon_t": "121.04439733018788"
+      },
+      {
+        "name_q": "butcher pasta & steak",
+        "name_t": "butcher | steak & pasta",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-2.9733648",
+        "lon_q": "104.771828",
+        "lat_t": "-2.977501301491205",
+        "lon_t": "104.74654798701155"
+      },
+      {
+        "name_q": "mrt guadalupe station",
+        "name_t": "guadalupe, mrt station",
+        "country_q": "PH",
+        "country_t": "PH",
+        "lat_q": "14.567533",
+        "lon_q": "121.045758",
+        "lat_t": "14.57810115814209",
+        "lon_t": "121.05025482177734"
+      },
+      {
+        "name_q": "stasiun surabaya gubeng",
+        "name_t": "stasiun gubeng surabaya",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-7.3509333",
+        "lon_q": "112.6865522",
+        "lat_t": "-7.344301295213988",
+        "lon_t": "112.72922814590056"
+      }
+    ],
+    "partial_overlap|diff_country_<10km": [
+      {
+        "name_q": "hard rock hotel macau, city of dreams.",
+        "name_t": "city of dreams hard rock",
+        "country_q": "CN",
+        "country_t": "MO",
+        "lat_q": "22.16636310186156",
+        "lon_q": "113.51864858042184",
+        "lat_t": "22.1958609789662",
+        "lon_t": "113.56050122972796"
+      },
+      {
+        "name_q": "universal singapore",
+        "name_t": "universal studios, singapore",
+        "country_q": "SG",
+        "country_t": "PH",
+        "lat_q": "1.2647495",
+        "lon_q": "103.821372",
+        "lat_t": "1.254250952653488",
+        "lon_t": "103.82296800613403"
+      },
+      {
+        "name_q": "promenade dolby atmos",
+        "name_t": "greenhills promenade dolby atmos cinema",
+        "country_q": "XX",
+        "country_t": "PH",
+        "lat_q": "14.6052836",
+        "lon_q": "121.0241278",
+        "lat_t": "14.602924457705774",
+        "lon_t": "121.05184905473516"
+      },
+      {
+        "name_q": "phuket international airport",
+        "name_t": "phuket international airport (hkt) thaa`aakaasyaanphuuekt",
+        "country_q": "SG",
+        "country_t": "TH",
+        "lat_q": "8.114146153242203",
+        "lon_q": "98.317551612854",
+        "lat_t": "8.107653574010712",
+        "lon_t": "98.30608798114626"
+      },
+      {
+        "name_q": "universal studios singapore",
+        "name_t": "universal studio singapore",
+        "country_q": "ID",
+        "country_t": "SG",
+        "lat_q": "-6.237131",
+        "lon_q": "106.719833",
+        "lat_t": "-6.198249365785548",
+        "lon_t": "106.7890011986803"
+      }
+    ],
+    "the_stopword_only|<1km": [
+      {
+        "name_q": "royal norwegian consulate general",
+        "name_t": "the royal norwegian consulate general",
+        "country_q": "US",
+        "country_t": "US",
+        "lat_q": "29.757321798061103",
+        "lon_q": "-95.4015095456024",
+        "lat_t": "29.76099709594252",
+        "lon_t": "-95.40230211285726"
+      },
+      {
+        "name_q": "grantsburg village office",
+        "name_t": "village of grantsburg office",
+        "country_q": "US",
+        "country_t": "US",
+        "lat_q": "45.77579879760742",
+        "lon_q": "-92.68000793457033",
+        "lat_t": "45.77706946131785",
+        "lon_t": "-92.6801680045424"
+      },
+      {
+        "name_q": "the boozy cow",
+        "name_t": "boozy cow",
+        "country_q": "GB",
+        "country_t": "GB",
+        "lat_q": "57.14775330603237",
+        "lon_q": "-2.095972654539227",
+        "lat_t": "57.142821",
+        "lon_t": "-2.108333"
+      },
+      {
+        "name_q": "the oaks at woodland park",
+        "name_t": "the oaks of woodland park",
+        "country_q": "US",
+        "country_t": "US",
+        "lat_q": "28.0259292",
+        "lon_q": "-82.5266946",
+        "lat_t": "28.02878857453864",
+        "lon_t": "-82.5245792517751"
+      },
+      {
+        "name_q": "the printing house",
+        "name_t": "printing house",
+        "country_q": "US",
+        "country_t": "US",
+        "lat_q": "40.72966426693549",
+        "lon_q": "-74.00687916538327",
+        "lat_t": "40.73807338164079",
+        "lon_t": "-74.00879005342539"
+      }
+    ],
+    "the_stopword_only|>=10km": [
+      {
+        "name_q": "kalimilk",
+        "name_t": "the kalimilk",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-7.760905",
+        "lon_q": "110.383708",
+        "lat_t": "-6.6016889",
+        "lon_t": "106.811483"
+      },
+      {
+        "name_q": "the dubai mall , dubai",
+        "name_t": "dubai mall",
+        "country_q": "AE",
+        "country_t": "AE",
+        "lat_q": "25.163542",
+        "lon_q": "55.211083",
+        "lat_t": "25.251504771718533",
+        "lon_t": "55.29484374312608"
+      },
+      {
+        "name_q": "the dubai mall",
+        "name_t": "dubai mall",
+        "country_q": "AE",
+        "country_t": "AE",
+        "lat_q": "25.10871464225852",
+        "lon_q": "55.17292301191916",
+        "lat_t": "24.996176",
+        "lon_t": "55.673975"
+      },
+      {
+        "name_q": "chip & pin",
+        "name_t": "the chip & pin",
+        "country_q": "GB",
+        "country_t": "GB",
+        "lat_q": "52.61621549641738",
+        "lon_q": "-1.1219447311033557",
+        "lat_t": "52.822751",
+        "lon_t": "-1.428782"
+      },
+      {
+        "name_q": "merlion",
+        "name_t": "the merlion",
+        "country_q": "SG",
+        "country_t": "SG",
+        "lat_q": "1.3902157",
+        "lon_q": "103.8767705",
+        "lat_t": "1.286906421390687",
+        "lon_t": "103.85435611180664"
+      }
+    ],
+    "different|diff_country_<1km": [
+      {
+        "name_q": "macau outer harbor ferry terminal",
+        "name_t": "ao men xin gang ao ma tou  7hao wei ",
+        "country_q": "CN",
+        "country_t": "MO",
+        "lat_q": "22.19626351816224",
+        "lon_q": "113.56017572068214",
+        "lat_t": "22.197194",
+        "lon_t": "113.560652"
+      },
+      {
+        "name_q": "urieunhaeng",
+        "name_t": "urieunhaeng (woori bank)",
+        "country_q": "XX",
+        "country_t": "KR",
+        "lat_q": "37.52411350452181",
+        "lon_q": "126.9046548962066",
+        "lat_t": "37.52596910910345",
+        "lon_t": "126.89660963302752"
+      },
+      {
+        "name_q": "sexshop b-1",
+        "name_t": "sexshop",
+        "country_q": "NL",
+        "country_t": "BE",
+        "lat_q": "51.307777553225534",
+        "lon_q": "3.3868577761214333",
+        "lat_t": "51.30975692766339",
+        "lon_t": "3.3845115842224405"
+      },
+      {
+        "name_q": "i wa fu u japanese food",
+        "name_t": "yan . ri ben liao li ",
+        "country_q": "MO",
+        "country_t": "CN",
+        "lat_q": "22.205851749323408",
+        "lon_q": "113.53873241172218",
+        "lat_t": "22.20651739231529",
+        "lon_t": "113.54153421159228"
+      },
+      {
+        "name_q": "bibseu (vips)",
+        "name_t": "vips olympic park",
+        "country_q": "KR",
+        "country_t": "XX",
+        "lat_q": "37.5266429388861",
+        "lon_q": "127.12271545171792",
+        "lat_t": "37.524249033169056",
+        "lon_t": "127.12921240610945"
+      }
+    ],
+    "token_reorder|<100m": [
+      {
+        "name_q": "gmo opticas",
+        "name_t": "opticas gmo",
+        "country_q": "PE",
+        "country_t": "PE",
+        "lat_q": "-12.111863136291504",
+        "lon_q": "-77.01154327392578",
+        "lat_t": "-12.111637482574444",
+        "lon_t": "-77.0119118038163"
+      },
+      {
+        "name_q": "agah mehmet kuafor",
+        "name_t": "mehmet agah kuafor",
+        "country_q": "TR",
+        "country_t": "TR",
+        "lat_q": "39.92238799694087",
+        "lon_q": "32.85423358657096",
+        "lat_t": "39.92235158479673",
+        "lon_t": "32.85416749934901"
+      },
+      {
+        "name_q": "tai cheong bakery tai chang bing jia ",
+        "name_t": "tai chang bing jia  tai cheong bakery",
+        "country_q": "SG",
+        "country_t": "SG",
+        "lat_q": "1.3027394551775209",
+        "lon_q": "103.8349486912714",
+        "lat_t": "1.302714",
+        "lon_t": "103.835213"
+      },
+      {
+        "name_q": "hotel jayakarta",
+        "name_t": "jayakarta hotel",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-6.146976166514018",
+        "lon_q": "106.81704552622172",
+        "lat_t": "-6.146929138339256",
+        "lon_t": "106.81725293360884"
+      },
+      {
+        "name_q": "nufo - chovatelske potreby",
+        "name_t": "chovatelske potreby nufo",
+        "country_q": "SK",
+        "country_t": "SK",
+        "lat_q": "48.68047326072655",
+        "lon_q": "17.364425456212793",
+        "lat_t": "48.680746647927",
+        "lon_t": "17.36459970474243"
+      }
+    ],
+    "the_stopword_only|<10km": [
+      {
+        "name_q": "the dubai mall , dubai",
+        "name_t": "dubai mall",
+        "country_q": "AE",
+        "country_t": "AE",
+        "lat_q": "25.163542",
+        "lon_q": "55.211083",
+        "lat_t": "25.19439990127468",
+        "lon_t": "55.2629266260693"
+      },
+      {
+        "name_q": "lisa a baird, do",
+        "name_t": "baird lisa do",
+        "country_q": "US",
+        "country_t": "US",
+        "lat_q": "42.101354",
+        "lon_q": "-80.079411",
+        "lat_t": "42.10569720000001",
+        "lon_t": "-80.1430183"
+      },
+      {
+        "name_q": "east herkimer fish and game club",
+        "name_t": "east herkimer fish & game club",
+        "country_q": "US",
+        "country_t": "US",
+        "lat_q": "43.013601279797136",
+        "lon_q": "-74.9514418146259",
+        "lat_t": "43.04514258749961",
+        "lon_t": "-74.95867898529845"
+      },
+      {
+        "name_q": "eat&eat (kota kasablanca)",
+        "name_t": "eat and eat kota kasablanca",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-6.225952957611927",
+        "lon_q": "106.8535060585995",
+        "lat_t": "-6.2417769",
+        "lon_t": "106.8536664"
+      },
+      {
+        "name_q": "mujigae bibimbab and casual korean food",
+        "name_t": "mujigae bibimbab & casual korean food",
+        "country_q": "ID",
+        "country_t": "ID",
+        "lat_q": "-6.28006",
+        "lon_q": "106.707458",
+        "lat_t": "-6.240007156073999",
+        "lon_t": "106.62918090820312"
+      }
+    ],
+    "the_stopword_only|<100m": [
+      {
+        "name_q": "the waterloo hotel",
+        "name_t": "waterloo hotel",
+        "country_q": "GB",
+        "country_t": "GB",
+        "lat_q": "53.79967455316636",
+        "lon_q": "-3.043687607168971",
+        "lat_t": "53.79916017",
+        "lon_t": "-3.0429922"
+      },
+      {
+        "name_q": "the crazy greek",
+        "name_t": "crazy greek",
+        "country_q": "US",
+        "country_t": "US",
+        "lat_q": "37.40303755974981",
+        "lon_q": "-77.67630872267047",
+        "lat_t": "37.40312993300099",
+        "lon_t": "-77.67657153289345"
+      },
+      {
+        "name_q": "savannah park central bbq",
+        "name_t": "bbq in savannah park central",
+        "country_q": "US",
+        "country_t": "US",
+        "lat_q": "28.4914",
+        "lon_q": "-81.410815",
+        "lat_t": "28.491309",
+        "lon_t": "-81.410781"
+      },
+      {
+        "name_q": "river buffet",
+        "name_t": "the river buffet",
+        "country_q": "US",
+        "country_t": "US",
+        "lat_q": "35.18078",
+        "lon_q": "-97.5007",
+        "lat_t": "35.180685666655705",
+        "lon_t": "-97.50085447306952"
+      },
+      {
+        "name_q": "the richmond",
+        "name_t": "richmond",
+        "country_q": "US",
+        "country_t": "US",
+        "lat_q": "38.90904936066153",
+        "lon_q": "-77.03852037239874",
+        "lat_t": "38.90908420085907",
+        "lon_t": "-77.038459"
+      }
+    ],
+    "token_reorder|diff_country_>=10km": [
+      {
+        "name_q": "schiphol amsterdam airport",
+        "name_t": "amsterdam airport schiphol",
+        "country_q": "TR",
+        "country_t": "NL",
+        "lat_q": "41.02671068934467",
+        "lon_q": "28.826454709614776",
+        "lat_t": "52.309122",
+        "lon_t": "4.762063"
+      },
+      {
+        "name_q": "plaza ambarukmo",
+        "name_t": "ambarukmo plaza",
+        "country_q": "ID",
+        "country_t": "US",
+        "lat_q": "-7.783340648184413",
+        "lon_q": "110.4005111614425",
+        "lat_t": "40.014863",
+        "lon_t": "-82.988677"
+      },
+      {
+        "name_q": "eiffel tour",
+        "name_t": "tour eiffel",
+        "country_q": "TR",
+        "country_t": "FR",
+        "lat_q": "39.95148693141903",
+        "lon_q": "32.57341637812282",
+        "lat_t": "48.84796142578125",
+        "lon_t": "2.336265087127685"
+      },
+      {
+        "name_q": "airport soekarno hatta",
+        "name_t": "soekarno hatta airport",
+        "country_q": "ID",
+        "country_t": "VN",
+        "lat_q": "-6.0843929",
+        "lon_q": "106.6439018",
+        "lat_t": "10.773557977323376",
+        "lon_t": "106.69777781900753"
+      },
+      {
+        "name_q": "soekarno hatta airport",
+        "name_t": "airport soekarno hatta",
+        "country_q": "VN",
+        "country_t": "ID",
+        "lat_q": "10.773557977323376",
+        "lon_q": "106.69777781900753",
+        "lat_t": "-6.1017959",
+        "lon_t": "106.9743222"
+      }
+    ],
+    "name_empty_after_canon|<1km": [
+      {
+        "name_q": ".....",
+        "name_t": "sabah magmurlugu cekiyorum",
+        "country_q": "TR",
+        "country_t": "TR",
+        "lat_q": "40.859799",
+        "lon_q": "29.282936",
+        "lat_t": "40.857253",
+        "lon_t": "29.278875"
+      },
+      {
+        "name_q": ".....",
+        "name_t": "guzelyali avm'ler sahili",
+        "country_q": "TR",
+        "country_t": "TR",
+        "lat_q": "40.859799",
+        "lon_q": "29.282936",
+        "lat_t": "40.85940027289792",
+        "lon_t": "29.27634258207205"
+      },
+      {
+        "name_q": "cok pis uykum geldi",
+        "name_t": ".....",
+        "country_q": "TR",
+        "country_t": "TR",
+        "lat_q": "40.857111",
+        "lon_q": "29.278907",
+        "lat_t": "40.859799",
+        "lon_t": "29.282936"
+      },
+      {
+        "name_q": ".....",
+        "name_t": "herhangi bi deniz kenari :)",
+        "country_q": "TR",
+        "country_t": "TR",
+        "lat_q": "40.859799",
+        "lon_q": "29.282936",
+        "lat_t": "40.85672396158662",
+        "lon_t": "29.27751135688234"
+      },
+      {
+        "name_q": ".....",
+        "name_t": "guzelyali sahili",
+        "country_q": "TR",
+        "country_t": "TR",
+        "lat_q": "40.859799",
+        "lon_q": "29.282936",
+        "lat_t": "40.8581834735785",
+        "lon_t": "29.27689860230478"
+      }
+    ],
+    "different|diff_country_<10km": [
+      {
+        "name_q": "'t zeetje",
+        "name_t": "north sea",
+        "country_q": "BE",
+        "country_t": "NO",
+        "lat_q": "51.189316",
+        "lon_q": "2.817851",
+        "lat_t": "51.25847731518399",
+        "lon_t": "2.9086303710937496"
+      },
+      {
+        "name_q": "u.s./canada border - detroit/windsor tunnel crossing",
+        "name_t": "the tunnel",
+        "country_q": "US",
+        "country_t": "CA",
+        "lat_q": "42.3240793894456",
+        "lon_q": "-83.04061442613602",
+        "lat_t": "42.315624",
+        "lon_t": "-83.036446"
+      },
+      {
+        "name_q": "north sea",
+        "name_t": "de noordzee",
+        "country_q": "NO",
+        "country_t": "BE",
+        "lat_q": "51.25847731518399",
+        "lon_q": "2.9086303710937496",
+        "lat_t": "51.2468776604934",
+        "lon_t": "2.9527321537840128"
+      },
+      {
+        "name_q": "seongmobyeongweonjangryesigjang",
+        "name_t": "gangnamseongmobyeongweon jangryesigjang",
+        "country_q": "XX",
+        "country_t": "KR",
+        "lat_q": "37.484637",
+        "lon_q": "127.011152",
+        "lat_t": "37.50198998451492",
+        "lon_t": "127.00537691752682"
+      },
+      {
+        "name_q": "republic of turkey",
+        "name_t": "kapikule",
+        "country_q": "BG",
+        "country_t": "TR",
+        "lat_q": "41.71704988072371",
+        "lon_q": "26.35137484521801",
+        "lat_t": "41.714466",
+        "lon_t": "26.367237"
+      }
+    ],
+    "different|diff_country_<100m": [
+      {
+        "name_q": "yungane gamjatang",
+        "name_t": "yunganegamjatang",
+        "country_q": "XX",
+        "country_t": "KR",
+        "lat_q": "37.58343",
+        "lon_q": "126.998203",
+        "lat_t": "37.583456",
+        "lon_t": "126.998105"
+      },
+      {
+        "name_q": "jin man dong gang hai xian huo guo ",
+        "name_t": "dong gang yu cun  tongkong fishing village",
+        "country_q": "CN",
+        "country_t": "MO",
+        "lat_q": "22.158654910299006",
+        "lon_q": "113.5587458037838",
+        "lat_t": "22.15803111830853",
+        "lon_t": "113.55909456432752"
+      },
+      {
+        "name_q": "room 510 m-suites hotel",
+        "name_t": "m suite hotel room 527",
+        "country_q": "MY",
+        "country_t": "SG",
+        "lat_q": "1.4652535435847025",
+        "lon_q": "103.73045244855707",
+        "lat_t": "1.4645337806984853",
+        "lon_t": "103.73021486966772"
+      },
+      {
+        "name_q": "beseukinrabinseu(yeongdeungpohompeulreoseu)",
+        "name_t": "baeseukinrabinseu (baskin-robbins)",
+        "country_q": "XX",
+        "country_t": "KR",
+        "lat_q": "37.51845169067383",
+        "lon_q": "126.89557647705078",
+        "lat_t": "37.51852660428764",
+        "lon_t": "126.8954647393274"
+      },
+      {
+        "name_q": "heng kei cafe xing ji ka pei shi ",
+        "name_t": "xing ji bing shi ",
+        "country_q": "CN",
+        "country_t": "MO",
+        "lat_q": "22.153258793463337",
+        "lon_q": "113.5573333214412",
+        "lat_t": "22.153609",
+        "lon_t": "113.557234"
+      }
+    ],
+    "identical|<100m": [
+      {
+        "name_q": "paris baguette",
+        "name_t": "paris baguette",
+        "country_q": "KR",
+        "country_t": "KR",
+        "lat_q": "37.5248403409458",
+        "lon_q": "127.0398740184607",
+        "lat_t": "37.52511151048568",
+        "lon_t": "127.03954696655272"
+      },
+      {
+        "name_q": "subway",
+        "name_t": "subway",
+        "country_q": "US",
+        "country_t": "US",
+        "lat_q": "47.70298004150391",
+        "lon_q": "-122.32535552978516",
+        "lat_t": "47.70263976121713",
+        "lon_t": "-122.3247238695544"
+      },
+      {
+        "name_q": "mercury drug",
+        "name_t": "mercury drug",
+        "country_q": "PH",
+        "country_t": "PH",
+        "lat_q": "15.480265588065848",
+        "lon_q": "120.59532097622628",
+        "lat_t": "15.48031679276242",
+        "lon_t": "120.59488534927368"
+      },
+      {
+        "name_q": "paris baguette",
+        "name_t": "paris baguette",
+        "country_q": "KR",
+        "country_t": "KR",
+        "lat_q": "37.45517893",
+        "lon_q": "127.150116",
+        "lat_t": "37.45481884659972",
+        "lon_t": "127.1503064647676"
+      },
+      {
+        "name_q": "shell",
+        "name_t": "shell",
+        "country_q": "US",
+        "country_t": "US",
+        "lat_q": "39.266788482666016",
+        "lon_q": "-76.49473571777344",
+        "lat_t": "39.266766191794886",
+        "lon_t": "-76.49503469467163"
+      }
+    ],
+    "name_empty_after_canon|<100m": [
+      {
+        "name_q": "gulbja kabinets",
+        "name_t": "$$$",
+        "country_q": "LV",
+        "country_t": "LV",
+        "lat_q": "56.950424",
+        "lon_q": "24.206348",
+        "lat_t": "56.95073892362416",
+        "lon_t": "24.20623655430973"
+      },
+      {
+        "name_q": "siniavinskaia sosh",
+        "name_t": "",
+        "country_q": "RU",
+        "country_t": "RU",
+        "lat_q": "59.90908761236011",
+        "lon_q": "31.07093049016328",
+        "lat_t": "59.908807",
+        "lon_t": "31.070748"
+      },
+      {
+        "name_q": "b213",
+        "name_t": "$$$",
+        "country_q": "LV",
+        "country_t": "LV",
+        "lat_q": "56.950526",
+        "lon_q": "24.207138",
+        "lat_t": "56.95073892362416",
+        "lon_t": "24.20623655430973"
+      },
+      {
+        "name_q": "$$$",
+        "name_t": "elle-zakes kabinets",
+        "country_q": "LV",
+        "country_t": "LV",
+        "lat_q": "56.95073892362416",
+        "lon_q": "24.20623655430973",
+        "lat_t": "56.9511616213098",
+        "lon_t": "24.20680566157234"
+      },
+      {
+        "name_q": "$$$",
+        "name_t": "rigas 84.vidusskola",
+        "country_q": "LV",
+        "country_t": "LV",
+        "lat_q": "56.95073892362416",
+        "lon_q": "24.20623655430973",
+        "lat_t": "56.950596",
+        "lon_t": "24.207312"
+      }
+    ],
+    "identical|diff_country_<10km": [
+      {
+        "name_q": "legoland malaysia",
+        "name_t": "legoland malaysia",
+        "country_q": "MY",
+        "country_t": "SG",
+        "lat_q": "1.424412",
+        "lon_q": "103.619274",
+        "lat_t": "1.348850036666901",
+        "lon_t": "103.63717311427962"
+      },
+      {
+        "name_q": "phuket international airport",
+        "name_t": "phuket international airport",
+        "country_q": "TH",
+        "country_t": "SG",
+        "lat_q": "8.117748",
+        "lon_q": "98.306973",
+        "lat_t": "8.114146153242203",
+        "lon_t": "98.317551612854"
+      },
+      {
+        "name_q": "dukagjini restaurant",
+        "name_t": "dukagjini restaurant",
+        "country_q": "RS",
+        "country_t": "XK",
+        "lat_q": "42.6590269475546",
+        "lon_q": "20.28962078156837",
+        "lat_t": "42.65951595076271",
+        "lon_t": "20.30456410100746"
+      },
+      {
+        "name_q": "mesara matijevic",
+        "name_t": "mesara matijevic",
+        "country_q": "XX",
+        "country_t": "RS",
+        "lat_q": "45.25402069091797",
+        "lon_q": "19.835844039916992",
+        "lat_t": "45.25203884301335",
+        "lon_t": "19.82088385858088"
+      },
+      {
+        "name_q": "wagha border",
+        "name_t": "wagha border",
+        "country_q": "PK",
+        "country_t": "IN",
+        "lat_q": "31.596666061405955",
+        "lon_q": "74.49947748956995",
+        "lat_t": "31.605967",
+        "lon_t": "74.58661"
+      }
+    ],
+    "identical|diff_country_<1km": [
+      {
+        "name_q": "saint-louis [f] / basel [ch]",
+        "name_t": "saint-louis [f] / basel [ch]",
+        "country_q": "CH",
+        "country_t": "FR",
+        "lat_q": "47.572525",
+        "lon_q": "7.556974",
+        "lat_t": "47.57791282224741",
+        "lon_t": "7.559693541941909"
+      },
+      {
+        "name_q": "starbucks",
+        "name_t": "starbucks",
+        "country_q": "SA",
+        "country_t": "BH",
+        "lat_q": "26.190395382487008",
+        "lon_q": "50.31095598024397",
+        "lat_t": "26.18644638761157",
+        "lon_t": "50.31688487019242"
+      },
+      {
+        "name_q": "paris baguette",
+        "name_t": "paris baguette",
+        "country_q": "KR",
+        "country_t": "XX",
+        "lat_q": "37.5491702549914",
+        "lon_q": "126.91368638626103",
+        "lat_t": "37.551084",
+        "lon_t": "126.915985"
+      },
+      {
+        "name_q": "jyoseuddeogboggi",
+        "name_t": "jyoseuddeogboggi",
+        "country_q": "XX",
+        "country_t": "KR",
+        "lat_q": "37.483196",
+        "lon_q": "127.096981",
+        "lat_t": "37.48789283601266",
+        "lon_t": "127.10181713104248"
+      },
+      {
+        "name_q": "jyoseuddeogboggi",
+        "name_t": "jyoseuddeogboggi",
+        "country_q": "XX",
+        "country_t": "KR",
+        "lat_q": "37.552713",
+        "lon_q": "126.995958",
+        "lat_t": "37.56150301935864",
+        "lon_t": "126.99612073618393"
+      }
+    ],
+    "partial_overlap|diff_country_<1km": [
+      {
+        "name_q": "monte-carlo",
+        "name_t": "hotel fairmont monte carlo",
+        "country_q": "MC",
+        "country_t": "FR",
+        "lat_q": "43.73943772099004",
+        "lon_q": "7.427844980047499",
+        "lat_t": "43.73958288507448",
+        "lon_t": "7.4298570112858755"
+      },
+      {
+        "name_q": "park",
+        "name_t": "jabotinsky park",
+        "country_q": "PS",
+        "country_t": "IL",
+        "lat_q": "32.10644867227223",
+        "lon_q": "35.19046667747637",
+        "lat_t": "32.10491230968787",
+        "lon_t": "35.19124502361166"
+      },
+      {
+        "name_q": "beauche sm megamall",
+        "name_t": "sm megamall a",
+        "country_q": "PH",
+        "country_t": "HK",
+        "lat_q": "14.58615",
+        "lon_q": "121.056352",
+        "lat_t": "14.585514715841468",
+        "lon_t": "121.0572338104248"
+      },
+      {
+        "name_q": "piazza san pietro, citta del vaticano",
+        "name_t": "piazza san pietro",
+        "country_q": "IT",
+        "country_t": "VA",
+        "lat_q": "41.90474792694186",
+        "lon_q": "12.446535660592248",
+        "lat_t": "41.90234417829851",
+        "lon_t": "12.457983770643024"
+      },
+      {
+        "name_q": "sm megamall piesa",
+        "name_t": "sm megamall a",
+        "country_q": "PH",
+        "country_t": "HK",
+        "lat_q": "14.583329",
+        "lon_q": "121.056339",
+        "lat_t": "14.585514715841468",
+        "lon_t": "121.0572338104248"
+      }
+    ],
+    "partial_overlap|diff_country_<100m": [
+      {
+        "name_q": "lugar de nos",
+        "name_t": "el lugar de nos",
+        "country_q": "US",
+        "country_t": "MX",
+        "lat_q": "32.56960801481115",
+        "lon_q": "-116.64527954037722",
+        "lat_t": "32.56950621445118",
+        "lon_t": "-116.6454407556143"
+      },
+      {
+        "name_q": "wen hua dong fang jiu dian ",
+        "name_t": "mandarin oriental macau wen hua dong fang jiu dian ",
+        "country_q": "CN",
+        "country_t": "MO",
+        "lat_q": "22.184025341017527",
+        "lon_q": "113.54742259793706",
+        "lat_t": "22.184283",
+        "lon_t": "113.547224"
+      },
+      {
+        "name_q": "dong nan ya te se mei shi ",
+        "name_t": "estabelecimento comidas tong nam a dong nan ya te se mei shi ",
+        "country_q": "CN",
+        "country_t": "MO",
+        "lat_q": "22.156366158819203",
+        "lon_q": "113.55528725039903",
+        "lat_t": "22.15663725674852",
+        "lon_t": "113.5551005601883"
+      },
+      {
+        "name_q": "south china sea",
+        "name_t": "laut cina selatan | south china sea",
+        "country_q": "PH",
+        "country_t": "XX",
+        "lat_q": "15.488092",
+        "lon_q": "114.404755",
+        "lat_t": "15.488092",
+        "lon_t": "114.404755"
+      },
+      {
+        "name_q": "gimbabnara",
+        "name_t": "gimbabnara namseongjeom",
+        "country_q": "KR",
+        "country_t": "XX",
+        "lat_q": "37.48494084713456",
+        "lon_q": "126.96986585855484",
+        "lat_t": "37.48521035422959",
+        "lon_t": "126.96966203501024"
+      }
+    ],
+    "the_stopword_only|diff_country_>=10km": [
+      {
+        "name_q": "the dubai mall",
+        "name_t": "dubai mall",
+        "country_q": "AE",
+        "country_t": "SA",
+        "lat_q": "25.130770889080715",
+        "lon_q": "55.17510644641132",
+        "lat_t": "24.790834",
+        "lon_t": "46.675084"
+      },
+      {
+        "name_q": "the atlantic ocean",
+        "name_t": "atlantic ocean",
+        "country_q": "CA",
+        "country_t": "ES",
+        "lat_q": "47.543993",
+        "lon_q": "-52.575458",
+        "lat_t": "39.2012271602448",
+        "lon_t": "-14.895984364575028"
+      },
+      {
+        "name_q": "the dubai mall",
+        "name_t": "dubai mall",
+        "country_q": "AE",
+        "country_t": "SA",
+        "lat_q": "25.196329",
+        "lon_q": "55.280912",
+        "lat_t": "24.790834",
+        "lon_t": "46.675084"
+      },
+      {
+        "name_q": "the dubai mall",
+        "name_t": "dubai mall",
+        "country_q": "EG",
+        "country_t": "TR",
+        "lat_q": "27.92608863020865",
+        "lon_q": "34.36540725281503",
+        "lat_t": "41.00393419484325",
+        "lon_t": "28.84061181386512"
+      },
+      {
+        "name_q": "the dubai mall",
+        "name_t": "dubai mall",
+        "country_q": "EG",
+        "country_t": "SA",
+        "lat_q": "27.92608863020865",
+        "lon_q": "34.36540725281503",
+        "lat_t": "24.73232",
+        "lon_t": "46.641126"
+      }
+    ],
+    "token_reorder|diff_country_<10km": [
+      {
+        "name_q": "universal studios, singapore",
+        "name_t": "singapore universal studios",
+        "country_q": "PH",
+        "country_t": "SG",
+        "lat_q": "1.254250952653488",
+        "lon_q": "103.82296800613403",
+        "lat_t": "1.2841171",
+        "lon_t": "103.8447808"
+      }
+    ],
+    "token_reorder|diff_country_<1km": [
+      {
+        "name_q": "mai dang lao  mcdonald's",
+        "name_t": "mcdonald's mai dang lao ",
+        "country_q": "HK",
+        "country_t": "CN",
+        "lat_q": "22.532695150697624",
+        "lon_q": "114.11344528198242",
+        "lat_t": "22.53624281622384",
+        "lon_t": "114.11320924758913"
+      }
+    ],
+    "the_stopword_only|diff_country_<10km": [
+      {
+        "name_q": "sm megamall",
+        "name_t": "sm megamall a",
+        "country_q": "PH",
+        "country_t": "HK",
+        "lat_q": "14.641542434692385",
+        "lon_q": "121.0403060913086",
+        "lat_t": "14.585514715841468",
+        "lon_t": "121.0572338104248"
+      }
+    ],
+    "token_reorder|diff_country_<100m": [
+      {
+        "name_q": "restaurant 456 si wu liu shang hai cai guan ",
+        "name_t": "si wu liu shang hai cai guan  restaurant 456",
+        "country_q": "CN",
+        "country_t": "MO",
+        "lat_q": "22.148541034133046",
+        "lon_q": "113.55958282873692",
+        "lat_t": "22.1488802180082",
+        "lon_t": "113.55879811787872"
+      }
+    ]
+  }
+}
