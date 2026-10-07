@@ -186,3 +186,89 @@ def canon_stats(
                     counts[field]["canon_empty_from_non_empty"] += 1
 
     return counts
+
+
+# ---------------------------------------------------------------------------
+# Legal-suffix stripping (control_v2 K4)
+# ---------------------------------------------------------------------------
+
+import json as _json_mod
+from functools import lru_cache
+
+_SUFFIX_CONFIG_PATH = (
+    __import__("pathlib").Path(__file__).resolve().parent.parent.parent
+    / "configs" / "legal_suffixes.json"
+)
+
+
+@lru_cache(maxsize=1)
+def _load_suffix_config() -> tuple[list[str], list[str], "re.Pattern"]:
+    """Load suffix list and build a compiled end-of-string regex.
+
+    Returns (and_aliases_canon, suffixes_canon, suffix_regex).
+    suffix_regex matches trailing suffix tokens at end of string.
+    """
+    try:
+        cfg = _json_mod.loads(_SUFFIX_CONFIG_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return ([], [], re.compile(r"$^"))  # never matches
+
+    and_aliases = [canonicalise(a) for a in cfg.get("and_aliases", [])]
+    suffixes = [canonicalise(s) for s in cfg.get("suffixes", [])]
+    # Sort longest first so multi-word suffixes match before their sub-terms
+    suffixes_sorted = sorted(suffixes, key=lambda s: len(s.split()), reverse=True)
+    # Build regex: one or more (space + suffix) occurrences at end of string
+    parts = [re.escape(s) for s in suffixes_sorted if s]
+    pattern = r"(?:\s+(?:" + "|".join(parts) + r"))+$" if parts else r"$^"
+    suffix_regex = re.compile(pattern)
+    return (and_aliases, suffixes_sorted, suffix_regex)
+
+
+def strip_legal_suffixes(text: str | None) -> str:
+    """Return the canonical name with UK legal-form suffixes removed.
+
+    Algorithm:
+    1. Apply standard canonicalisation (NFKD+ASCII+lower+strip-punct+collapse).
+    2. Replace any surviving and_alias tokens with 'and'.
+    3. Use a pre-compiled regex to strip all trailing suffix tokens in a loop
+       until no more match (handles stacked suffixes like "limited partnership").
+
+    Note: '&' is stripped as punctuation by canonicalise() before this
+    function sees it, so 'and_aliases' only helps when 'and' is spelled out.
+
+    Examples
+    --------
+    >>> strip_legal_suffixes("ACME LIMITED")      -> "acme"
+    >>> strip_legal_suffixes("BARCLAYS PLC")      -> "barclays"
+    >>> strip_legal_suffixes("BARCLAYS & CO LTD") -> "barclays"
+    >>> strip_legal_suffixes("LTD")               -> ""
+    >>> strip_legal_suffixes("")                  -> ""
+    """
+    canon = canonicalise(text)
+    if not canon:
+        return ""
+
+    and_aliases, _, suffix_regex = _load_suffix_config()
+
+    # Normalise any surviving and-alias tokens to 'and'
+    if and_aliases:
+        tokens = canon.split()
+        tokens = ["and" if t in and_aliases else t for t in tokens]
+        canon = " ".join(tokens)
+
+    # Strip all trailing suffix tokens; loop handles stacked suffixes.
+    # Also handle the degenerate case where the entire string is a suffix.
+    prev = None
+    while canon != prev:
+        prev = canon
+        canon = suffix_regex.sub("", canon).rstrip()
+        # Full-string-is-suffix: check if what remains is itself a suffix
+        if not canon:
+            break
+        # Check exact match (no leading space possible on remaining string)
+        _, suffixes_sorted, _ = _load_suffix_config()
+        if canon in set(suffixes_sorted):
+            canon = ""
+            break
+
+    return canon

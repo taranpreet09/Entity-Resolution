@@ -1,0 +1,21 @@
+{
+  "_comment": "UK legal-form suffix tokens to strip before name-matching (control_v2 K4). Applied after control canonicalisation (NFKD+ASCII+lowercase+strip-punct). Order matters: longer tokens before shorter (e.g. 'limited liability partnership' before 'limited'). The 'and_aliases' list normalises '&' and 'and' to the same token before suffix stripping.",
+  "version": "1.0",
+  "and_aliases": ["&"],
+  "suffixes": [
+    "community interest company",
+    "limited liability partnership",
+    "limited partnership",
+    "public limited company",
+    "societas europaea",
+    "investment trust",
+    "unit trust",
+    "cic",
+    "llp",
+    "lp",
+    "plc",
+    "ltd",
+    "limited",
+    "co"
+  ]
+}

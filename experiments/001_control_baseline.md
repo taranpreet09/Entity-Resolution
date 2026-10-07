@@ -234,3 +234,73 @@ All observations below are backed by the measured numbers above.
 | Primary splits | `data/processed/gleif_ch/primary_splits.json` |
 | Brand splits | `data/processed/gleif_ch/brand_splits.json` |
 | No-match queries | `data/processed/gleif_ch/no_match_queries.json` |
+
+
+---
+
+## Errata
+
+*Added 2026-10-07 as part of Phase 2b. The body of this document is unchanged.*
+
+### E1 — K4 is a swapped duplicate of K2 (structural defect)
+
+**What the document says:** "K4: `outward_code(postcode) | first_token(LegalName)`"
+and "K2 and K4 add no unique value beyond K1 and K3 at any G tested."
+
+**What is actually true:** K4 in control_v1 is `outward|first_token` while K2 is
+`first_token|outward`. Because both query and target use the same pattern, the bucket
+a query hits under K4 is exactly the set of targets whose first_token and outward_code
+match — the same set K2 finds. The keys are structurally symmetric; their values differ
+(e.g. `"EC1A|acme"` vs `"acme|EC1A"`) so they hash to different buckets and appear to
+produce different index entries, but the intersection with true pairs is identical. This
+is why K2 and K4 both show 0 unique candidate pairs and 0 unique true pairs in every G
+sweep. The claim in Observation 4 that "K2 and K4 add no unique value" is correct in
+its conclusion but the stated reason ("same bucket structure") was imprecise — the real
+reason is that both keys index the same (first_token, outward) joint distribution with
+swapped positions, which recovers the same true pairs.
+
+**Fix:** control_v2 replaces K4 with K4v2 = `strip_legal_suffixes(LegalName)` (no
+postcode), which recovers pairs where names differ only in legal-form suffix. See
+`experiments/001b_control_diagnostics.md` for v2 results.
+
+### E2 — Observation 2: "13.3 candidates per query median" is wrong
+
+**What the document says:** "G=50 is the practical operating point. It recovers 96.75 %
+of true pairs at 13.3 candidates per query median (p95=41)."
+
+**What is actually true:** The measured cpq median at G=50 is **6**, not 13.3. The
+figure 13.3 was the **mean** (total candidates ÷ queries with ≥1 candidate =
+130,629 ÷ ~9,800). The median and mean differ substantially because the distribution is
+right-skewed (most queries get 1–6 candidates; a small number get many more via K3).
+Both statistics are meaningful; neither alone is sufficient. Corrected: cpq median=6,
+mean≈13.3 (computed over queries with ≥1 candidate), p95=41.
+
+**Note on denominator for mean:** the denominator for cpq mean/median is queries that
+received at least one candidate, not all queries with true targets. See
+`docs/metrics.md` for the precise definition.
+
+### E3 — Observation 1: recall ceiling claim
+
+**What the document says:** "The control ceiling is 96.85 % recall (G=None). No
+gate-free exact-key matcher over name + postcode can exceed this with the current key
+set."
+
+**What is actually true:** 96.85 % is the v1 ceiling with keys K1–K4. The observation
+is correct for v1 but should be labelled "control_v1 ceiling." control_v2 with K4v2
+achieves a different (measured) ceiling; see `001b_control_diagnostics.md`.
+
+### E4 — git_commit was "untracked"
+
+The original run was executed before the repository was initialised. The git commit
+recorded in the ledger for run `1828c340-d12a-4bca-90d6-dcc5769a0a62` is `"untracked"`.
+The repository was initialised on 2026-10-07 and the code at that point was committed as
+`c805f600e4caa2a2c61be72b5bdc2fd808a71e99`. The v1 reproduction check (run
+`phase2b_v1_repro`) confirmed bit-identical metrics with that commit; the errata do not
+affect the numerical results of Experiment 001.
+
+### E5 — partial_recall "necessarily 0" explanation was incomplete
+
+The document states partial recall "is necessarily 0" because every val query has
+exactly one true target. This is correct but should be labelled "N/A" per the metric
+definition in `docs/metrics.md` rather than reported as a substantive result of 0.0.
+A value of 0.0 with one true target per query is a tautology, not a measurement.

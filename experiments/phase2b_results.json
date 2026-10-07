@@ -1,0 +1,542 @@
+{
+  "commit": "c805f600e4caa2a2c61be72b5bdc2fd808a71e99",
+  "all_v1_identical": true,
+  "v1_sweep": [
+    {
+      "gate_size": 10,
+      "recall": 0.966531,
+      "n_candidates": 34437,
+      "identical_to_001": true
+    },
+    {
+      "gate_size": 50,
+      "recall": 0.967546,
+      "n_candidates": 130629,
+      "identical_to_001": true
+    },
+    {
+      "gate_size": 200,
+      "recall": 0.968256,
+      "n_candidates": 321275,
+      "identical_to_001": true
+    },
+    {
+      "gate_size": 1000,
+      "recall": 0.968458,
+      "n_candidates": 549355,
+      "identical_to_001": true
+    },
+    {
+      "gate_size": null,
+      "recall": 0.968458,
+      "n_candidates": 685788,
+      "identical_to_001": true
+    }
+  ],
+  "v2_sweep": [
+    {
+      "gate_size": 10,
+      "recall": 0.9714,
+      "recall_ci_lo": 0.968465,
+      "recall_ci_hi": 0.974099,
+      "n_candidates": 34576,
+      "zero_candidate_rate": 0.013286,
+      "n_true_recovered": 9578
+    },
+    {
+      "gate_size": 50,
+      "recall": 0.972008,
+      "recall_ci_lo": 0.969285,
+      "recall_ci_hi": 0.974692,
+      "n_candidates": 130758,
+      "zero_candidate_rate": 0.006897,
+      "n_true_recovered": 9584
+    },
+    {
+      "gate_size": 200,
+      "recall": 0.972312,
+      "recall_ci_lo": 0.969614,
+      "recall_ci_hi": 0.975016,
+      "n_candidates": 321398,
+      "zero_candidate_rate": 0.004361,
+      "n_true_recovered": 9587
+    },
+    {
+      "gate_size": 1000,
+      "recall": 0.972414,
+      "recall_ci_lo": 0.969668,
+      "recall_ci_hi": 0.975097,
+      "n_candidates": 549476,
+      "zero_candidate_rate": 0.003448,
+      "n_true_recovered": 9588
+    },
+    {
+      "gate_size": null,
+      "recall": 0.972414,
+      "recall_ci_lo": 0.969668,
+      "recall_ci_hi": 0.975097,
+      "n_candidates": 685909,
+      "zero_candidate_rate": 0.003448,
+      "n_true_recovered": 9588
+    }
+  ],
+  "pk_v1_g50": {
+    "full_candidates": 130629,
+    "full_true_pairs_recovered": 9540,
+    "full_recall": 0.967546,
+    "per_key": {
+      "K1": {
+        "standalone_true_pairs": 9447,
+        "standalone_recall": 0.958114,
+        "standalone_candidates": 9546,
+        "leave_one_out_recall": 0.777688,
+        "leave_one_out_candidates": 128670,
+        "unique_true_pairs": 1872
+      },
+      "K2": {
+        "standalone_true_pairs": 7561,
+        "standalone_recall": 0.766836,
+        "standalone_candidates": 42622,
+        "leave_one_out_recall": 0.967546,
+        "leave_one_out_candidates": 130629,
+        "unique_true_pairs": 0
+      },
+      "K3": {
+        "standalone_true_pairs": 6207,
+        "standalone_recall": 0.629513,
+        "standalone_candidates": 110831,
+        "leave_one_out_recall": 0.966937,
+        "leave_one_out_candidates": 44682,
+        "unique_true_pairs": 6
+      },
+      "K4": {
+        "standalone_true_pairs": 7561,
+        "standalone_recall": 0.766836,
+        "standalone_candidates": 42622,
+        "leave_one_out_recall": 0.967546,
+        "leave_one_out_candidates": 130629,
+        "unique_true_pairs": 0
+      }
+    }
+  },
+  "pk_v1_gnone": {
+    "full_candidates": 685788,
+    "full_true_pairs_recovered": 9549,
+    "full_recall": 0.968458,
+    "per_key": {
+      "K1": {
+        "standalone_true_pairs": 9447,
+        "standalone_recall": 0.958114,
+        "standalone_candidates": 9546,
+        "leave_one_out_recall": 0.813793,
+        "leave_one_out_candidates": 684177,
+        "unique_true_pairs": 1525
+      },
+      "K2": {
+        "standalone_true_pairs": 7854,
+        "standalone_recall": 0.796552,
+        "standalone_candidates": 127987,
+        "leave_one_out_recall": 0.968458,
+        "leave_one_out_candidates": 685788,
+        "unique_true_pairs": 0
+      },
+      "K3": {
+        "standalone_true_pairs": 8024,
+        "standalone_recall": 0.813793,
+        "standalone_candidates": 679427,
+        "leave_one_out_recall": 0.967444,
+        "leave_one_out_candidates": 129758,
+        "unique_true_pairs": 10
+      },
+      "K4": {
+        "standalone_true_pairs": 7854,
+        "standalone_recall": 0.796552,
+        "standalone_candidates": 127987,
+        "leave_one_out_recall": 0.968458,
+        "leave_one_out_candidates": 685788,
+        "unique_true_pairs": 0
+      }
+    }
+  },
+  "pk_v2_g50": {
+    "full_candidates": 130758,
+    "full_true_pairs_recovered": 9584,
+    "full_recall": 0.972008,
+    "per_key": {
+      "K1": {
+        "standalone_true_pairs": 9447,
+        "standalone_recall": 0.958114,
+        "standalone_candidates": 9546,
+        "leave_one_out_recall": 0.972008,
+        "leave_one_out_candidates": 130758,
+        "unique_true_pairs": 0
+      },
+      "K2": {
+        "standalone_true_pairs": 7561,
+        "standalone_recall": 0.766836,
+        "standalone_candidates": 42622,
+        "leave_one_out_recall": 0.9714,
+        "leave_one_out_candidates": 114380,
+        "unique_true_pairs": 6
+      },
+      "K3": {
+        "standalone_true_pairs": 6207,
+        "standalone_recall": 0.629513,
+        "standalone_candidates": 110831,
+        "leave_one_out_recall": 0.9714,
+        "leave_one_out_candidates": 44811,
+        "unique_true_pairs": 6
+      },
+      "K4v2": {
+        "standalone_true_pairs": 9536,
+        "standalone_recall": 0.96714,
+        "standalone_candidates": 9733,
+        "leave_one_out_recall": 0.967546,
+        "leave_one_out_candidates": 130629,
+        "unique_true_pairs": 44
+      }
+    }
+  },
+  "pk_v2_gnone": {
+    "full_candidates": 685909,
+    "full_true_pairs_recovered": 9588,
+    "full_recall": 0.972414,
+    "per_key": {
+      "K1": {
+        "standalone_true_pairs": 9447,
+        "standalone_recall": 0.958114,
+        "standalone_candidates": 9546,
+        "leave_one_out_recall": 0.972414,
+        "leave_one_out_candidates": 685909,
+        "unique_true_pairs": 0
+      },
+      "K2": {
+        "standalone_true_pairs": 7854,
+        "standalone_recall": 0.796552,
+        "standalone_candidates": 127987,
+        "leave_one_out_recall": 0.972414,
+        "leave_one_out_candidates": 681159,
+        "unique_true_pairs": 0
+      },
+      "K3": {
+        "standalone_true_pairs": 8024,
+        "standalone_recall": 0.813793,
+        "standalone_candidates": 679427,
+        "leave_one_out_recall": 0.971602,
+        "leave_one_out_candidates": 129881,
+        "unique_true_pairs": 8
+      },
+      "K4v2": {
+        "standalone_true_pairs": 9536,
+        "standalone_recall": 0.96714,
+        "standalone_candidates": 9733,
+        "leave_one_out_recall": 0.968458,
+        "leave_one_out_candidates": 685788,
+        "unique_true_pairs": 39
+      }
+    }
+  },
+  "taxonomy_v1": {
+    "n_unrecovered": 311,
+    "n_q_postcode_missing": 1,
+    "n_same_outward_code": 86,
+    "pct_q_postcode_missing": 0.32,
+    "pct_same_outward": 27.65,
+    "category_counts": {
+      "g_postcode_mismatch": 178,
+      "e_substantial": 89,
+      "a_legal_suffix": 39,
+      "f_postcode_missing": 1,
+      "d_stopword": 1,
+      "c_reorder": 3
+    },
+    "tok_jaccard_mean": 0.304,
+    "tok_jaccard_median": 0.25,
+    "tri_jaccard_mean": 0.315,
+    "tri_jaccard_median": 0.233,
+    "examples": {
+      "g_postcode_mismatch": [
+        {
+          "query_name": "TRANSWORLD REAL ESTATE LIMITED",
+          "target_name": "BGG WORLD LIMITED",
+          "query_postcode": "CF10 1AL",
+          "target_postcode": "CF11 9LJ"
+        },
+        {
+          "query_name": "EIGHTON ESTATES LTD",
+          "target_name": "FORDIE ESTATES LIMITED",
+          "query_postcode": "PH1 5HQ",
+          "target_postcode": "EH2 4JS"
+        },
+        {
+          "query_name": "STELLAR FOOTBALL LIMITED",
+          "target_name": "CAA STELLAR LIMITED",
+          "query_postcode": "W2 2HH",
+          "target_postcode": "W1K 4HS"
+        },
+        {
+          "query_name": "CHARTCO LIMITED",
+          "target_name": "ONEOCEAN GROUP LIMITED",
+          "query_postcode": "EN3 7XQ",
+          "target_postcode": "EC3M 4BS"
+        },
+        {
+          "query_name": "AUDITWARE SYSTEMS LIMITED",
+          "target_name": "AML (TECH) LTD",
+          "query_postcode": "TN3 8EW",
+          "target_postcode": "TN4 8HH"
+        },
+        {
+          "query_name": "SHOOTING STAR CHASE",
+          "target_name": "SHOOTING STAR CHILDREN'S HOSPICES",
+          "query_postcode": "KT15 2UE",
+          "target_postcode": "TW12 3RA"
+        },
+        {
+          "query_name": "ACACIA MINING PLC",
+          "target_name": "BARRICK TZ LIMITED",
+          "query_postcode": "W1G 0QF",
+          "target_postcode": "WC2R 0EZ"
+        },
+        {
+          "query_name": "W.N. LINDSAY LIMITED",
+          "target_name": "WNL INVESTMENTS LIMITED",
+          "query_postcode": "EH33 1EJ",
+          "target_postcode": "EH3 7PE"
+        },
+        {
+          "query_name": "PROTIM SOLIGNUM LIMITED",
+          "target_name": "KOPPERS PERFORMANCE CHEMICALS UK LIMITED",
+          "query_postcode": "SL7 1LS",
+          "target_postcode": "DL1 4QA"
+        },
+        {
+          "query_name": "Burrells Accountancy Limited",
+          "target_name": "HERITAGE TAX AND FINANCIAL CONSULTANCY LIMITED",
+          "query_postcode": "PE31 6YL",
+          "target_postcode": "NR6 5DR"
+        }
+      ],
+      "e_substantial": [
+        {
+          "query_name": "TEXTHELP LTD.",
+          "target_name": "EVERWAY OPCO LIMITED",
+          "query_postcode": "BT41 2RU",
+          "target_postcode": "BT41 2RU"
+        },
+        {
+          "query_name": "OAKHILL RISK MANAGEMENT LIMITED",
+          "target_name": "RSL NO.55 LIMITED",
+          "query_postcode": "EC3V 0XL",
+          "target_postcode": "EC3V 0XL"
+        },
+        {
+          "query_name": "BROOKFIELD RENEWABLE UK HYDRO II LIMITED",
+          "target_name": "CDP RENEWABLE UK HYDRO II LIMITED",
+          "query_postcode": "W1F 9QZ",
+          "target_postcode": "W1F 9QZ"
+        },
+        {
+          "query_name": "SDB1 LTD",
+          "target_name": "EVOLUTION FUNDING GROUP LIMITED",
+          "query_postcode": "S41 9AZ",
+          "target_postcode": "S41 9AZ"
+        },
+        {
+          "query_name": "SPUN GOLD TV LIMITED",
+          "target_name": "53 DEGREES GLOBAL LIMITED",
+          "query_postcode": "L3 9DD",
+          "target_postcode": "L3 9DD"
+        },
+        {
+          "query_name": "B&B PROPERTY DEVELOPERS LTD",
+          "target_name": "AVENTAS HOLDINGS LIMITED",
+          "query_postcode": "CF83 3HU",
+          "target_postcode": "CF83 3HU"
+        },
+        {
+          "query_name": "KAMPA UK LTD",
+          "target_name": "DOMETIC UK AWNINGS LTD",
+          "query_postcode": "CM8 3EU",
+          "target_postcode": "CM8 3EU"
+        },
+        {
+          "query_name": "G V HEALTH LIMITED",
+          "target_name": "GV HEALTH LIMITED",
+          "query_postcode": "SG1 2FS",
+          "target_postcode": "SG1 2FS"
+        },
+        {
+          "query_name": "UNISON ENGINE COMPONENTS LIMITED",
+          "target_name": "PARADIGM PRECISION BURNLEY LTD",
+          "query_postcode": "BB11 5TG",
+          "target_postcode": "BB11 5TG"
+        },
+        {
+          "query_name": "Bridge UK Properties 3, LP",
+          "target_name": "HAMMERSMITH UK PROPERTIES 3, LP",
+          "query_postcode": "W1S 4PP",
+          "target_postcode": "W1S 3DG"
+        }
+      ],
+      "a_legal_suffix": [
+        {
+          "query_name": "PLANT IMPACT PLC",
+          "target_name": "PLANT IMPACT LIMITED",
+          "query_postcode": "AL5 2JQ",
+          "target_postcode": "DN14 9AA"
+        },
+        {
+          "query_name": "STONEGATE PUB COMPANY FINANCING PLC",
+          "target_name": "STONEGATE PUB COMPANY FINANCING LIMITED",
+          "query_postcode": "LU1 3LS",
+          "target_postcode": "B90 4SJ"
+        },
+        {
+          "query_name": "UK GREEN INVESTMENT BANK PLC",
+          "target_name": "UK GREEN INVESTMENT BANK LIMITED",
+          "query_postcode": "EH3 8EX",
+          "target_postcode": "EH2 1JX"
+        },
+        {
+          "query_name": "POWER HOUSE ENGINEERING LTD",
+          "target_name": "POWER HOUSE ENGINEERING LIMITED",
+          "query_postcode": "NG13 8GG",
+          "target_postcode": "NG2 6AX"
+        },
+        {
+          "query_name": "LOOKERS PLC",
+          "target_name": "LOOKERS LIMITED",
+          "query_postcode": "WA14 5XS",
+          "target_postcode": "ST4 4GU"
+        },
+        {
+          "query_name": "VARIOTEC (ST ALBANS)LTD",
+          "target_name": "VARIOTEC (ST ALBANS) LIMITED",
+          "query_postcode": "AL1 5UG",
+          "target_postcode": "MK12 5NN"
+        },
+        {
+          "query_name": "NUGGET CAPITAL PLC",
+          "target_name": "NUGGET CAPITAL LIMITED",
+          "query_postcode": "EC4A 4AB",
+          "target_postcode": "HA4 8AW"
+        },
+        {
+          "query_name": "GAME DIGITAL PLC",
+          "target_name": "GAME DIGITAL LIMITED",
+          "query_postcode": "RG21 6YJ",
+          "target_postcode": "NG20 8RY"
+        },
+        {
+          "query_name": "DESTINY PHARMA PLC",
+          "target_name": "DESTINY PHARMA LIMITED",
+          "query_postcode": "BN1 9SB",
+          "target_postcode": "WC2N 6NJ"
+        },
+        {
+          "query_name": "MOWRU LIMITED",
+          "target_name": "MOWRU LTD",
+          "query_postcode": "FY3 8LZ",
+          "target_postcode": "FY5 4JZ"
+        }
+      ],
+      "f_postcode_missing": [
+        {
+          "query_name": "TL PROPERTIES LTD",
+          "target_name": "T L PROPERTIES LIMITED",
+          "query_postcode": "LUI2NQR",
+          "target_postcode": "LU1 2NQ"
+        }
+      ],
+      "d_stopword": [
+        {
+          "query_name": "WEST END GARAGE (BRUTON) LIMITED",
+          "target_name": "THE WEST END GARAGE (BRUTON) LIMITED",
+          "query_postcode": "BA10 0NL",
+          "target_postcode": "BA10 0NL"
+        }
+      ],
+      "c_reorder": [
+        {
+          "query_name": "THE UNITED REFORMED CHURCH (SOUTH WESTERN SYNOD) INCORPORATED",
+          "target_name": "UNITED REFORMED CHURCH (SOUTH WESTERN SYNOD) INCORPORATED(THE)",
+          "query_postcode": "TA2 6RU",
+          "target_postcode": "TA1 3PF"
+        },
+        {
+          "query_name": "ROYAL COLLEGE OF NURSING OF THE UNITED KINGDOM",
+          "target_name": "ROYAL COLLEGE OF NURSING OF THE UNITED KINGDOM (THE)",
+          "query_postcode": "W1G 0RN",
+          "target_postcode": ""
+        },
+        {
+          "query_name": "THE FRENCH GARDEN LIMITED",
+          "target_name": "FRENCH GARDEN LIMITED(THE)",
+          "query_postcode": "SW8 5JJ",
+          "target_postcode": "SW8 5EQ"
+        }
+      ]
+    }
+  },
+  "no_match": {
+    "n_no_match": 12424,
+    "ra_code_counts": {
+      "RA000585": 12074,
+      "RA000587": 309,
+      "RA000586": 41
+    },
+    "entity_status_counts": {
+      "INACTIVE": 12140,
+      "ACTIVE": 259,
+      "NULL": 25
+    },
+    "id_format_counts": {
+      "EMPTY": 12424
+    },
+    "k1_name_collision_count": 343,
+    "k1_name_collision_pct": 2.76
+  },
+  "gleif_stats": {
+    "gleif_golden_copy_date": "2026-10-05 08:00:00",
+    "gleif_announced_record_count": 3451660,
+    "gleif_file_rows_decompressed": 1524435,
+    "gleif_coverage_pct": 44.2,
+    "gb_ra_code_counts_in_file": {
+      "RA000585": 73773,
+      "RA000587": 3287,
+      "RA000586": 752
+    },
+    "gb_entity_status_counts": {
+      "ACTIVE": 65215,
+      "INACTIVE": 12467,
+      "NULL": 130
+    }
+  },
+  "n_val_true": 9860,
+  "taxonomy_v2_counts": {
+    "g_postcode_mismatch": 178,
+    "e_substantial": 89,
+    "f_postcode_missing": 1,
+    "d_stopword": 1,
+    "c_reorder": 3
+  },
+  "taxonomy_v2_summary": {
+    "n_unrecovered": 272,
+    "n_q_postcode_missing": 1,
+    "n_same_outward_code": 86,
+    "pct_q_postcode_missing": 0.37,
+    "pct_same_outward": 31.62,
+    "category_counts": {
+      "g_postcode_mismatch": 178,
+      "e_substantial": 89,
+      "f_postcode_missing": 1,
+      "d_stopword": 1,
+      "c_reorder": 3
+    },
+    "tok_jaccard_mean": 0.267,
+    "tok_jaccard_median": 0.2,
+    "tri_jaccard_mean": 0.269,
+    "tri_jaccard_median": 0.194
+  }
+}

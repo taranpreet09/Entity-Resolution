@@ -61,16 +61,20 @@ from ber.canon.normalise import (
     first_n_chars,
     outward_code,
     postcode_district,
+    strip_legal_suffixes,
 )
 
 # ---------------------------------------------------------------------------
 # Configuration
 # ---------------------------------------------------------------------------
 
-ALL_KEY_NAMES = ["K1", "K2", "K3", "K4"]
+ALL_KEY_NAMES = ["K1", "K2", "K3", "K4"]  # control_v1 keys
+
+# control_v2 replaces K4 with a legal-suffix-stripped name key (no postcode)
+ALL_KEY_NAMES_V2 = ["K1", "K2", "K3", "K4v2"]
 
 # Channel bitmask: bit i corresponds to KEY_NAMES[i]
-KEY_BIT = {name: (1 << i) for i, name in enumerate(ALL_KEY_NAMES)}
+KEY_BIT = {name: (1 << i) for i, name in enumerate(ALL_KEY_NAMES + ["K4v2"])}
 
 
 @dataclass
@@ -83,27 +87,52 @@ class BlockingConfig:
         Maximum bucket size.  Buckets larger than this are dropped.
         None means no gate (all buckets retained regardless of size).
     keys:
-        Which keys to activate.  Defaults to all four.
+        Which keys to activate.  Use ALL_KEY_NAMES for control_v1 (default)
+        or ALL_KEY_NAMES_V2 for control_v2.
+    version:
+        "v1" or "v2" — controls which key-extraction functions are used.
     """
     gate_size: int | None = 50
     keys: list[str] = field(default_factory=lambda: list(ALL_KEY_NAMES))
+    version: str = "v1"
 
     def __post_init__(self) -> None:
-        unknown = set(self.keys) - set(ALL_KEY_NAMES)
+        valid = set(ALL_KEY_NAMES + ALL_KEY_NAMES_V2)
+        unknown = set(self.keys) - valid
         if unknown:
             raise ValueError(f"Unknown blocking key(s): {unknown}. "
-                             f"Valid: {ALL_KEY_NAMES}")
+                             f"Valid: {sorted(valid)}")
 
 
 # ---------------------------------------------------------------------------
-# Key extraction helpers
+# Key extraction helpers — control_v1
 # ---------------------------------------------------------------------------
 
 def _query_keys(raw_fields: dict[str, str]) -> dict[str, str]:
-    """Compute all blocking key values for a GLEIF query record."""
+    """Compute all v1 blocking key values for a GLEIF query record."""
     name = raw_fields.get("LegalName", "")
     # Use legal address postcode; fall back to HQ postcode
     postcode = raw_fields.get("LegalAddr_PostCode", "") or raw_fields.get("HQAddr_PostCode", "")
+
+    canon_name = canonicalise(name)
+    tok = first_token(name)
+    f3 = first_n_chars(name, 3)
+    out = outward_code(postcode)
+    dist = postcode_district(postcode)
+
+    return {
+        "K1": canon_name,
+        "K2": f"{tok}|{out}" if tok and out else "",
+        "K3": f"{f3}|{dist}" if f3 and dist else "",
+        # v1 K4: swapped duplicate of K2 — kept unchanged for v1 reproducibility
+        "K4": f"{out}|{tok}" if out and tok else "",
+    }
+
+
+def _target_keys(raw_fields: dict[str, str]) -> dict[str, str]:
+    """Compute all v1 blocking key values for a CH target record."""
+    name = raw_fields.get("CompanyName", "")
+    postcode = raw_fields.get("RegAddress.PostCode", "")
 
     canon_name = canonicalise(name)
     tok = first_token(name)
@@ -119,8 +148,36 @@ def _query_keys(raw_fields: dict[str, str]) -> dict[str, str]:
     }
 
 
-def _target_keys(raw_fields: dict[str, str]) -> dict[str, str]:
-    """Compute all blocking key values for a CH target record."""
+# ---------------------------------------------------------------------------
+# Key extraction helpers — control_v2
+# ---------------------------------------------------------------------------
+
+def _query_keys_v2(raw_fields: dict[str, str]) -> dict[str, str]:
+    """Compute all v2 blocking key values for a GLEIF query record.
+
+    K4v2 = canon(strip_legal_suffixes(LegalName)) — no postcode.
+    This key fires when two names differ only in legal-form suffix.
+    """
+    name = raw_fields.get("LegalName", "")
+    postcode = raw_fields.get("LegalAddr_PostCode", "") or raw_fields.get("HQAddr_PostCode", "")
+
+    canon_name = canonicalise(name)
+    tok = first_token(name)
+    f3 = first_n_chars(name, 3)
+    out = outward_code(postcode)
+    dist = postcode_district(postcode)
+    stripped = strip_legal_suffixes(name)
+
+    return {
+        "K1": canon_name,
+        "K2": f"{tok}|{out}" if tok and out else "",
+        "K3": f"{f3}|{dist}" if f3 and dist else "",
+        "K4v2": stripped,  # no postcode component
+    }
+
+
+def _target_keys_v2(raw_fields: dict[str, str]) -> dict[str, str]:
+    """Compute all v2 blocking key values for a CH target record."""
     name = raw_fields.get("CompanyName", "")
     postcode = raw_fields.get("RegAddress.PostCode", "")
 
@@ -129,12 +186,13 @@ def _target_keys(raw_fields: dict[str, str]) -> dict[str, str]:
     f3 = first_n_chars(name, 3)
     out = outward_code(postcode)
     dist = postcode_district(postcode)
+    stripped = strip_legal_suffixes(name)
 
     return {
         "K1": canon_name,
         "K2": f"{tok}|{out}" if tok and out else "",
         "K3": f"{f3}|{dist}" if f3 and dist else "",
-        "K4": f"{out}|{tok}" if out and tok else "",
+        "K4v2": stripped,
     }
 
 
@@ -179,6 +237,16 @@ class ControlBlocker:
     # Indexing
     # ------------------------------------------------------------------
 
+    def _get_key_fns(self):
+        """Return (query_key_fn, target_key_fn) based on config.version."""
+        if self.version == "v2":
+            return _query_keys_v2, _target_keys_v2
+        return _query_keys, _target_keys
+
+    @property
+    def version(self) -> str:
+        return self.config.version
+
     def index_targets(self, target_records: list[dict[str, Any]]) -> None:
         """Build the blocking index from target (CH) records.
 
@@ -190,6 +258,7 @@ class ControlBlocker:
         target_records:
             Each dict must have keys: record_id, raw_fields (JSON string or dict).
         """
+        _, target_key_fn = self._get_key_fns()
         for rec in target_records:
             tid = rec["record_id"]
             raw = rec["raw_fields"]
@@ -200,7 +269,7 @@ class ControlBlocker:
                     raw = {}
             self._target_raw[tid] = raw
 
-            keys = _target_keys(raw)
+            keys = target_key_fn(raw)
             for key_name in self.config.keys:
                 val = keys.get(key_name, "")
                 if val:
@@ -259,7 +328,8 @@ class ControlBlocker:
                     "CompanyName": company_name or "",
                     "RegAddress.PostCode": postcode or "",
                 }
-                keys = _target_keys(raw_fields)
+                _, target_key_fn = self._get_key_fns()
+                keys = target_key_fn(raw_fields)
                 for key_name in self.config.keys:
                     val = keys.get(key_name, "")
                     if val:
@@ -283,7 +353,8 @@ class ControlBlocker:
         gate_size:
             The new gate size (None = no gate).
         """
-        new_config = BlockingConfig(gate_size=gate_size, keys=list(self.config.keys))
+        new_config = BlockingConfig(gate_size=gate_size, keys=list(self.config.keys),
+                                    version=self.config.version)
         sibling = ControlBlocker(new_config)
         # Share the index (read-only from here on)
         sibling._index = self._index
@@ -357,6 +428,8 @@ class ControlBlocker:
         # Per-key: which pairs did this key uniquely produce?
         key_pairs: dict[str, set[tuple[str, str]]] = {k: set() for k in self.config.keys}
 
+        query_key_fn, _ = self._get_key_fns()
+
         for rec in query_records:
             qid = rec["record_id"]
             raw = rec["raw_fields"]
@@ -366,7 +439,7 @@ class ControlBlocker:
                 except Exception:
                     raw = {}
 
-            q_keys = _query_keys(raw)
+            q_keys = query_key_fn(raw)
 
             for key_name in self.config.keys:
                 bit = KEY_BIT[key_name]
