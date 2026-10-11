@@ -215,3 +215,37 @@ The following pre-registration commitments cover the next phase of retrieval cha
 ## 11. Test Split Status
 
 **The test split has not been evaluated in this or any prior experiment.** It is sealed per project rules. Val split used for all reported metrics above.
+
+---
+
+## 12. Errata & Addendum (Phase 3a Step 1)
+
+**Date:** 2026-10-07  
+**Commit:** `d2aab21`  
+
+### Errata E1: Executive Summary & B9 Residual Clarifications
+1. **Executive Summary Number Corrections:**
+   - Identical-name share in the B9 train residual ($G=50$) is **9.3 %** (43,280 / 464,595 unrecovered pairs).
+   - Different-name share within 10 km (same country $<100\text{ m}$, $<1\text{ km}$, $<10\text{ km}$) is **226,285 pairs (48.7 %)** ($70,964 + 79,947 + 75,374$).
+   - The unverified claims of "15.3%" and "30.7%" are removed and replaced by these measured totals.
+2. **Key Limitation Phrasing:** The phrase "unrecoverable by any surface-form blocking key" is replaced by the exact empirical statement: **"unrecoverable by the exact control keys tested (K1–K5)"**.
+3. **B9 Residual Scope Definition:** The B9 train residual is evaluated relative to **$G=50$ retrieval** (a mixture of gate truncation loss and no-shared-key loss).
+
+### Errata E2: Ungated (G=None) Residual Analysis on 100k Train Sample
+To isolate no-shared-key loss from gate truncation loss without triggering RAM limits on full train retrieval, an ungated $G=\text{None}$ retrieval was evaluated on a fixed random 100,000-query train sample (seed 42, $N_{\text{sample\_true\_pairs}} = 84,627$).
+
+| Name Relation Class | Unrecovered Pairs ($G=\text{None}$) | Share of Residual | Note / Comparison to $G=50$ |
+|---|---|---|---|
+| **different** | 39,365 | 74.35 % | Dominant no-shared-key loss category |
+| **partial_overlap** | 12,273 | 23.18 % | Target for IDF / n-gram retrieval |
+| **identical** | 614 | 1.16 % | Drops from 9.3% at G=50 to 1.16% at G=None |
+| **token_reorder** | 496 | 0.94 % | Target for un-ordered token retrieval |
+| **the_stopword_only** | 186 | 0.35 % | Target for stopword-insensitive retrieval |
+| **name_empty_after_canon** | 10 | 0.02 % | Hard canonicalization loss |
+| **Total Unrecovered ($G=\text{None}$)** | **52,944** | **100.00 %** | **62.56 % of total sample true pairs** |
+
+**Gate Loss vs. No-Shared-Key Loss Decomposition:**
+- **No-shared-key loss ($G=\text{None}$):** 62.56 % of true pairs share no key across K1..K5.
+- **Gate truncation loss ($G=50$ vs $G=\text{None}$):** ~6.54 % of true pairs are lost solely due to $G=50$ size gating.
+- Identical-name true pairs drop from **9.3 %** at $G=50$ to **1.16 %** at $G=\text{None}$, confirming that almost all identical-name misses at $G=50$ are size-gating truncation losses on large global chains (e.g. Starbucks, McDonald's).
+
