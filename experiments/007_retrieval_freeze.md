@@ -4,6 +4,8 @@
 **Parent:** Experiment 006 (`experiments/006_retrieval_consolidation.md`)  
 **Date:** 2026-10-12  
 **Active Branch:** `phase-4c`  
+**Git Commit:** `0870481c8122edebdecb6e2327a652880a5c9299`  
+**Run ID:** `1e3ba037-dc2e-4f6d-b818-f606a95856d8`  
 **Configuration File:** `configs/retrieval_frozen.yaml`  
 **Configuration SHA-256:** `17971dce7cad701786ce2317fc9a1c201880d98975bca78164e309ea25351601`  
 **Evaluated Splits:** Canonical 150k table (`coordinates.parquet`). Design & selection strictly on fixed 100k Train sample (seed 42, $N=54{,}375$ pairs) and 20k train subsample ($N=10{,}531$ pairs); final verification once on Validation split ($N=17{,}916$ pairs / $35{,}832$ slots). **Test split strictly sealed.**
