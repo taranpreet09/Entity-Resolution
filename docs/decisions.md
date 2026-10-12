@@ -139,3 +139,30 @@ entry.**  Every call to `start_run()` in `ber.eval.ledger` records a
 `config_hash` (SHA-256 of the serialised config), `git_commit`, `seed`, and
 `dataset+version` before any metrics are logged.  This prevents post-hoc
 cherry-picking of results.
+
+---
+
+## ADR-007: Canonical Dev Corpus for Foursquare Deduplication
+
+**Date:** 2026-10-12  
+**Status:** Accepted
+
+### Context
+
+Experiments 001–005 and initial validation runs evaluated recall against the full 1.14M-row Kaggle Foursquare deduplication corpus (`data/processed/foursquare/train.csv`, true-pair denominator $123{,}067$ pairs / $169{,}452$ val queries). That full processed file was an ephemeral artifact generated during earlier phases and is no longer preserved on disk.
+
+The preserved raw coordinate dataset is `ber/data/raw/foursquare_kaggle/coordinates.parquet` (150,000 records, columns: `id`, `name`, `latitude`, `longitude`, `address`, `city`, `state`, `zip`, `country`, `url`, `phone`, `categories`, `point_of_interest`).
+
+Using the deterministic entity-disjoint splitter (70/15/15, seed 42) from ADR-005:
+- **Train split:** 105,311 records ($87{,}261$ true pairs). Fixed 100k train sample (seed 42): 100,000 records ($54{,}375$ true pairs).
+- **Validation split:** 22,373 records ($17{,}916$ true pairs / $35{,}832$ directed true slots).
+- **Test split:** 22,316 records ($18{,}195$ true pairs) — strictly sealed.
+
+### Decision
+
+Declare `ber/data/raw/foursquare_kaggle/coordinates.parquet` (150,000 records) as the **canonical development and evaluation corpus** for all BER work from Phase 4c onward.
+
+All candidate stores, freeze gates, retrieval sweeps, loss ledgers, and final comparisons must use this canonical table and its canonical validation denominator ($17{,}916$ undirected true pairs / $35{,}832$ directed true slots).
+
+Earlier full-val recall numbers (denominator $123{,}067$) are unpreserved and cannot be directly compared in absolute terms to numbers evaluated on the 150k canonical corpus. However, relative channel ordering, incremental-yield rules, and trade-off frontiers remain empirically consistent.
+

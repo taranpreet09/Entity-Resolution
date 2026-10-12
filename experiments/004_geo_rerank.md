@@ -117,4 +117,8 @@ In Phase 3c, the pool ceiling was empirically measured on a fixed 20k-query subs
 4. **Renamed Venues Count Correction:** Full 100k train sample contains **24,656** different-name true pairs within 5 km (3,259 / 4,762 was 20k subsample). G1 recovers $16{,}904 / 24{,}656$ (**68.56%**). Proximity recovery is name-independent and governed strictly by distance.
 5. **Distance Ceiling:** **8,904 of 54,375 true pairs (16.37%)** are separated by $>5\text{ km}$ across all name categories (~16.1% to 17.1%).
 
+### E4. Phase 4c Data Basis Erratum (Appended 2026-10-12)
+> **DATA BASIS ERRATUM:** All full-val recall numbers in this report (denominator 123,067) were evaluated on the 1.14M-row Kaggle corpus, which is no longer preserved on disk. All subsequent development, candidate stores, and final comparisons use the canonical 150k table (`coordinates.parquet`, val denominator 17,916 pairs / 35,832 directed slots). Absolute recalls across the two corpora are NOT comparable; relative channel orderings and incremental-yield conclusions are preserved.
+
+
 

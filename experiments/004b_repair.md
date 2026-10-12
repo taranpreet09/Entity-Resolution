@@ -139,3 +139,9 @@ A total of **8,904 out of 54,375 true pairs (16.37%)** are separated by $> 5\tex
 
 This 16.37% represents the hard theoretical ceiling for any retrieval channel restricted to $R \le 5\text{ km}$. Bridging this gap requires lexical or postal channels (such as Channel G3).
 
+---
+
+## 7. Phase 4c Data Basis Erratum (Appended 2026-10-12)
+
+> **DATA BASIS ERRATUM:** All full-val recall numbers in this report (denominator 123,067) were evaluated on the 1.14M-row Kaggle corpus, which is no longer preserved on disk. All subsequent development, candidate stores, and final comparisons use the canonical 150k table (`coordinates.parquet`, val denominator 17,916 pairs / 35,832 directed slots). Absolute recalls across the two corpora are NOT comparable; relative channel orderings and incremental-yield conclusions are preserved.
+

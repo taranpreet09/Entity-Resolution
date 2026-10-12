@@ -1,0 +1,366 @@
+{
+  "subsample_n": 20000,
+  "true_pair_denom": 10531,
+  "configs": {
+    "G1 (K=4)": {
+      "name": "G1 (K=4)",
+      "total_cands": 79910,
+      "cpq": 3.9955,
+      "hits": 2911,
+      "recall": 0.27642199221346503,
+      "name_recall": {
+        "identical": 0.28693790149892934,
+        "partial_overlap": 0.27289244186046513,
+        "token_reorder": 0.2807017543859649,
+        "different": 0.27477556768174616,
+        "empty": 0.3
+      },
+      "name_counts": {
+        "identical": "402/1401",
+        "partial_overlap": "751/2752",
+        "token_reorder": "176/627",
+        "different": "1561/5681",
+        "empty": "21/70"
+      },
+      "dist_recall": {
+        ">5km": 0.0,
+        "<1km": 0.5048203330411919,
+        "1-5km": 0.009828788839568801
+      },
+      "dist_counts": {
+        ">5km": "0/1672",
+        "<1km": "2880/5705",
+        "1-5km": "31/3154"
+      },
+      "renamed_5km_hits": 1561,
+      "renamed_5km_total": 4762,
+      "renamed_5km_recall": 0.3278034439311214
+    },
+    "G1 (K=12)": {
+      "name": "G1 (K=12)",
+      "total_cands": 239379,
+      "cpq": 11.96895,
+      "hits": 4253,
+      "recall": 0.4038552843984427,
+      "name_recall": {
+        "identical": 0.4089935760171306,
+        "partial_overlap": 0.40261627906976744,
+        "token_reorder": 0.4082934609250399,
+        "different": 0.40274599542334094,
+        "empty": 0.4
+      },
+      "name_counts": {
+        "identical": "573/1401",
+        "partial_overlap": "1108/2752",
+        "token_reorder": "256/627",
+        "different": "2288/5681",
+        "empty": "28/70"
+      },
+      "dist_recall": {
+        ">5km": 0.0,
+        "<1km": 0.7270815074496056,
+        "1-5km": 0.03329105897273304
+      },
+      "dist_counts": {
+        ">5km": "0/1672",
+        "<1km": "4148/5705",
+        "1-5km": "105/3154"
+      },
+      "renamed_5km_hits": 2288,
+      "renamed_5km_total": 4762,
+      "renamed_5km_recall": 0.48047039059218816
+    },
+    "G2 (m=3)": {
+      "name": "G2 (m=3)",
+      "total_cands": 59947,
+      "cpq": 2.99735,
+      "hits": 3432,
+      "recall": 0.3258949767353528,
+      "name_recall": {
+        "identical": 0.7116345467523197,
+        "partial_overlap": 0.6598837209302325,
+        "token_reorder": 0.6953748006379585,
+        "different": 0.030100334448160536,
+        "empty": 0.17142857142857143
+      },
+      "name_counts": {
+        "identical": "997/1401",
+        "partial_overlap": "1816/2752",
+        "token_reorder": "436/627",
+        "different": "171/5681",
+        "empty": "12/70"
+      },
+      "dist_recall": {
+        ">5km": 0.0,
+        "<1km": 0.4736196319018405,
+        "1-5km": 0.23145212428662015
+      },
+      "dist_counts": {
+        ">5km": "0/1672",
+        "<1km": "2702/5705",
+        "1-5km": "730/3154"
+      },
+      "renamed_5km_hits": 171,
+      "renamed_5km_total": 4762,
+      "renamed_5km_recall": 0.03590928181436371
+    },
+    "G2 (m=5)": {
+      "name": "G2 (m=5)",
+      "total_cands": 99869,
+      "cpq": 4.99345,
+      "hits": 3698,
+      "recall": 0.3511537365872187,
+      "name_recall": {
+        "identical": 0.7144896502498216,
+        "partial_overlap": 0.6980377906976745,
+        "token_reorder": 0.7161084529505582,
+        "different": 0.05386375638091885,
+        "empty": 0.3
+      },
+      "name_counts": {
+        "identical": "1001/1401",
+        "partial_overlap": "1921/2752",
+        "token_reorder": "449/627",
+        "different": "306/5681",
+        "empty": "21/70"
+      },
+      "dist_recall": {
+        ">5km": 0.0,
+        "<1km": 0.5048203330411919,
+        "1-5km": 0.2593532022828155
+      },
+      "dist_counts": {
+        ">5km": "0/1672",
+        "<1km": "2880/5705",
+        "1-5km": "818/3154"
+      },
+      "renamed_5km_hits": 306,
+      "renamed_5km_total": 4762,
+      "renamed_5km_recall": 0.06425871482570349
+    },
+    "G2 (m=10)": {
+      "name": "G2 (m=10)",
+      "total_cands": 199554,
+      "cpq": 9.9777,
+      "hits": 4162,
+      "recall": 0.39521412971227804,
+      "name_recall": {
+        "identical": 0.715203426124197,
+        "partial_overlap": 0.7038517441860465,
+        "token_reorder": 0.7177033492822966,
+        "different": 0.1320190107375462,
+        "empty": 0.32857142857142857
+      },
+      "name_counts": {
+        "identical": "1002/1401",
+        "partial_overlap": "1937/2752",
+        "token_reorder": "450/627",
+        "different": "750/5681",
+        "empty": "23/70"
+      },
+      "dist_recall": {
+        ">5km": 0.0,
+        "<1km": 0.5777388255915863,
+        "1-5km": 0.274571972098922
+      },
+      "dist_counts": {
+        ">5km": "0/1672",
+        "<1km": "3296/5705",
+        "1-5km": "866/3154"
+      },
+      "renamed_5km_hits": 750,
+      "renamed_5km_total": 4762,
+      "renamed_5km_recall": 0.15749685006299874
+    },
+    "G1 (K=4) + G3": {
+      "name": "G1 (K=4) + G3",
+      "total_cands": 115217,
+      "cpq": 5.76085,
+      "hits": 5358,
+      "recall": 0.5087835913018707,
+      "name_recall": {
+        "identical": 0.8008565310492506,
+        "partial_overlap": 0.7609011627906976,
+        "token_reorder": 0.8564593301435407,
+        "different": 0.2788241506776976,
+        "empty": 0.3
+      },
+      "name_counts": {
+        "identical": "1122/1401",
+        "partial_overlap": "2094/2752",
+        "token_reorder": "537/627",
+        "different": "1584/5681",
+        "empty": "21/70"
+      },
+      "dist_recall": {
+        ">5km": 0.30861244019138756,
+        "<1km": 0.6629272567922875,
+        "1-5km": 0.33608116677235256
+      },
+      "dist_counts": {
+        ">5km": "516/1672",
+        "<1km": "3782/5705",
+        "1-5km": "1060/3154"
+      },
+      "renamed_5km_hits": 1581,
+      "renamed_5km_total": 4762,
+      "renamed_5km_recall": 0.33200335993280133
+    },
+    "G1 (K=12) + G3": {
+      "name": "G1 (K=12) + G3",
+      "total_cands": 273313,
+      "cpq": 13.66565,
+      "hits": 6268,
+      "recall": 0.5951951381635172,
+      "name_recall": {
+        "identical": 0.827266238401142,
+        "partial_overlap": 0.8066860465116279,
+        "token_reorder": 0.8819776714513556,
+        "different": 0.4062665023763422,
+        "empty": 0.4
+      },
+      "name_counts": {
+        "identical": "1159/1401",
+        "partial_overlap": "2220/2752",
+        "token_reorder": "553/627",
+        "different": "2308/5681",
+        "empty": "28/70"
+      },
+      "dist_recall": {
+        ">5km": 0.30861244019138756,
+        "<1km": 0.814022787028922,
+        "1-5km": 0.3512999365884591
+      },
+      "dist_counts": {
+        ">5km": "516/1672",
+        "<1km": "4644/5705",
+        "1-5km": "1108/3154"
+      },
+      "renamed_5km_hits": 2305,
+      "renamed_5km_total": 4762,
+      "renamed_5km_recall": 0.4840403191936161
+    },
+    "G2 (m=3) + G3": {
+      "name": "G2 (m=3) + G3",
+      "total_cands": 90909,
+      "cpq": 4.54545,
+      "hits": 4503,
+      "recall": 0.4275947203494445,
+      "name_recall": {
+        "identical": 0.9150606709493219,
+        "partial_overlap": 0.8840843023255814,
+        "token_reorder": 0.9393939393939394,
+        "different": 0.032916740010561524,
+        "empty": 0.17142857142857143
+      },
+      "name_counts": {
+        "identical": "1282/1401",
+        "partial_overlap": "2433/2752",
+        "token_reorder": "589/627",
+        "different": "187/5681",
+        "empty": "12/70"
+      },
+      "dist_recall": {
+        ">5km": 0.30861244019138756,
+        "<1km": 0.47835232252410165,
+        "1-5km": 0.398858592263792
+      },
+      "dist_counts": {
+        ">5km": "516/1672",
+        "<1km": "2729/5705",
+        "1-5km": "1258/3154"
+      },
+      "renamed_5km_hits": 184,
+      "renamed_5km_total": 4762,
+      "renamed_5km_recall": 0.03863922721545569
+    },
+    "G2 (m=5) + G3": {
+      "name": "G2 (m=5) + G3",
+      "total_cands": 130402,
+      "cpq": 6.5201,
+      "hits": 4698,
+      "recall": 0.4461114803912259,
+      "name_recall": {
+        "identical": 0.9179157744468237,
+        "partial_overlap": 0.9004360465116279,
+        "token_reorder": 0.9505582137161085,
+        "different": 0.05580003520506953,
+        "empty": 0.3
+      },
+      "name_counts": {
+        "identical": "1286/1401",
+        "partial_overlap": "2478/2752",
+        "token_reorder": "596/627",
+        "different": "317/5681",
+        "empty": "21/70"
+      },
+      "dist_recall": {
+        ">5km": 0.30861244019138756,
+        "<1km": 0.5048203330411919,
+        "1-5km": 0.4128091312618897
+      },
+      "dist_counts": {
+        ">5km": "516/1672",
+        "<1km": "2880/5705",
+        "1-5km": "1302/3154"
+      },
+      "renamed_5km_hits": 314,
+      "renamed_5km_total": 4762,
+      "renamed_5km_recall": 0.06593868122637547
+    },
+    "G2 (m=10) + G3": {
+      "name": "G2 (m=10) + G3",
+      "total_cands": 230027,
+      "cpq": 11.50135,
+      "hits": 5156,
+      "recall": 0.48960212705346123,
+      "name_recall": {
+        "identical": 0.9186295503211992,
+        "partial_overlap": 0.904796511627907,
+        "token_reorder": 0.9521531100478469,
+        "different": 0.13360323886639677,
+        "empty": 0.32857142857142857
+      },
+      "name_counts": {
+        "identical": "1287/1401",
+        "partial_overlap": "2490/2752",
+        "token_reorder": "597/627",
+        "different": "759/5681",
+        "empty": "23/70"
+      },
+      "dist_recall": {
+        ">5km": 0.30861244019138756,
+        "<1km": 0.5777388255915863,
+        "1-5km": 0.42612555485098286
+      },
+      "dist_counts": {
+        ">5km": "516/1672",
+        "<1km": "3296/5705",
+        "1-5km": "1344/3154"
+      },
+      "renamed_5km_hits": 756,
+      "renamed_5km_total": 4762,
+      "renamed_5km_recall": 0.15875682486350273
+    }
+  },
+  "paired_bootstrap_cis": {
+    "G1 (K=4) + G3 vs G2 (m=3) + G3": {
+      "observed_delta_pp": 8.118887095242618,
+      "ci_lower_pp": 7.311746272908555,
+      "ci_upper_pp": 8.926502706295699,
+      "p_value": 0.0
+    },
+    "G1 (K=4) + G3 vs G2 (m=5) + G3": {
+      "observed_delta_pp": 6.267211091064476,
+      "ci_lower_pp": 5.459595480011395,
+      "ci_upper_pp": 7.122068179660052,
+      "p_value": 0.0
+    },
+    "G1 (K=12) + G3 vs G2 (m=10) + G3": {
+      "observed_delta_pp": 10.559301111005603,
+      "ci_lower_pp": 9.722960782451809,
+      "ci_upper_pp": 11.433149748361979,
+      "p_value": 0.0
+    }
+  }
+}

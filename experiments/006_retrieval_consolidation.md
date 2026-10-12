@@ -180,4 +180,8 @@ In spatial deduplication, over $50\%$ of true matches within $5\text{ km}$ have 
 ### E6. Validation Ledger & Matched Budgets Clarification
 - In Section 4, fine-grained loss categories were merged into coarse bins, and candidate matched budget tiers (~700k, ~2M, ~7M) were reported on the 150k table rather than the legacy 1.14M corpus scale. Full reconciliation is established in Phase 4c.
 
+### E7. Phase 4c Data Basis Erratum (Appended 2026-10-12)
+> **DATA BASIS ERRATUM:** All full-val recall numbers in earlier reports (denominator 123,067) were evaluated on the 1.14M-row Kaggle corpus, which is no longer preserved on disk. All subsequent development, candidate stores, and final comparisons use the canonical 150k table (`coordinates.parquet`, val denominator 17,916 pairs / 35,832 directed slots). Absolute recalls across the two corpora are NOT comparable; relative channel orderings and incremental-yield conclusions are preserved.
+
+
 

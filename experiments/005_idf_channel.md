@@ -172,5 +172,9 @@ The Section 4 validation frontier table was projected rather than measured from 
 - Run `6ffb4b23-5a0c-42e1-bb94-ce625856f591` recorded git commit `d29a52009ddc75311311ad1648289033ffd36a24`.
 - This commit hash was captured while working tree modifications were active and uncommitted; it represents a stale pre-experiment commit hash rather than a clean snapshot.
 
+### E6. Phase 4c Data Basis Erratum (Appended 2026-10-12)
+> **DATA BASIS ERRATUM:** All full-val recall numbers in this report (denominator 123,067) were evaluated on the 1.14M-row Kaggle corpus, which is no longer preserved on disk. All subsequent development, candidate stores, and final comparisons use the canonical 150k table (`coordinates.parquet`, val denominator 17,916 pairs / 35,832 directed slots). Absolute recalls across the two corpora are NOT comparable; relative channel orderings and incremental-yield conclusions are preserved.
+
+
 
 

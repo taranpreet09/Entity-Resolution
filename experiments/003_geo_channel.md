@@ -196,3 +196,6 @@ Empirically evaluated on the 100k train sample in Phase 3c: G1 ($K=50, R=5\text{
 5. **Distance Ceiling (True Pairs > 5 km):**
    - 8,904 of 54,375 true pairs (16.37%) are separated by $>5\text{ km}$ (identical 16.44%, token_reorder 16.80%, partial_overlap 16.70%, different 16.14%, empty 17.08%).
 
+### E8. Phase 4c Data Basis Erratum (Appended 2026-10-12)
+> **DATA BASIS ERRATUM:** All full-val recall numbers in this report (denominator 123,067) were evaluated on the 1.14M-row Kaggle corpus, which is no longer preserved on disk. All subsequent development, candidate stores, and final comparisons use the canonical 150k table (`coordinates.parquet`, val denominator 17,916 pairs / 35,832 directed slots). Absolute recalls across the two corpora are NOT comparable; relative channel orderings and incremental-yield conclusions are preserved.
+

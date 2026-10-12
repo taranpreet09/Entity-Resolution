@@ -1,0 +1,110 @@
+{
+  "config_hash": "17971dce7cad701786ce2317fc9a1c201880d98975bca78164e309ea25351601",
+  "cap_curve": {
+    "cap_10": {
+      "cap": 10,
+      "recall": 0.5826758620689655,
+      "hits": 31683,
+      "total_candidates": 998156,
+      "cpq": 9.98156,
+      "budget_prune_pairs": 10528,
+      "pct_preserved": 75.05863400535405
+    },
+    "cap_20": {
+      "cap": 20,
+      "recall": 0.6646252873563219,
+      "hits": 36139,
+      "total_candidates": 1993451,
+      "cpq": 19.93451,
+      "budget_prune_pairs": 6072,
+      "pct_preserved": 85.61512401980526
+    },
+    "cap_30": {
+      "cap": 30,
+      "recall": 0.6996045977011495,
+      "hits": 38041,
+      "total_candidates": 2985215,
+      "cpq": 29.85215,
+      "budget_prune_pairs": 4170,
+      "pct_preserved": 90.12105849186231
+    },
+    "cap_40": {
+      "cap": 40,
+      "recall": 0.7189701149425287,
+      "hits": 39094,
+      "total_candidates": 3973120,
+      "cpq": 39.7312,
+      "budget_prune_pairs": 3117,
+      "pct_preserved": 92.61566890147117
+    },
+    "cap_50": {
+      "cap": 50,
+      "recall": 0.7337379310344827,
+      "hits": 39897,
+      "total_candidates": 4957139,
+      "cpq": 49.57139,
+      "budget_prune_pairs": 2314,
+      "pct_preserved": 94.51801663073606
+    },
+    "cap_60": {
+      "cap": 60,
+      "recall": 0.7442390804597702,
+      "hits": 40468,
+      "total_candidates": 5936970,
+      "cpq": 59.3697,
+      "budget_prune_pairs": 1743,
+      "pct_preserved": 95.87074459264173
+    },
+    "cap_75": {
+      "cap": 75,
+      "recall": 0.7575724137931035,
+      "hits": 41193,
+      "total_candidates": 7399332,
+      "cpq": 73.99332,
+      "budget_prune_pairs": 1018,
+      "pct_preserved": 97.58830636563928
+    },
+    "cap_100": {
+      "cap": 100,
+      "recall": 0.7743080459770115,
+      "hits": 42103,
+      "total_candidates": 9817035,
+      "cpq": 98.17035,
+      "budget_prune_pairs": 108,
+      "pct_preserved": 99.7441425220914
+    },
+    "cap_150": {
+      "cap": 150,
+      "recall": 0.7762942528735632,
+      "hits": 42211,
+      "total_candidates": 10379436,
+      "cpq": 103.79436,
+      "budget_prune_pairs": 0,
+      "pct_preserved": 100.0
+    },
+    "uncapped": {
+      "cap": null,
+      "recall": 0.7762942528735632,
+      "hits": 42211,
+      "total_candidates": 10379437,
+      "cpq": 103.79437,
+      "budget_prune_pairs": 0,
+      "pct_preserved": 100.0
+    }
+  },
+  "chosen_cap": 100,
+  "val_performance": {
+    "hits": 13818,
+    "recall": 0.7712659075686538,
+    "total_candidates": 2195396,
+    "cpq": 98.12702811424485,
+    "budget_prune_loss": 34
+  },
+  "loss_ledger": {
+    "RECOVERED_IN_STORE": 13818,
+    "LEXICAL_PRESENT_BUT_GT_5KM_DROPPED_BY_G3_K20": 1469,
+    "LOCAL_DENSITY_EXCEEDED_K100_LE_5KM": 2109,
+    "NO_GEO_AND_NO_LEXICAL_OVERLAP_GT_5KM": 486,
+    "BUDGET_PRUNE": 34
+  }
+}

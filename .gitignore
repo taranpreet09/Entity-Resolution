@@ -1,4 +1,4 @@
-﻿# Large raw data files — never commit
+# Large raw data files — never commit
 ber/data/raw/companies_house/
 ber/data/raw/gleif/
 
@@ -7,6 +7,8 @@ data/processed/
 
 # Experiment candidate parquets (large)
 experiments/*/candidates*.parquet
+experiments/candidates_frozen_*.parquet
+experiments/*/*.csv
 
 # Python cache
 __pycache__/
