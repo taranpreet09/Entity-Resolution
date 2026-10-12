@@ -154,7 +154,10 @@ def recall_at_k(
         top_k_cands = {c for c, r, _ in candidate_map.get(q, []) if r <= k}
         if top_k_cands & true_targets[q]:
             hits += 1
-    return hits / len(queries_with_targets)
+    denom = len(queries_with_targets)
+    recall = hits / denom
+    assert round(recall * denom) == hits, f"Recall integrity violated: {recall} * {denom} != {hits}"
+    return recall
 
 
 def recall_at_budget(

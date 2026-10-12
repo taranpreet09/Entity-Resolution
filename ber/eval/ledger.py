@@ -76,8 +76,11 @@ def _config_hash(config: dict[str, Any]) -> str:
     return hashlib.sha256(serialised).hexdigest()
 
 
-def _git_commit() -> str:
-    """Return the current HEAD commit SHA, or 'untracked' if not in a repo."""
+def _git_commit(require_clean: bool = False) -> str:
+    """Return the current HEAD commit SHA, 'dirty:<sha>', or 'untracked'.
+    
+    If require_clean is True and the tree is dirty, raises RuntimeError.
+    """
     try:
         result = subprocess.run(
             ["git", "rev-parse", "HEAD"],
@@ -86,7 +89,24 @@ def _git_commit() -> str:
             timeout=5,
         )
         if result.returncode == 0:
-            return result.stdout.strip()
+            sha = result.stdout.strip()
+            status_res = subprocess.run(
+                ["git", "status", "--porcelain"],
+                capture_output=True,
+                text=True,
+                timeout=5,
+            )
+            is_dirty = bool(status_res.stdout.strip())
+            if is_dirty:
+                if require_clean:
+                    raise RuntimeError(
+                        f"Cannot log run from dirty working tree (commit: {sha}). "
+                        "Commit changes before logging."
+                    )
+                return f"dirty:{sha}"
+            return sha
+    except RuntimeError:
+        raise
     except Exception:
         pass
     return "untracked"
@@ -123,6 +143,7 @@ class RunLedger:
         dataset: str,
         seed: int = -1,
         dataset_version: str = "unknown",
+        require_clean: bool = False,
     ) -> str:
         """Record the start of a new experiment run.
 
@@ -137,6 +158,8 @@ class RunLedger:
             Integer RNG seed used for the run.  Pass -1 if no seed was set.
         dataset_version:
             A string identifying the dataset snapshot (file hash, date, tag).
+        require_clean:
+            If True, raises RuntimeError if git working tree has unstaged/staged changes.
 
         Returns
         -------
@@ -144,6 +167,7 @@ class RunLedger:
             A UUID4 run_id that can be passed to :meth:`log_metrics`.
         """
         run_id = str(uuid.uuid4())
+        commit_val = _git_commit(require_clean=require_clean)
         row = pa.table(
             {
                 "run_id": [run_id],
@@ -153,7 +177,7 @@ class RunLedger:
                 "config_hash": [_config_hash(config)],
                 "dataset": [dataset],
                 "dataset_version": [dataset_version],
-                "git_commit": [_git_commit()],
+                "git_commit": [commit_val],
                 "seed": pa.array([seed], type=pa.int32()),
                 "metrics": ["{}"],
                 "status": ["running"],

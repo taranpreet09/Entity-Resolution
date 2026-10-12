@@ -15,6 +15,36 @@ Notation used below:
 
 ---
 
+## primary pair recall (deduplication setting)
+
+**Definition:**
+A true unordered pair $\{a, b\}$ is **found** if $b$ is in $a$'s candidates OR $a$ is in $b$'s candidates:
+
+    primary_pair_recall = |{{a, b} ∈ P_true : (a, b) ∈ C or (b, a) ∈ C}| / |P_true|
+
+**Denominator:** $|P_{\text{true}}|$ = total number of true unordered pairs (123,067 on the Foursquare validation split).
+
+**Primary Status:** This is the primary evaluation metric for deduplication retrieval. It reflects whether the duplicate relationship was captured in either direction.
+
+**Implementation:** `ber.eval.metrics_dedup.pair_recall(retrieved_pairs, true_pairs)`
+
+---
+
+## directed-slot recall (slots)
+
+**Definition:**
+Each true unordered pair $\{a, b\}$ generates two directed retrieval slots: $(a, b)$ (finding $b$ when querying $a$) and $(b, a)$ (finding $a$ when querying $b$).
+
+    slot_recall = |{(a, b) ∈ S_true : (a, b) ∈ C}| / |S_true|
+
+**Denominator:** $|S_{\text{true}}| = 2 \times |P_{\text{true}}|$ (246,134 directed slots on the Foursquare validation split).
+
+**Reporting:** Directed-slot recall must be reported separately and labeled explicitly as "slots". For symmetric blocking keys (e.g. standard exact keys), $\text{slots} = 2 \times \text{pairs}$. For asymmetric or directional retrieval (e.g. fixed-$K$ nearest neighbors in non-uniform spatial clusters), $\text{slots} \ne 2 \times \text{pairs}$ because pairs may be recovered unidirectionally.
+
+**Implementation:** `ber.eval.metrics_dedup.directed_slot_recall(retrieved_pairs, true_pairs)`
+
+---
+
 ## recall@K
 
 **Definition:**

@@ -1,0 +1,7 @@
+{
+  "n_queries": 5000,
+  "runtime_s": 21.678237438201904,
+  "ms_per_query": 4.335647487640381,
+  "extrapolated_100k_min": 7.226079146067302,
+  "gate_passed": true
+}

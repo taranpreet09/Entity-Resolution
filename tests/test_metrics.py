@@ -26,6 +26,8 @@ from ber.eval.metrics import (
     recall_at_k,
     zero_candidate_rate,
 )
+from ber.eval.metrics_dedup import pair_recall, directed_slot_recall
+
 
 
 # ---------------------------------------------------------------------------
@@ -306,3 +308,46 @@ class TestCompareSystems:
         result = compare_systems(cm, cm, tt, metric_fn, n_boot=50, seed=42)
         for key in ("score_a", "score_b", "delta", "p_value", "n_queries", "n_boot"):
             assert key in result
+
+
+class TestRecallCountIntegrity:
+    """Verifies the assertion that recall * denominator == count."""
+
+    def test_recall_at_k_asserts_integrity(self):
+        cm, tt = _simple_scenario()
+        rec = recall_at_k(cm, tt, k=5)
+        denom = len([q for q in tt if tt[q]])
+        assert round(rec * denom) == 2
+
+    def test_pair_recall_asserts_integrity(self):
+        true_pairs = [("A", "B"), ("C", "D"), ("E", "F")]
+        retrieved_pairs = {("B", "A"), ("C", "D")}
+        rec = pair_recall(retrieved_pairs, true_pairs)
+        denom = len(true_pairs)
+        assert round(rec * denom) == 2
+        assert rec == pytest.approx(2 / 3)
+
+    def test_toy_scenario_definition_and_slots(self):
+        """Toy test verifying the definition (found = either direction):
+        - a one-way pair: {a, b} retrieved only as (a, b) -> found!
+        - a bidirectional pair: {c, d} retrieved as both (c, d) and (d, c) -> found!
+        - a missed pair: {e, f} neither retrieved -> missed!
+        """
+        true_pairs = [("a", "b"), ("c", "d"), ("e", "f")]
+        # (a, b) is one-way; (c, d) and (d, c) are bidirectional; (e, f) is missed
+        retrieved_pairs = {("a", "b"), ("c", "d"), ("d", "c")}
+
+        # Primary pair recall (found in either direction):
+        # {a, b} found, {c, d} found, {e, f} missed -> 2 / 3
+        p_recall = pair_recall(retrieved_pairs, true_pairs)
+        assert p_recall == pytest.approx(2 / 3)
+        assert round(p_recall * len(true_pairs)) == 2
+
+        # Directed slot recall:
+        # Slots are (a,b), (b,a), (c,d), (d,c), (e,f), (f,e) = 6 slots.
+        # Found slots are (a,b), (c,d), (d,c) = 3 slots.
+        # Note: slots (3) != 2 * pairs (4) due to one-way recovery!
+        s_recall = directed_slot_recall(retrieved_pairs, true_pairs)
+        assert s_recall == pytest.approx(3 / 6)
+        assert round(s_recall * (2 * len(true_pairs))) == 3
+

@@ -1,0 +1,23 @@
+{
+  "identical_pairs_total": 6997,
+  "found_identical": 4626,
+  "missed_identical": 2371,
+  "categorization": {
+    "(b) outranked_by_gt_k_ties": 2371
+  },
+  "top_tokens_in_category_a": {},
+  "venue_inspection": {
+    "df": 108471,
+    "df_pct": 72.31400000000001,
+    "capped": true
+  },
+  "max_tie_size_in_category_b": 2754,
+  "fix_evaluated": "fallback_rarest_token_if_all_capped",
+  "fix_result": {
+    "base_recall": 0.35106583663459723,
+    "enhanced_recall": 0.35106583663459723,
+    "recall_gain_pp": 0.0,
+    "cand_increase_pct": 0.0,
+    "decision": "REJECT"
+  }
+}

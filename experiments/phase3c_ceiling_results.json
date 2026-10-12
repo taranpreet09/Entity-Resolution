@@ -1,0 +1,156 @@
+{
+  "step2_crosstab": {
+    "identical": {
+      "<10km": 523,
+      "<1km": 2472,
+      "<5km": 2075,
+      ">=10km": 627,
+      "<50m": 437,
+      "<200m": 863,
+      "missing_coords": 0
+    },
+    "token_reorder": {
+      "<1km": 1358,
+      "<5km": 1160,
+      "<10km": 277,
+      ">=10km": 384,
+      "<200m": 523,
+      "<50m": 233,
+      "missing_coords": 0
+    },
+    "partial_overlap": {
+      "<10km": 1046,
+      "<1km": 4650,
+      "<5km": 4082,
+      "<200m": 1686,
+      ">=10km": 1225,
+      "<50m": 912,
+      "missing_coords": 0
+    },
+    "different": {
+      "<10km": 2141,
+      "<5km": 8682,
+      "<200m": 3684,
+      "<1km": 10332,
+      "<50m": 1958,
+      ">=10km": 2606,
+      "missing_coords": 0
+    },
+    "empty": {
+      "<5km": 131,
+      ">=10km": 39,
+      "<10km": 36,
+      "<1km": 142,
+      "<200m": 58,
+      "<50m": 33,
+      "missing_coords": 0
+    }
+  },
+  "step2_g1_recovery_rate": {
+    "identical": {
+      "<50m": 100.0,
+      "<200m": 100.0,
+      "<1km": 92.91497975708502,
+      "<5km": 18.028846153846153,
+      "<10km": 0.0,
+      ">=10km": 0.0,
+      "missing_coords": 0.0
+    },
+    "token_reorder": {
+      "<50m": 100.0,
+      "<200m": 100.0,
+      "<1km": 94.98069498069498,
+      "<5km": 17.333333333333332,
+      "<10km": 0.0,
+      ">=10km": 0.0,
+      "missing_coords": 0.0
+    },
+    "partial_overlap": {
+      "<50m": 100.0,
+      "<200m": 100.0,
+      "<1km": 93.68983957219251,
+      "<5km": 15.049751243781095,
+      "<10km": 0.0,
+      ">=10km": 0.0,
+      "missing_coords": 0.0
+    },
+    "different": {
+      "<50m": 100.0,
+      "<200m": 100.0,
+      "<1km": 94.84801648634725,
+      "<5km": 16.933096506808763,
+      "<10km": 0.0,
+      ">=10km": 0.0,
+      "missing_coords": 0.0
+    },
+    "empty": {
+      "<50m": 100.0,
+      "<200m": 100.0,
+      "<1km": 94.11764705882354,
+      "<5km": 5.0,
+      "<10km": 0.0,
+      ">=10km": 0.0,
+      "missing_coords": 0.0
+    }
+  },
+  "renamed_venues_rate_under_5km": 68.43763124737505,
+  "renamed_venues_claim_supported": true,
+  "step3_pool_ceiling": {
+    "50": {
+      "pair_recall": 0.5715506599563195,
+      "query_recall": 0.6182052106786748,
+      "total_candidates": 990183,
+      "cpq_mean": 49.50915,
+      "dense_pair_recall": 0.46514837819185645,
+      "sparse_pair_recall": 0.5885267562210966,
+      "name_recovery": {
+        "identical": 0.5795860099928622,
+        "token_reorder": 0.5708446866485014,
+        "partial_overlap": 0.5655954631379962,
+        "different": 0.5736666079915508,
+        "empty": 0.4714285714285714
+      },
+      "runtime_s": 63.856484174728394,
+      "peak_rss_mb": 237.92000484466553
+    },
+    "100": {
+      "pair_recall": 0.6397303200075967,
+      "query_recall": 0.6785139916371824,
+      "total_candidates": 1960672,
+      "cpq_mean": 98.0336,
+      "dense_pair_recall": 0.5327812284334024,
+      "sparse_pair_recall": 0.656793657784629,
+      "name_recovery": {
+        "identical": 0.6538187009279086,
+        "token_reorder": 0.6430517711171662,
+        "partial_overlap": 0.6431001890359168,
+        "different": 0.6361556064073226,
+        "empty": 0.4857142857142857
+      },
+      "runtime_s": 128.17183923721313,
+      "peak_rss_mb": 531.685923576355
+    },
+    "200": {
+      "pair_recall": 0.7043015857943216,
+      "query_recall": 0.7379382438082985,
+      "total_candidates": 3843234,
+      "cpq_mean": 192.1617,
+      "dense_pair_recall": 0.5962732919254659,
+      "sparse_pair_recall": 0.721537106364237,
+      "name_recovery": {
+        "identical": 0.715203426124197,
+        "token_reorder": 0.7111716621253406,
+        "partial_overlap": 0.7051039697542533,
+        "different": 0.7011089596901954,
+        "empty": 0.6428571428571429
+      },
+      "runtime_s": 312.0004150867462,
+      "peak_rss_mb": 887.7206182479858
+    }
+  },
+  "gate_delta_pp": 13.275092583800207,
+  "gate_ci_lo_pp": 12.67187351628526,
+  "gate_ci_hi_pp": 13.868815876934764,
+  "gate_passed": true,
+  "gate_decision": "G2 rerank justified"
+}

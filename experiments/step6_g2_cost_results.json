@@ -1,0 +1,51 @@
+{
+  "train_eval": {
+    "3": {
+      "m": 3,
+      "union_candidates": 457365,
+      "g2_candidates": 299665,
+      "pct_of_g1_cands": 6.058637559165554,
+      "true_pairs": 22739,
+      "pair_recall": 0.41818850574712646,
+      "delta_pp": -27.84919540229885,
+      "success": false
+    },
+    "5": {
+      "m": 5,
+      "union_candidates": 654882,
+      "g2_candidates": 499176,
+      "pct_of_g1_cands": 10.092358007221478,
+      "true_pairs": 23773,
+      "pair_recall": 0.43720459770114944,
+      "delta_pp": -25.94758620689655,
+      "success": false
+    },
+    "10": {
+      "m": 10,
+      "union_candidates": 1152790,
+      "g2_candidates": 997244,
+      "pct_of_g1_cands": 20.162314431289914,
+      "true_pairs": 25994,
+      "pair_recall": 0.47805057471264367,
+      "delta_pp": -21.862988505747126,
+      "success": false
+    }
+  },
+  "chosen_m": 5,
+  "success_criteria_met_on_train": false,
+  "val_eval": {
+    "chosen_m": 5,
+    "baseline_true_pairs": 12536,
+    "baseline_pair_recall": 0.6997097566421077,
+    "baseline_g1_candidates": 1106534,
+    "baseline_union_candidates": 1143222,
+    "g2_true_pairs": 8025,
+    "g2_pair_recall": 0.44792364367046217,
+    "g2_candidates": 111665,
+    "g2_pct_of_g1_cands": 10.091420598011448,
+    "union_candidates": 146734,
+    "delta_pp": -25.17861129716455,
+    "success": false
+  },
+  "total_runtime_s": 576.6784660816193
+}

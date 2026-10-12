@@ -59,7 +59,45 @@ def pair_recall(
     # Normalise: canonical form is min_id < max_id
     true_set = {(min(a, b), max(a, b)) for a, b in true_pairs}
     retr_normalised = {(min(a, b), max(a, b)) for a, b in retrieved_pairs}
-    return len(true_set & retr_normalised) / len(true_set)
+    hits = len(true_set & retr_normalised)
+    denom = len(true_set)
+    recall = hits / denom
+
+    # Verify definition: pair {a, b} is found iff (a, b) in retrieved_pairs OR (b, a) in retrieved_pairs
+    found_by_def = {
+        (min(a, b), max(a, b))
+        for a, b in true_set
+        if (a, b) in retrieved_pairs or (b, a) in retrieved_pairs
+    }
+    assert len(found_by_def) == hits, (
+        f"Definition mismatch: found_by_def ({len(found_by_def)}) != hits ({hits})"
+    )
+    assert round(recall * denom) == hits, f"Recall integrity violated: {recall} * {denom} != {hits}"
+    return recall
+
+
+def directed_slot_recall(
+    retrieved_pairs: set[tuple[str, str]],
+    true_pairs: list[tuple[str, str]],
+) -> float:
+    """Fraction of true DIRECTED slots recovered by retrieval.
+
+    Each true unordered pair {a, b} corresponds to two directed slots:
+    (a, b) and (b, a). Denominator is 2 * len(true_unordered_pairs).
+    """
+    if not true_pairs:
+        return float("nan")
+    true_set = {(min(a, b), max(a, b)) for a, b in true_pairs}
+    slot_hits = sum(
+        (1 if (a, b) in retrieved_pairs else 0) + (1 if (b, a) in retrieved_pairs else 0)
+        for a, b in true_set
+    )
+    denom = 2 * len(true_set)
+    recall = slot_hits / denom
+    assert round(recall * denom) == slot_hits, (
+        f"Slot recall integrity violated: {recall} * {denom} != {slot_hits}"
+    )
+    return recall
 
 
 def singleton_burden(

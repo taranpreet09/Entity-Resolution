@@ -101,3 +101,28 @@ class TestRunLedger:
         ledger.log_metrics(run_id, {"error": "oops"}, status="failed")
         runs = ledger.list_runs()
         assert runs[0]["status"] == "failed"
+
+    def test_dirty_tree_logging_and_refusal(self, tmp_path, monkeypatch):
+        ledger = RunLedger(tmp_path / "runs.parquet")
+
+        # Mock clean tree
+        monkeypatch.setattr("ber.eval.ledger.subprocess.run", lambda *args, **kwargs: (
+            type("Result", (), {"returncode": 0, "stdout": "abc1234\n" if "rev-parse" in args[0] else ""})()
+        ))
+        run_id_clean = ledger.start_run(config={}, dataset="ds1", require_clean=True)
+        rec_clean = ledger.get_run(run_id_clean)
+        assert rec_clean["git_commit"] == "abc1234"
+
+        # Mock dirty tree
+        monkeypatch.setattr("ber.eval.ledger.subprocess.run", lambda *args, **kwargs: (
+            type("Result", (), {"returncode": 0, "stdout": "abc1234\n" if "rev-parse" in args[0] else " M file.py\n"})()
+        ))
+        # require_clean=False logs dirty:sha
+        run_id_dirty = ledger.start_run(config={}, dataset="ds1", require_clean=False)
+        rec_dirty = ledger.get_run(run_id_dirty)
+        assert rec_dirty["git_commit"] == "dirty:abc1234"
+
+        # require_clean=True raises RuntimeError
+        with pytest.raises(RuntimeError, match="Cannot log run from dirty working tree"):
+            ledger.start_run(config={}, dataset="ds1", require_clean=True)
+

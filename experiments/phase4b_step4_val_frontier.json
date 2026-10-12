@@ -1,0 +1,86 @@
+{
+  "val_denominator": 17916,
+  "systems": {
+    "ctrl_g50": {
+      "name": "Control G=50",
+      "candidates": 56456,
+      "true_pairs": 2016,
+      "denominator": 17916,
+      "pair_recall": 0.11252511721366376
+    },
+    "g1_k4": {
+      "name": "G1 (K=4, R=5km)",
+      "candidates": 89355,
+      "true_pairs": 4829,
+      "denominator": 17916,
+      "pair_recall": 0.2695356106273722
+    },
+    "g1_k12": {
+      "name": "G1 (K=12, R=5km)",
+      "candidates": 267566,
+      "true_pairs": 7184,
+      "denominator": 17916,
+      "pair_recall": 0.400982362134405
+    },
+    "g1_k50": {
+      "name": "G1 (K=50, R=5km)",
+      "candidates": 1106534,
+      "true_pairs": 10169,
+      "denominator": 17916,
+      "pair_recall": 0.5675932127707077
+    },
+    "g3_chosen": {
+      "name": "G3 (K=5, Country ON)",
+      "candidates": 42889,
+      "true_pairs": 5505,
+      "denominator": 17916,
+      "pair_recall": 0.30726724715338244
+    },
+    "union_ctrl_g1": {
+      "name": "Control G=50 + G1",
+      "candidates": 1131958,
+      "true_pairs": 10830,
+      "denominator": 17916,
+      "pair_recall": 0.6044876088412592
+    },
+    "union_g1_g3": {
+      "name": "G1 (K=50) + G3",
+      "candidates": 1143222,
+      "true_pairs": 12536,
+      "denominator": 17916,
+      "pair_recall": 0.6997097566421077
+    },
+    "union_ctrl_g1_g3": {
+      "name": "Control G=50 + G1 + G3",
+      "candidates": 1166012,
+      "true_pairs": 12561,
+      "denominator": 17916,
+      "pair_recall": 0.7011051574012056
+    }
+  },
+  "paired_bootstrap": {
+    "union_g1_g3_vs_g1": {
+      "delta_pp": 13.203806653270819,
+      "ci_lo_pp": 12.7007981692342,
+      "ci_hi_pp": 13.705765795936598
+    },
+    "union_ctrl_g1_g3_vs_ctrl_g1": {
+      "delta_pp": 9.665740120562626,
+      "ci_lo_pp": 9.23755302522885,
+      "ci_hi_pp": 10.114143782094217
+    },
+    "g1_k12_vs_g1_k4": {
+      "delta_pp": 13.168586738111184,
+      "ci_lo_pp": 12.706379772270592,
+      "ci_hi_pp": 13.6332049564635
+    }
+  },
+  "loss_ledger": {
+    "under5km_dense_cluster_miss": 3304,
+    "gt5km_different_name": 1580,
+    "gt5km_lexical_unrecovered": 444,
+    "other_residual": 27,
+    "recovered_true_pairs": 12561
+  },
+  "assertion_passed": true
+}
