@@ -19,7 +19,7 @@ dev = ["pytest>=9.0", "pytest-cov"]
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["ber*", "datasets*"]
+include = ["ber*", "ber_datasets*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

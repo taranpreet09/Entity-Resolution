@@ -1,4 +1,4 @@
-"""
+﻿"""
 scratch/run_phase4b_steps.py — Execute Phase 4b Steps 2 & 3
 """
 from __future__ import annotations
@@ -25,7 +25,7 @@ from ber.canon.normalise import canonicalise
 from ber.eval.metrics_dedup import pair_recall, directed_slot_recall
 from ber.retrieve.geo_blocking import EARTH_RADIUS_METERS
 from ber.retrieve.idf import IDFRetriever, IDFConfig, infer_country_from_coords
-from datasets.splits.splitter import EntityDisjointSplitter
+from ber_datasets.splits.splitter import EntityDisjointSplitter
 
 import ctypes
 from ctypes import wintypes

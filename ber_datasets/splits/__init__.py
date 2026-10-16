@@ -1,4 +1,4 @@
-"""
+﻿"""
 datasets.splits — Entity-Disjoint Splitting
 =============================================
 Provides a deterministic, seeded splitter that guarantees:
@@ -9,4 +9,4 @@ Provides a deterministic, seeded splitter that guarantees:
 
 See datasets/splits/splitter.py for the implementation.
 """
-from datasets.splits.splitter import EntityDisjointSplitter  # noqa: F401
+from ber_datasets.splits.splitter import EntityDisjointSplitter  # noqa: F401

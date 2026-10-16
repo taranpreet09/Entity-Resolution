@@ -1,4 +1,4 @@
-"""
+﻿"""
 ber.retrieve.control_blocking — Control Baseline Exact-Key Blocker
 ====================================================================
 A generic, config-driven blocking component that imitates the "old pipeline"
@@ -319,7 +319,7 @@ class ControlBlocker:
             if not rows:
                 break
             for raw_number, company_name, postcode in rows:
-                from datasets.adapters.gleif_ch import _norm_ch_number  # local import
+                from ber_datasets.adapters.gleif_ch import _norm_ch_number  # local import
                 norm_number = _norm_ch_number(str(raw_number) if raw_number else "")
                 if not norm_number:
                     continue

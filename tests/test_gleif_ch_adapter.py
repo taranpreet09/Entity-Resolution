@@ -1,4 +1,4 @@
-"""
+﻿"""
 Tests for datasets.adapters.gleif_ch
 ======================================
 Critical: asserts no identifier leakage in model-visible records.
@@ -14,7 +14,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from datasets.adapters.gleif_ch import (
+from ber_datasets.adapters.gleif_ch import (
     GleifChAdapter,
     _norm_ch_number,
     assert_no_identifier_leakage,

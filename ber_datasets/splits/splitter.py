@@ -1,4 +1,4 @@
-"""
+﻿"""
 datasets.splits.splitter — Entity-Disjoint Deterministic Splitter
 ==================================================================
 Guarantees that no entity cluster (connected component of the match graph)
@@ -14,7 +14,7 @@ entity split.
 
 Usage::
 
-    from datasets.splits.splitter import EntityDisjointSplitter
+    from ber_datasets.splits.splitter import EntityDisjointSplitter
 
     splitter = EntityDisjointSplitter(
         ratios={"train": 0.7, "val": 0.15, "test": 0.15},

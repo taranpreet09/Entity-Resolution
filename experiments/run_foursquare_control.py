@@ -1,4 +1,4 @@
-"""
+﻿"""
 experiments/run_foursquare_control.py — Foursquare Control Baseline
 ====================================================================
 Runs the full Part B pipeline:
@@ -45,7 +45,7 @@ from ber.eval.metrics import (
 from ber.eval.metrics_dedup import pair_recall, singleton_burden
 from ber.retrieve.control_blocking import BlockingConfig, ControlBlocker
 from ber.store.schemas import write_candidates
-from datasets.adapters.foursquare import (
+from ber_datasets.adapters.foursquare import (
     FoursquareAdapter, assert_no_poi_leakage,
     extract_url_domain, digits_only, geo_cell,
 )
@@ -54,7 +54,7 @@ from datasets.adapters.foursquare import (
 _extract_url_domain = extract_url_domain
 _digits_only = digits_only
 _geo_cell = geo_cell
-from datasets.splits.splitter import EntityDisjointSplitter
+from ber_datasets.splits.splitter import EntityDisjointSplitter
 
 PROCESSED_DIR = _REPO / "data" / "processed" / "foursquare"
 FSQ_DATA_DIR = (_REPO / "ber" / "data" / "raw" / "foursquare_kaggle"

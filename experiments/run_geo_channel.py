@@ -1,4 +1,4 @@
-"""
+﻿"""
 experiments/run_geo_channel.py — Phase 3a: Geo-Proximity Retrieval Channel (G1)
 =============================================================================
 Runs the complete Phase 3a pipeline:
@@ -42,7 +42,7 @@ from ber.eval.metrics import (
 )
 from ber.eval.metrics_dedup import pair_recall, singleton_burden
 from ber.retrieve.geo_blocking import GeoBlocker, GeoConfig, EARTH_RADIUS_METERS
-from datasets.adapters.foursquare import (
+from ber_datasets.adapters.foursquare import (
     extract_url_domain, digits_only, geo_cell,
 )
 from experiments.run_foursquare_control import (

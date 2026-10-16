@@ -1,4 +1,4 @@
-"""
+﻿"""
 datasets.adapters — Dataset Adapters
 ========================================
 Responsibility: Translate raw dataset files (CSV, JSON, Parquet) into the
@@ -16,7 +16,7 @@ Adapters currently registered:
 
 Usage::
 
-    from datasets.adapters import FodorsZagatsAdapter
+    from ber_datasets.adapters import FodorsZagatsAdapter
     for record in FodorsZagatsAdapter(split='train').iter_records():
         ...
 """

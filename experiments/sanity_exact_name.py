@@ -1,4 +1,4 @@
-"""
+﻿"""
 experiments/sanity_exact_name.py — Sanity Run: Exact-Name Matcher on Fodors-Zagats
 ====================================================================================
 Proves the harness (ledger, metrics, loss ledger) runs end-to-end using a
@@ -47,7 +47,7 @@ from ber.eval.metrics import (
     bootstrap_ci,
 )
 from ber.store.schemas import write_candidates
-from datasets.adapters.fodors_zagats import iter_records, iter_pairs, DATASET_ID
+from ber_datasets.adapters.fodors_zagats import iter_records, iter_pairs, DATASET_ID
 
 LEDGER_PATH = Path(__file__).resolve().parent / "runs.parquet"
 

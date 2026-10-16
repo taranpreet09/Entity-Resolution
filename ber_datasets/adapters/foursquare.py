@@ -1,4 +1,4 @@
-"""
+﻿"""
 datasets.adapters.foursquare — Foursquare Location Matching Adapter
 =====================================================================
 Single-table deduplication mode: every record is both a query and a target.
@@ -27,7 +27,7 @@ Excluded (labels only): point_of_interest, rad_latitude, rad_longitude,
   location_key, cv_flag
 
 Usage::
-    from datasets.adapters.foursquare import FoursquareAdapter
+    from ber_datasets.adapters.foursquare import FoursquareAdapter
     adapter = FoursquareAdapter()
     stats = adapter.build(output_dir="data/processed/foursquare")
 """

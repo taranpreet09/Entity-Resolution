@@ -1,4 +1,4 @@
-"""
+﻿"""
 Tests for datasets.adapters.foursquare
   - No POI leakage in model-visible fields
   - FoursquareBlocker basic retrieval
@@ -11,7 +11,7 @@ from pathlib import Path
 import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from datasets.adapters.foursquare import (
+from ber_datasets.adapters.foursquare import (
     FoursquareAdapter, assert_no_poi_leakage,
     POI_IDENTIFIER_FIELDS, MODEL_COLS,
     extract_url_domain, digits_only, geo_cell,

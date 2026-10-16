@@ -1,4 +1,4 @@
-"""
+﻿"""
 Tests for datasets.splits.splitter.EntityDisjointSplitter
 ==========================================================
 Verifies:
@@ -20,7 +20,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from datasets.splits.splitter import EntityDisjointSplitter, _norm_key_hash
+from ber_datasets.splits.splitter import EntityDisjointSplitter, _norm_key_hash
 
 
 # ---------------------------------------------------------------------------

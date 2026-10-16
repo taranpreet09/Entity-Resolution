@@ -1,4 +1,4 @@
-"""
+﻿"""
 experiments/run_step3_tiebreak.py — Phase 4c Step 3: G3 Tie-Break Fix on Train & Val
 """
 from __future__ import annotations
@@ -19,7 +19,7 @@ sys.path.insert(0, str(_REPO))
 
 from ber.canon.normalise import canonicalise
 from ber.retrieve.idf import IDFRetriever, IDFConfig, infer_country_from_coords
-from datasets.splits.splitter import EntityDisjointSplitter
+from ber_datasets.splits.splitter import EntityDisjointSplitter
 
 EARTH_RADIUS_METERS = 6371000.0
 

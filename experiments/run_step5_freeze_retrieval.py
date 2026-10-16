@@ -1,4 +1,4 @@
-"""
+﻿"""
 experiments/run_step5_freeze_retrieval.py — Phase 4c Step 5: Freeze Retrieval v1 & Candidate Store
 """
 from __future__ import annotations
@@ -25,7 +25,7 @@ from ber.canon.normalise import canonicalise
 from ber.retrieve.geo_blocking import EARTH_RADIUS_METERS
 from ber.retrieve.idf import IDFRetriever, IDFConfig, infer_country_from_coords
 from ber.store.schemas import CANDIDATES_SCHEMA
-from datasets.splits.splitter import EntityDisjointSplitter
+from ber_datasets.splits.splitter import EntityDisjointSplitter
 
 def haversine_distance(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
     if any(math.isnan(x) for x in (lat1, lon1, lat2, lon2)):

@@ -1,4 +1,4 @@
-"""
+﻿"""
 scratch/run_step6_g2_experiment.py — Phase 4b Step 6: G2 Cost Experiment & Pre-Registration Evaluation
 """
 from __future__ import annotations
@@ -22,7 +22,7 @@ sys.path.insert(0, str(_REPO))
 from ber.canon.normalise import canonicalise
 from ber.retrieve.geo_blocking import EARTH_RADIUS_METERS
 from ber.retrieve.idf import IDFRetriever, IDFConfig, infer_country_from_coords
-from datasets.splits.splitter import EntityDisjointSplitter
+from ber_datasets.splits.splitter import EntityDisjointSplitter
 
 def char_3gram_jaccard(s1: str, s2: str) -> float:
     c1 = canonicalise(s1); c2 = canonicalise(s2)

@@ -1,4 +1,4 @@
-"""
+﻿"""
 experiments/run_control_baseline.py — Control Baseline Pipeline
 ================================================================
 Single-command entry point that:
@@ -56,8 +56,8 @@ from ber.eval.metrics import (
 )
 from ber.retrieve.control_blocking import BlockingConfig, ControlBlocker
 from ber.store.schemas import write_candidates
-from datasets.adapters.gleif_ch import GleifChAdapter, assert_no_identifier_leakage
-from datasets.splits.splitter import EntityDisjointSplitter
+from ber_datasets.adapters.gleif_ch import GleifChAdapter, assert_no_identifier_leakage
+from ber_datasets.splits.splitter import EntityDisjointSplitter
 
 # ---------------------------------------------------------------------------
 # Paths and constants

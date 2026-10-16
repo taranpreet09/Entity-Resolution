@@ -1,4 +1,4 @@
-"""
+﻿"""
 datasets.adapters.gleif_ch — GLEIF × Companies House Dataset Adapter
 ======================================================================
 Produces three artefacts from the raw source files:
@@ -26,7 +26,7 @@ Target prefix: CH_
 
 Usage::
 
-    from datasets.adapters.gleif_ch import GleifChAdapter
+    from ber_datasets.adapters.gleif_ch import GleifChAdapter
     adapter = GleifChAdapter()
     stats = adapter.build(output_dir="data/processed/gleif_ch")
     print(stats)
